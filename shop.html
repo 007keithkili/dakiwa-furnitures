@@ -1,0 +1,2984 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Shop – Dakiwa Furnitures</title>
+
+    <!-- Google Fonts: Inter & Playfair Display -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700&family=Playfair+Display:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet" />
+
+    <!-- Font Awesome 6 -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+
+    <style>
+        /* =============================================
+               GLOBAL RESET & BASE
+               ============================================= */
+        *,
+        *::before,
+        *::after {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --color-off-white: #FAFAF9;
+            --color-charcoal: #1E1E1E;
+            --color-warm-accent: #D4A373;
+            --color-warm-accent-light: #e8c9a8;
+            --color-warm-accent-dark: #b8895a;
+            --color-gray-50: #fafaf9;
+            --color-gray-100: #f5f5f4;
+            --color-gray-200: #e7e5e4;
+            --color-gray-300: #d6d3d1;
+            --color-gray-400: #a8a29e;
+            --color-gray-500: #78716c;
+            --color-gray-600: #57534e;
+            --color-gray-700: #44403c;
+            --color-gray-800: #292524;
+            --color-gray-900: #1c1917;
+
+            --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            --font-serif: 'Playfair Display', Georgia, serif;
+
+            --shadow-soft: 0 8px 32px rgba(0, 0, 0, 0.06);
+            --shadow-medium: 0 12px 48px rgba(0, 0, 0, 0.10);
+            --shadow-hover: 0 20px 60px rgba(0, 0, 0, 0.14);
+
+            --radius-sm: 8px;
+            --radius-md: 16px;
+            --radius-lg: 24px;
+            --radius-xl: 32px;
+
+            --transition-smooth: 0.6s cubic-bezier(0.23, 1, 0.32, 1);
+            --transition-buttery: 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+
+            --max-width: 1440px;
+            --nav-height: 72px;
+        }
+
+        /* Dark mode */
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --color-off-white: #141413;
+                --color-charcoal: #f5f5f4;
+                --color-gray-50: #141413;
+                --color-gray-100: #1c1c1a;
+                --color-gray-200: #2a2a28;
+                --color-gray-300: #3d3d3a;
+                --color-gray-400: #78716c;
+                --color-gray-500: #a8a29e;
+                --color-gray-600: #d6d3d1;
+                --color-gray-700: #e7e5e4;
+                --color-gray-800: #f5f5f4;
+                --color-gray-900: #fafaf9;
+                --shadow-soft: 0 8px 32px rgba(0, 0, 0, 0.4);
+                --shadow-medium: 0 12px 48px rgba(0, 0, 0, 0.5);
+                --shadow-hover: 0 20px 60px rgba(0, 0, 0, 0.6);
+            }
+        }
+
+        [data-theme="dark"] {
+            --color-off-white: #141413;
+            --color-charcoal: #f5f5f4;
+            --color-gray-50: #141413;
+            --color-gray-100: #1c1c1a;
+            --color-gray-200: #2a2a28;
+            --color-gray-300: #3d3d3a;
+            --color-gray-400: #78716c;
+            --color-gray-500: #a8a29e;
+            --color-gray-600: #d6d3d1;
+            --color-gray-700: #e7e5e4;
+            --color-gray-800: #f5f5f4;
+            --color-gray-900: #fafaf9;
+            --shadow-soft: 0 8px 32px rgba(0, 0, 0, 0.4);
+            --shadow-medium: 0 12px 48px rgba(0, 0, 0, 0.5);
+            --shadow-hover: 0 20px 60px rgba(0, 0, 0, 0.6);
+        }
+
+        [data-theme="light"] {
+            --color-off-white: #FAFAF9;
+            --color-charcoal: #1E1E1E;
+            --color-gray-50: #fafaf9;
+            --color-gray-100: #f5f5f4;
+            --color-gray-200: #e7e5e4;
+            --color-gray-300: #d6d3d1;
+            --color-gray-400: #a8a29e;
+            --color-gray-500: #78716c;
+            --color-gray-600: #57534e;
+            --color-gray-700: #44403c;
+            --color-gray-800: #292524;
+            --color-gray-900: #1c1917;
+            --shadow-soft: 0 8px 32px rgba(0, 0, 0, 0.06);
+            --shadow-medium: 0 12px 48px rgba(0, 0, 0, 0.10);
+            --shadow-hover: 0 20px 60px rgba(0, 0, 0, 0.14);
+        }
+
+        html {
+            scroll-behavior: smooth;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        body {
+            font-family: var(--font-sans);
+            background: var(--color-off-white);
+            color: var(--color-charcoal);
+            line-height: 1.6;
+            transition: background 0.3s, color 0.3s;
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: var(--max-width);
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        @media (min-width: 768px) {
+            .container {
+                padding: 0 48px;
+            }
+        }
+        @media (min-width: 1024px) {
+            .container {
+                padding: 0 64px;
+            }
+        }
+
+        .sr-only {
+            position: absolute;
+            width: 1px;
+            height: 1px;
+            padding: 0;
+            margin: -1px;
+            overflow: hidden;
+            clip: rect(0, 0, 0, 0);
+            border: 0;
+        }
+
+        /* Scrollbar */
+        ::-webkit-scrollbar {
+            width: 6px;
+            height: 6px;
+        }
+        ::-webkit-scrollbar-track {
+            background: var(--color-gray-100);
+        }
+        ::-webkit-scrollbar-thumb {
+            background: var(--color-warm-accent);
+            border-radius: 12px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: var(--color-warm-accent-dark);
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(32px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+        @keyframes scaleIn {
+            from {
+                opacity: 0;
+                transform: scale(0.96);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+        @keyframes shimmer {
+            0% {
+                background-position: -200% 0;
+            }
+            100% {
+                background-position: 200% 0;
+            }
+        }
+
+        .animate-fade-in-up {
+            animation: fadeInUp 0.8s cubic-bezier(0.23, 1, 0.32, 1) forwards;
+        }
+
+        /* =============================================
+               HEADER
+               ============================================= */
+        .site-header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            height: var(--nav-height);
+            background: rgba(255, 255, 255, 0.72);
+            backdrop-filter: blur(16px) saturate(1.4);
+            -webkit-backdrop-filter: blur(16px) saturate(1.4);
+            border-bottom: 1px solid rgba(0, 0, 0, 0.04);
+            transition: background 0.3s, border-color 0.3s;
+        }
+
+        [data-theme="dark"] .site-header {
+            background: rgba(20, 20, 19, 0.8);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+        }
+
+        .site-header .container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            height: 100%;
+        }
+
+        .logo {
+            font-family: var(--font-serif);
+            font-size: 1.4rem;
+            font-weight: 600;
+            letter-spacing: -0.02em;
+            color: var(--color-charcoal);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .logo i {
+            color: var(--color-warm-accent);
+            font-size: 1.2rem;
+        }
+        .logo span {
+            font-weight: 300;
+            opacity: 0.6;
+        }
+
+        .nav-actions {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .nav-btn {
+            background: none;
+            border: none;
+            color: var(--color-charcoal);
+            font-size: 1.2rem;
+            padding: 8px;
+            cursor: pointer;
+            border-radius: 50%;
+            transition: background 0.3s, transform 0.2s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+        }
+        .nav-btn:hover {
+            background: var(--color-gray-200);
+            transform: scale(1.04);
+        }
+        .nav-btn .badge {
+            position: absolute;
+            top: 2px;
+            right: 2px;
+            background: var(--color-warm-accent);
+            color: #fff;
+            font-size: 0.6rem;
+            font-weight: 600;
+            width: 18px;
+            height: 18px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .hamburger {
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+            padding: 4px;
+        }
+        .hamburger span {
+            display: block;
+            width: 24px;
+            height: 2px;
+            background: var(--color-charcoal);
+            border-radius: 4px;
+            transition: all 0.3s;
+            transform-origin: center;
+        }
+        .hamburger.active span:nth-child(1) {
+            transform: rotate(45deg) translate(5px, 5px);
+        }
+        .hamburger.active span:nth-child(2) {
+            opacity: 0;
+        }
+        .hamburger.active span:nth-child(3) {
+            transform: rotate(-45deg) translate(5px, -5px);
+        }
+
+        .theme-toggle {
+            background: none;
+            border: none;
+            color: var(--color-charcoal);
+            font-size: 1.1rem;
+            cursor: pointer;
+            padding: 8px;
+            border-radius: 50%;
+            transition: background 0.3s, transform 0.2s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .theme-toggle:hover {
+            background: var(--color-gray-200);
+            transform: scale(1.04);
+        }
+
+        /* =============================================
+               SHOP HERO
+               ============================================= */
+        .shop-hero {
+            padding-top: calc(var(--nav-height) + 40px);
+            padding-bottom: 32px;
+            position: relative;
+            background: var(--color-gray-50);
+            border-bottom: 1px solid var(--color-gray-200);
+        }
+
+        .shop-hero .container {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .shop-hero .breadcrumb {
+            font-size: 0.8rem;
+            color: var(--color-gray-400);
+            letter-spacing: 0.04em;
+            font-weight: 400;
+        }
+        .shop-hero .breadcrumb a {
+            color: var(--color-gray-500);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        .shop-hero .breadcrumb a:hover {
+            color: var(--color-warm-accent);
+        }
+        .shop-hero .breadcrumb span {
+            margin: 0 6px;
+        }
+
+        .shop-hero h1 {
+            font-family: var(--font-serif);
+            font-size: clamp(2.4rem, 5vw, 3.6rem);
+            font-weight: 400;
+            letter-spacing: -0.02em;
+            color: var(--color-charcoal);
+            line-height: 1.1;
+        }
+
+        .shop-hero p {
+            font-size: 1.05rem;
+            color: var(--color-gray-500);
+            font-weight: 300;
+            max-width: 480px;
+            line-height: 1.7;
+        }
+
+        .shop-hero .hero-stats {
+            display: flex;
+            gap: 32px;
+            margin-top: 12px;
+            flex-wrap: wrap;
+        }
+
+        .shop-hero .hero-stats .stat {
+            display: flex;
+            align-items: baseline;
+            gap: 6px;
+            font-size: 0.9rem;
+            color: var(--color-gray-500);
+        }
+        .shop-hero .hero-stats .stat strong {
+            font-weight: 600;
+            color: var(--color-charcoal);
+            font-size: 1.1rem;
+        }
+
+        /* =============================================
+               FILTER BAR
+               ============================================= */
+        .filter-bar {
+            position: sticky;
+            top: var(--nav-height);
+            z-index: 100;
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(12px) saturate(1.2);
+            -webkit-backdrop-filter: blur(12px) saturate(1.2);
+            border-bottom: 1px solid var(--color-gray-200);
+            padding: 16px 0;
+            transition: background 0.3s;
+        }
+
+        [data-theme="dark"] .filter-bar {
+            background: rgba(20, 20, 19, 0.8);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+        }
+
+        .filter-bar .container {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            gap: 12px 20px;
+        }
+
+        .filter-bar .filter-scroll {
+            display: flex;
+            gap: 8px;
+            overflow-x: auto;
+            flex: 1 1 auto;
+            padding: 4px 0;
+            scrollbar-width: none;
+            -webkit-overflow-scrolling: touch;
+        }
+        .filter-bar .filter-scroll::-webkit-scrollbar {
+            display: none;
+        }
+
+        .filter-pill {
+            flex: 0 0 auto;
+            padding: 6px 20px;
+            border-radius: 40px;
+            border: 1px solid var(--color-gray-200);
+            background: transparent;
+            font-family: var(--font-sans);
+            font-size: 0.8rem;
+            font-weight: 500;
+            color: var(--color-gray-600);
+            cursor: pointer;
+            transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+            white-space: nowrap;
+        }
+        .filter-pill:hover {
+            border-color: var(--color-charcoal);
+            color: var(--color-charcoal);
+            transform: translateY(-1px);
+        }
+        .filter-pill.active {
+            background: var(--color-charcoal);
+            color: var(--color-off-white);
+            border-color: var(--color-charcoal);
+            box-shadow: var(--shadow-soft);
+        }
+
+        .filter-bar .search-wrap {
+            position: relative;
+            flex: 0 0 200px;
+        }
+        .filter-bar .search-wrap input {
+            width: 100%;
+            padding: 6px 16px 6px 32px;
+            border: 1px solid var(--color-gray-200);
+            border-radius: 40px;
+            font-family: var(--font-sans);
+            font-size: 0.8rem;
+            background: var(--color-gray-100);
+            color: var(--color-charcoal);
+            outline: none;
+            transition: border-color 0.3s, box-shadow 0.3s;
+        }
+        .filter-bar .search-wrap input:focus {
+            border-color: var(--color-warm-accent);
+            box-shadow: 0 0 0 3px rgba(212, 163, 115, 0.2);
+        }
+        .filter-bar .search-wrap i {
+            position: absolute;
+            left: 12px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: var(--color-gray-400);
+            font-size: 0.8rem;
+        }
+
+        .filter-bar .sort-wrapper {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 0.8rem;
+            color: var(--color-gray-500);
+            flex-shrink: 0;
+        }
+
+        .filter-bar .sort-wrapper select {
+            background: var(--color-gray-100);
+            border: 1px solid var(--color-gray-200);
+            border-radius: 40px;
+            padding: 6px 16px 6px 16px;
+            font-family: var(--font-sans);
+            font-size: 0.8rem;
+            color: var(--color-charcoal);
+            cursor: pointer;
+            outline: none;
+            transition: border-color 0.3s;
+            appearance: none;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6'%3E%3Cpath d='M0 0l5 6 5-6z' fill='%2378716c'/%3E%3C/svg%3E");
+            background-repeat: no-repeat;
+            background-position: right 12px center;
+            padding-right: 32px;
+        }
+
+        .filter-bar .sort-wrapper select:focus {
+            border-color: var(--color-warm-accent);
+        }
+
+        .filter-bar .view-toggle {
+            display: flex;
+            gap: 4px;
+            flex-shrink: 0;
+        }
+        .filter-bar .view-toggle button {
+            background: none;
+            border: 1px solid var(--color-gray-200);
+            border-radius: 40px;
+            padding: 6px 12px;
+            font-size: 0.8rem;
+            color: var(--color-gray-500);
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        .filter-bar .view-toggle button:hover {
+            border-color: var(--color-charcoal);
+            color: var(--color-charcoal);
+        }
+        .filter-bar .view-toggle button.active {
+            background: var(--color-charcoal);
+            color: var(--color-off-white);
+            border-color: var(--color-charcoal);
+        }
+
+        /* =============================================
+               PRODUCT GRID
+               ============================================= */
+        .product-grid-section {
+            padding: 32px 0 64px;
+        }
+
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+        }
+
+        @media (min-width: 640px) {
+            .product-grid {
+                gap: 24px;
+            }
+        }
+
+        @media (min-width: 768px) {
+            .product-grid {
+                grid-template-columns: repeat(3, 1fr);
+                gap: 28px;
+            }
+        }
+
+        @media (min-width: 1024px) {
+            .product-grid {
+                grid-template-columns: repeat(4, 1fr);
+                gap: 32px;
+            }
+        }
+
+        .product-card {
+            position: relative;
+            border-radius: var(--radius-md);
+            overflow: hidden;
+            background: var(--color-gray-100);
+            transition: transform 0.5s cubic-bezier(0.23, 1, 0.32, 1),
+                box-shadow 0.5s cubic-bezier(0.23, 1, 0.32, 1);
+            cursor: pointer;
+            aspect-ratio: 3 / 4;
+            display: flex;
+            flex-direction: column;
+            opacity: 0;
+            transform: translateY(24px);
+        }
+
+        .product-card.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .product-card:hover {
+            transform: translateY(-8px) scale(1.01);
+            box-shadow: var(--shadow-hover);
+        }
+
+        .product-card .image-wrap {
+            position: relative;
+            flex: 1;
+            overflow: hidden;
+            background: var(--color-gray-100);
+        }
+
+        .product-card .image-wrap img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.8s cubic-bezier(0.23, 1, 0.32, 1);
+            display: block;
+        }
+
+        .product-card:hover .image-wrap img {
+            transform: scale(1.05);
+        }
+
+        .product-card .card-badge {
+            position: absolute;
+            top: 12px;
+            left: 12px;
+            background: rgba(255, 255, 255, 0.92);
+            backdrop-filter: blur(4px);
+            padding: 4px 12px;
+            border-radius: 40px;
+            font-size: 0.65rem;
+            font-weight: 600;
+            letter-spacing: 0.04em;
+            text-transform: uppercase;
+            color: var(--color-charcoal);
+            box-shadow: var(--shadow-soft);
+        }
+
+        [data-theme="dark"] .product-card .card-badge {
+            background: rgba(30, 30, 28, 0.9);
+            color: #f5f5f4;
+        }
+
+        .product-card .card-badge.new {
+            background: var(--color-warm-accent);
+            color: #fff;
+        }
+        .product-card .card-badge.sale {
+            background: #e74c3c;
+            color: #fff;
+        }
+
+        .product-card .quick-add {
+            position: absolute;
+            bottom: 12px;
+            right: 12px;
+            background: rgba(255, 255, 255, 0.92);
+            backdrop-filter: blur(8px);
+            border: none;
+            padding: 8px 14px;
+            border-radius: 40px;
+            font-size: 0.7rem;
+            font-weight: 500;
+            color: var(--color-charcoal);
+            cursor: pointer;
+            opacity: 0;
+            transform: translateY(8px) scale(0.95);
+            transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+            box-shadow: var(--shadow-soft);
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .product-card:hover .quick-add {
+            opacity: 1;
+            transform: translateY(0) scale(1);
+        }
+
+        .product-card .quick-add:hover {
+            background: var(--color-warm-accent);
+            color: #fff;
+        }
+
+        .product-card .card-info {
+            padding: 14px 16px 18px;
+            background: var(--color-off-white);
+            transition: background 0.3s;
+            flex-shrink: 0;
+        }
+
+        [data-theme="dark"] .product-card .card-info {
+            background: var(--color-gray-100);
+        }
+
+        .product-card .card-info .category-tag {
+            font-size: 0.65rem;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 0.06em;
+            color: var(--color-gray-400);
+            margin-bottom: 2px;
+        }
+
+        .product-card .card-info .product-name {
+            font-family: var(--font-serif);
+            font-size: 1rem;
+            font-weight: 400;
+            color: var(--color-charcoal);
+            line-height: 1.3;
+            margin-bottom: 2px;
+        }
+
+        .product-card .card-info .product-price {
+            font-weight: 500;
+            color: var(--color-warm-accent);
+            font-size: 0.95rem;
+        }
+
+        .product-card .card-info .product-price .old-price {
+            font-size: 0.7rem;
+            color: var(--color-gray-400);
+            text-decoration: line-through;
+            margin-left: 8px;
+            font-weight: 400;
+        }
+
+        .product-card .card-info .product-meta {
+            display: flex;
+            gap: 12px;
+            margin-top: 6px;
+            font-size: 0.7rem;
+            color: var(--color-gray-400);
+        }
+
+        .product-card .card-info .product-meta span {
+            display: flex;
+            align-items: center;
+            gap: 4px;
+        }
+
+        /* =============================================
+               LOAD MORE
+               ============================================= */
+        .load-more-wrap {
+            display: flex;
+            justify-content: center;
+            padding: 48px 0 24px;
+        }
+
+        .load-more-btn {
+            padding: 14px 48px;
+            border: 1px solid var(--color-gray-200);
+            border-radius: 60px;
+            background: transparent;
+            font-family: var(--font-sans);
+            font-size: 0.9rem;
+            font-weight: 500;
+            color: var(--color-charcoal);
+            cursor: pointer;
+            transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .load-more-btn:hover:not(:disabled) {
+            background: var(--color-charcoal);
+            color: var(--color-off-white);
+            border-color: var(--color-charcoal);
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-medium);
+        }
+
+        .load-more-btn:disabled {
+            opacity: 0.4;
+            cursor: not-allowed;
+            transform: none !important;
+        }
+
+        /* =============================================
+               QUICK VIEW MODAL
+               ============================================= */
+        .quickview-overlay {
+            position: fixed;
+            inset: 0;
+            z-index: 2000;
+            background: rgba(0, 0, 0, 0.5);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.5s, visibility 0.5s;
+            padding: 24px;
+        }
+
+        .quickview-overlay.open {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .quickview-modal {
+            background: var(--color-off-white);
+            border-radius: var(--radius-lg);
+            max-width: 720px;
+            width: 100%;
+            max-height: 90vh;
+            overflow-y: auto;
+            padding: 40px;
+            box-shadow: var(--shadow-hover);
+            transform: scale(0.95) translateY(20px);
+            transition: transform 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+            position: relative;
+        }
+
+        .quickview-overlay.open .quickview-modal {
+            transform: scale(1) translateY(0);
+        }
+
+        .quickview-modal .close-qv {
+            position: absolute;
+            top: 16px;
+            right: 20px;
+            background: none;
+            border: none;
+            font-size: 1.4rem;
+            color: var(--color-gray-400);
+            cursor: pointer;
+            transition: color 0.3s, transform 0.3s;
+            padding: 4px;
+        }
+        .quickview-modal .close-qv:hover {
+            color: var(--color-charcoal);
+            transform: rotate(90deg);
+        }
+
+        .quickview-modal .qv-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 32px;
+        }
+
+        @media (max-width: 600px) {
+            .quickview-modal .qv-grid {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+            .quickview-modal {
+                padding: 24px;
+            }
+        }
+
+        .quickview-modal .qv-image {
+            border-radius: var(--radius-sm);
+            overflow: hidden;
+            background: var(--color-gray-100);
+        }
+        .quickview-modal .qv-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            aspect-ratio: 1;
+            display: block;
+        }
+
+        .quickview-modal .qv-info {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .quickview-modal .qv-info .qv-category {
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            letter-spacing: 0.06em;
+            color: var(--color-gray-400);
+        }
+
+        .quickview-modal .qv-info .qv-name {
+            font-family: var(--font-serif);
+            font-size: 1.4rem;
+            font-weight: 400;
+            color: var(--color-charcoal);
+            line-height: 1.2;
+        }
+
+        .quickview-modal .qv-info .qv-price {
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: var(--color-warm-accent);
+        }
+
+        .quickview-modal .qv-info .qv-price .old-price {
+            font-size: 0.9rem;
+            color: var(--color-gray-400);
+            text-decoration: line-through;
+            margin-left: 10px;
+            font-weight: 400;
+        }
+
+        .quickview-modal .qv-info .qv-desc {
+            font-size: 0.9rem;
+            color: var(--color-gray-500);
+            font-weight: 300;
+            line-height: 1.6;
+        }
+
+        .quickview-modal .qv-info .qv-meta {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px 20px;
+            font-size: 0.8rem;
+            color: var(--color-gray-500);
+            padding: 12px 0;
+            border-top: 1px solid var(--color-gray-200);
+            border-bottom: 1px solid var(--color-gray-200);
+        }
+
+        .quickview-modal .qv-info .qv-meta span {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+        .quickview-modal .qv-info .qv-meta i {
+            color: var(--color-warm-accent);
+            width: 16px;
+        }
+
+        .quickview-modal .qv-info .qv-actions {
+            display: flex;
+            gap: 12px;
+            margin-top: 4px;
+        }
+
+        .quickview-modal .qv-info .qv-actions .qv-qty {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            background: var(--color-gray-100);
+            border-radius: 60px;
+            padding: 2px 6px;
+            border: 1px solid var(--color-gray-200);
+        }
+
+        .quickview-modal .qv-info .qv-actions .qv-qty button {
+            background: none;
+            border: none;
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: background 0.3s;
+            color: var(--color-charcoal);
+        }
+        .quickview-modal .qv-info .qv-actions .qv-qty button:hover {
+            background: var(--color-gray-200);
+        }
+        .quickview-modal .qv-info .qv-actions .qv-qty span {
+            font-weight: 500;
+            min-width: 24px;
+            text-align: center;
+        }
+
+        .quickview-modal .qv-info .qv-actions .qv-add-btn {
+            flex: 1;
+            padding: 10px 24px;
+            background: var(--color-charcoal);
+            color: var(--color-off-white);
+            border: none;
+            border-radius: 60px;
+            font-family: var(--font-sans);
+            font-size: 0.9rem;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+        }
+        .quickview-modal .qv-info .qv-actions .qv-add-btn:hover {
+            background: var(--color-warm-accent-dark);
+            transform: scale(1.02);
+        }
+
+        /* =============================================
+               CART SLIDE-OUT
+               ============================================= */
+        .cart-overlay {
+            position: fixed;
+            inset: 0;
+            z-index: 900;
+            background: rgba(0, 0, 0, 0.3);
+            backdrop-filter: blur(4px);
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.4s, visibility 0.4s;
+        }
+
+        .cart-overlay.open {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .cart-panel {
+            position: fixed;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            width: 420px;
+            max-width: 92vw;
+            z-index: 950;
+            background: var(--color-off-white);
+            box-shadow: var(--shadow-hover);
+            padding: 32px 28px;
+            transform: translateX(100%);
+            transition: transform 0.5s cubic-bezier(0.23, 1, 0.32, 1);
+            display: flex;
+            flex-direction: column;
+            border-left: 1px solid var(--color-gray-200);
+        }
+
+        .cart-panel.open {
+            transform: translateX(0);
+        }
+
+        .cart-panel .cart-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 24px;
+            padding-bottom: 16px;
+            border-bottom: 1px solid var(--color-gray-200);
+        }
+
+        .cart-panel .cart-header h2 {
+            font-family: var(--font-serif);
+            font-size: 1.4rem;
+            font-weight: 400;
+        }
+
+        .cart-panel .cart-header button {
+            background: none;
+            border: none;
+            font-size: 1.2rem;
+            color: var(--color-charcoal);
+            cursor: pointer;
+            padding: 4px;
+            transition: transform 0.3s;
+        }
+
+        .cart-panel .cart-header button:hover {
+            transform: rotate(90deg);
+        }
+
+        .cart-items {
+            flex: 1;
+            overflow-y: auto;
+            padding-right: 4px;
+        }
+
+        .cart-item {
+            display: flex;
+            gap: 16px;
+            padding: 12px 0;
+            border-bottom: 1px solid var(--color-gray-200);
+            align-items: center;
+        }
+
+        .cart-item img {
+            width: 60px;
+            height: 60px;
+            object-fit: cover;
+            border-radius: var(--radius-sm);
+            background: var(--color-gray-100);
+        }
+
+        .cart-item .item-details {
+            flex: 1;
+        }
+
+        .cart-item .item-details .name {
+            font-weight: 500;
+            font-size: 0.9rem;
+        }
+
+        .cart-item .item-details .price {
+            font-size: 0.85rem;
+            color: var(--color-warm-accent);
+            font-weight: 500;
+        }
+
+        .cart-item .qty-control {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .cart-item .qty-control button {
+            background: var(--color-gray-100);
+            border: none;
+            width: 28px;
+            height: 28px;
+            border-radius: 50%;
+            font-size: 0.9rem;
+            cursor: pointer;
+            transition: background 0.3s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .cart-item .qty-control button:hover {
+            background: var(--color-gray-300);
+        }
+
+        .cart-item .qty-control span {
+            font-weight: 500;
+            min-width: 20px;
+            text-align: center;
+        }
+
+        .cart-item .remove-item {
+            background: none;
+            border: none;
+            color: var(--color-gray-400);
+            cursor: pointer;
+            font-size: 0.9rem;
+            transition: color 0.3s;
+            padding: 4px;
+        }
+
+        .cart-item .remove-item:hover {
+            color: #e74c3c;
+        }
+
+        .cart-footer {
+            padding-top: 20px;
+            border-top: 1px solid var(--color-gray-200);
+            margin-top: 12px;
+        }
+
+        .cart-footer .total {
+            display: flex;
+            justify-content: space-between;
+            font-weight: 600;
+            font-size: 1.1rem;
+            margin-bottom: 16px;
+        }
+
+        .cart-footer .checkout-btn {
+            width: 100%;
+            padding: 16px;
+            background: var(--color-charcoal);
+            color: var(--color-off-white);
+            border: none;
+            border-radius: 60px;
+            font-family: var(--font-sans);
+            font-size: 1rem;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+        }
+
+        .cart-footer .checkout-btn:hover {
+            background: var(--color-warm-accent-dark);
+            transform: scale(1.02);
+            box-shadow: var(--shadow-medium);
+        }
+
+        .cart-empty {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            flex: 1;
+            color: var(--color-gray-500);
+            text-align: center;
+        }
+
+        .cart-empty i {
+            font-size: 3rem;
+            margin-bottom: 16px;
+            opacity: 0.4;
+        }
+
+        .cart-empty p {
+            font-weight: 300;
+        }
+
+        /* =============================================
+               FOOTER
+               ============================================= */
+        .site-footer {
+            padding: 48px 0 32px;
+            border-top: 1px solid var(--color-gray-200);
+            margin-top: 32px;
+            background: var(--color-gray-100);
+        }
+        .site-footer .footer-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 32px;
+        }
+        @media (min-width: 640px) {
+            .site-footer .footer-grid {
+                grid-template-columns: 2fr 1fr 1fr;
+            }
+        }
+        .site-footer .footer-brand .logo {
+            font-size: 1.2rem;
+            margin-bottom: 8px;
+        }
+        .site-footer .footer-brand p {
+            color: var(--color-gray-500);
+            font-size: 0.9rem;
+            font-weight: 300;
+            max-width: 280px;
+        }
+        .site-footer .footer-col h4 {
+            font-size: 0.8rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.04em;
+            color: var(--color-gray-500);
+            margin-bottom: 12px;
+        }
+        .site-footer .footer-col a {
+            display: block;
+            color: var(--color-gray-600);
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-weight: 300;
+            padding: 4px 0;
+            transition: color 0.3s;
+        }
+        .site-footer .footer-col a:hover {
+            color: var(--color-warm-accent);
+        }
+        .site-footer .footer-bottom {
+            margin-top: 32px;
+            padding-top: 16px;
+            border-top: 1px solid var(--color-gray-200);
+            text-align: center;
+            font-size: 0.8rem;
+            color: var(--color-gray-400);
+        }
+
+        /* =============================================
+               RESPONSIVE
+               ============================================= */
+        @media (max-width: 480px) {
+            .product-grid {
+                gap: 12px;
+            }
+            .product-card .card-info {
+                padding: 10px 12px 14px;
+            }
+            .product-card .card-info .product-name {
+                font-size: 0.85rem;
+            }
+            .product-card .quick-add {
+                padding: 6px 12px;
+                font-size: 0.65rem;
+            }
+            .filter-bar .container {
+                gap: 8px 12px;
+            }
+            .filter-bar .search-wrap {
+                flex: 1 1 100%;
+                order: 10;
+            }
+            .filter-bar .sort-wrapper select {
+                padding: 4px 28px 4px 12px;
+                font-size: 0.7rem;
+            }
+            .filter-bar .view-toggle button {
+                padding: 4px 10px;
+                font-size: 0.7rem;
+            }
+            .quickview-modal {
+                padding: 20px;
+            }
+            .quickview-modal .qv-grid {
+                gap: 16px;
+            }
+            .cart-panel {
+                padding: 24px 20px;
+                width: 100%;
+                max-width: 100%;
+            }
+        }
+
+        @media (min-width: 481px) and (max-width: 768px) {
+            .product-grid {
+                gap: 16px;
+            }
+        }
+
+        /* =============================================
+               UTILITIES
+               ============================================= */
+        .hidden {
+            display: none !important;
+        }
+        .text-center {
+            text-align: center;
+        }
+
+        /* =============================================
+               MENU OVERLAY
+               ============================================= */
+        .menu-overlay {
+            position: fixed;
+            inset: 0;
+            z-index: 999;
+            background: rgba(255, 255, 255, 0.92);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.5s, visibility 0.5s;
+        }
+
+        [data-theme="dark"] .menu-overlay {
+            background: rgba(20, 20, 19, 0.95);
+        }
+
+        .menu-overlay.open {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .menu-overlay nav {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 32px;
+        }
+
+        .menu-overlay a {
+            font-family: var(--font-serif);
+            font-size: 2.8rem;
+            font-weight: 400;
+            color: var(--color-charcoal);
+            text-decoration: none;
+            letter-spacing: -0.02em;
+            transition: color 0.3s, transform 0.3s;
+            position: relative;
+            padding: 4px 0;
+        }
+
+        .menu-overlay a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--color-warm-accent);
+            transition: width 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+        }
+
+        .menu-overlay a:hover {
+            color: var(--color-warm-accent);
+            transform: translateY(-2px);
+        }
+
+        .menu-overlay a:hover::after {
+            width: 100%;
+        }
+
+        .menu-overlay .close-menu {
+            position: absolute;
+            top: 28px;
+            right: 32px;
+            background: none;
+            border: none;
+            color: var(--color-charcoal);
+            font-size: 2rem;
+            cursor: pointer;
+            opacity: 0.7;
+            transition: opacity 0.3s, transform 0.3s;
+        }
+
+        .menu-overlay .close-menu:hover {
+            opacity: 1;
+            transform: rotate(90deg);
+        }
+
+        @media (max-width: 640px) {
+            .menu-overlay a {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- =============================================
+    SITE HEADER
+    ============================================= -->
+    <header class="site-header" role="banner">
+        <div class="container">
+            <a href="#" class="logo">
+                <i class="fas fa-chair"></i>
+                Dakiwa<span>.</span>
+            </a>
+            <div class="nav-actions">
+                <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode">
+                    <i class="fas fa-moon" id="themeIcon"></i>
+                </button>
+                <button class="nav-btn" id="cartToggle" aria-label="Open cart">
+                    <i class="fas fa-shopping-bag"></i>
+                    <span class="badge" id="cartBadge">0</span>
+                </button>
+                <button class="nav-btn hamburger" id="menuToggle" aria-label="Toggle menu">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- =============================================
+    MENU OVERLAY
+    ============================================= -->
+    <div class="menu-overlay" id="menuOverlay">
+        <button class="close-menu" id="closeMenu" aria-label="Close menu">
+            <i class="fas fa-times"></i>
+        </button>
+        <nav>
+            <a href="index.html">Shop</a>
+            <a href="shop.html">shop</a>
+            <a href="#">Journal</a>
+            <a href="#">Contact</a>
+        </nav>
+    </div>
+
+    <!-- =============================================
+    CART OVERLAY & PANEL
+    ============================================= -->
+    <div class="cart-overlay" id="cartOverlay"></div>
+    <div class="cart-panel" id="cartPanel">
+        <div class="cart-header">
+            <h2>Your Cart</h2>
+            <button id="closeCart" aria-label="Close cart">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+        <div class="cart-items" id="cartItems">
+            <div class="cart-empty">
+                <i class="fas fa-shopping-bag"></i>
+                <p>Your cart is empty.<br />Start adding some beautiful pieces.</p>
+            </div>
+        </div>
+        <div class="cart-footer" id="cartFooter">
+            <div class="total">
+                <span>Total</span>
+                <span id="cartTotal">$0.00</span>
+            </div>
+            <button class="checkout-btn" id="checkoutBtn">
+                <i class="fas fa-lock" style="margin-right:8px;"></i> Proceed to Checkout
+            </button>
+        </div>
+    </div>
+
+    <!-- =============================================
+    SHOP HERO
+    ============================================= -->
+    <section class="shop-hero">
+        <div class="container">
+            <div class="breadcrumb">
+                <a href="#">Home</a>
+                <span>/</span>
+                <span>Shop</span>
+            </div>
+            <h1 class="animate-fade-in-up">The Collection</h1>
+            <p class="animate-fade-in-up">Curated with intention — each piece crafted to bring stillness and beauty into your space.</p>
+            <div class="hero-stats animate-fade-in-up">
+                <span class="stat"><strong id="productCount">0</strong> pieces</span>
+                <span class="stat"><i class="fas fa-leaf" style="color:var(--color-warm-accent);"></i> FSC certified</span>
+                <span class="stat"><i class="fas fa-truck" style="color:var(--color-warm-accent);"></i> Carbon-neutral shipping</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- =============================================
+    FILTER BAR
+    ============================================= -->
+    <div class="filter-bar" id="filterBar">
+        <div class="container">
+            <div class="filter-scroll" id="filterScroll">
+                <button class="filter-pill active" data-filter="all">All</button>
+                <button class="filter-pill" data-filter="Living Room">Living Room</button>
+                <button class="filter-pill" data-filter="Bedroom">Bedroom</button>
+                <button class="filter-pill" data-filter="Dining">Dining</button>
+                <button class="filter-pill" data-filter="Office">Office</button>
+                <button class="filter-pill" data-filter="Accessories">Accessories</button>
+                <button class="filter-pill" data-filter="Outdoor">Outdoor</button>
+            </div>
+
+            <div class="search-wrap">
+                <i class="fas fa-search"></i>
+                <input type="text" id="searchInput" placeholder="Search products..." />
+            </div>
+
+            <div class="sort-wrapper">
+                <i class="fas fa-arrow-up-wide-short" style="color:var(--color-gray-400);"></i>
+                <select id="sortSelect">
+                    <option value="featured">Featured</option>
+                    <option value="price-asc">Price: Low → High</option>
+                    <option value="price-desc">Price: High → Low</option>
+                    <option value="name">Name</option>
+                    <option value="newest">Newest</option>
+                </select>
+            </div>
+
+            <div class="view-toggle">
+                <button class="active" data-view="grid" title="Grid view"><i class="fas fa-th"></i></button>
+                <button data-view="list" title="List view"><i class="fas fa-list"></i></button>
+            </div>
+        </div>
+    </div>
+
+    <!-- =============================================
+    PRODUCT GRID
+    ============================================= -->
+    <section class="product-grid-section">
+        <div class="container">
+            <div class="product-grid" id="productGrid"></div>
+            <div class="load-more-wrap">
+                <button class="load-more-btn" id="loadMoreBtn">
+                    <i class="fas fa-plus-circle"></i> Load More
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- =============================================
+    QUICK VIEW MODAL
+    ============================================= -->
+    <div class="quickview-overlay" id="quickviewOverlay">
+        <div class="quickview-modal" id="quickviewModal">
+            <button class="close-qv" id="closeQv"><i class="fas fa-times"></i></button>
+            <div class="qv-grid">
+                <div class="qv-image">
+                    <img id="qvImage" src="" alt="" />
+                </div>
+                <div class="qv-info">
+                    <div class="qv-category" id="qvCategory">Category</div>
+                    <div class="qv-name" id="qvName">Product Name</div>
+                    <div class="qv-price" id="qvPrice">
+                        $0
+                        <span class="old-price" id="qvOldPrice"></span>
+                    </div>
+                    <div class="qv-desc" id="qvDesc">Description</div>
+                    <div class="qv-meta" id="qvMeta">
+                        <span><i class="fas fa-ruler-combined"></i> <span id="qvDimensions">—</span></span>
+                        <span><i class="fas fa-tree"></i> <span id="qvMaterial">—</span></span>
+                        <span><i class="fas fa-palette"></i> <span id="qvColour">—</span></span>
+                    </div>
+                    <div class="qv-actions">
+                        <div class="qv-qty">
+                            <button id="qvQtyDec">−</button>
+                            <span id="qvQtyDisplay">1</span>
+                            <button id="qvQtyInc">+</button>
+                        </div>
+                        <button class="qv-add-btn" id="qvAddBtn">
+                            <i class="fas fa-plus" style="margin-right:8px;"></i> Add to Cart
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- =============================================
+    FOOTER
+    ============================================= -->
+    <footer class="site-footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <a href="#" class="logo">
+                        <i class="fas fa-chair"></i>
+                        Dakiwa<span>.</span>
+                    </a>
+                    <p>Furniture that breathes. Timeless design for modern living.</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Explore</h4>
+                    <a href="#">Shop</a>
+                    <a href="#">Our Story</a>
+                    <a href="#">Journal</a>
+                    <a href="#">Contact</a>
+                </div>
+                <div class="footer-col">
+                    <h4>Support</h4>
+                    <a href="#">FAQ</a>
+                    <a href="#">Shipping</a>
+                    <a href="#">Returns</a>
+                    <a href="#">Care Guide</a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                &copy; 2026 Dakiwa Furnitures. Crafted with intention.
+            </div>
+        </div>
+    </footer>
+
+    <!-- =============================================
+    JAVASCRIPT – with 60 products and images
+    ============================================= -->
+    <script>
+        (function() {
+            'use strict';
+
+            // =============================================
+            // PRODUCT DATA – 60 products (10 per category)
+            // with realistic images from Unsplash
+            // =============================================
+            const productData = [
+                // ========== LIVING ROOM (10) ==========
+                {
+                    id: 1,
+                    name: "Elegant L-Shaped Sofa",
+                    category: "Living Room",
+                    price: 85000,
+                    oldPrice: 95000,
+                    image: "https://i.pinimg.com/736x/ae/7d/c1/ae7dc1452fec7d7994ea176ad38658ca.jpg",
+                    description: "Spacious L-shaped sofa with plush cushions and durable fabric, perfect for family gatherings.",
+                    dimensions: "280 × 180 × 85 cm",
+                    material: "Fabric & Wood",
+                    colour: "Charcoal",
+                    featured: true,
+                    badge: "Bestseller"
+                },
+                {
+                    id: 2,
+                    name: "Modern Coffee Table",
+                    category: "Living Room",
+                    price: 22000,
+                    oldPrice: 26000,
+                    image: "https://i.pinimg.com/736x/03/cb/86/03cb863deebd9033440b72f0f1dd02e3.jpg",
+                    description: "Minimalist coffee table with a tempered glass top and sleek wooden legs.",
+                    dimensions: "120 × 60 × 40 cm",
+                    material: "Glass & Wood",
+                    colour: "Natural",
+                    featured: false,
+                    badge: "Sale"
+                },
+                {
+                    id: 3,
+                    name: "Velvet Accent Armchair",
+                    category: "Living Room",
+                    price: 32000,
+                    oldPrice: 38000,
+                    image: "https://i.pinimg.com/736x/66/d6/8e/66d68ef48ab8dcd8cc77daab006d557e.jpg",
+                    description: "Luxurious velvet armchair with a gold-finished frame, adding a touch of elegance.",
+                    dimensions: "75 × 70 × 90 cm",
+                    material: "Velvet & Metal",
+                    colour: "Emerald",
+                    featured: true,
+                    badge: "New"
+                },
+                {
+                    id: 4,
+                    name: "Rustic TV Stand",
+                    category: "Living Room",
+                    price: 28000,
+                    oldPrice: null,
+                    image: "https://i.pinimg.com/1200x/04/74/0a/04740afdda9db416b78fa98282926eb8.jpg",
+                    description: "Handcrafted wooden TV stand with ample storage and a distressed finish.",
+                    dimensions: "180 × 45 × 55 cm",
+                    material: "Solid Wood",
+                    colour: "Rustic Brown",
+                    featured: false,
+                    badge: ""
+                },
+                {
+                    id: 5,
+                    name: "Leather Recliner Set",
+                    category: "Living Room",
+                    price: 120000,
+                    oldPrice: 140000,
+                    image: "https://i.pinimg.com/736x/6d/13/69/6d1369b94551de63d8cf77e5d1d16bcb.jpg",
+                    description: "Set of two premium leather recliners with adjustable headrests and footrests.",
+                    dimensions: "85 × 90 × 100 cm each",
+                    material: "Genuine Leather",
+                    colour: "Espresso",
+                    featured: true,
+                    badge: "Bestseller"
+                },
+                {
+                    id: 6,
+                    name: "Geometric Area Rug",
+                    category: "Living Room",
+                    price: 15000,
+                    oldPrice: 18000,
+                    image: "https://i.pinimg.com/1200x/bf/8f/e8/bf8fe8a371184d84beb0860b615a362e.jpg",
+                    description: "Handwoven wool rug with a bold geometric pattern, soft underfoot.",
+                    dimensions: "200 × 300 cm",
+                    material: "Wool",
+                    colour: "Ivory & Charcoal",
+                    featured: false,
+                    badge: ""
+                },
+                {
+                    id: 7,
+                    name: "Floor Lamp with Marble Base",
+                    category: "Living Room",
+                    price: 12000,
+                    oldPrice: null,
+                    image: "https://i.pinimg.com/736x/c6/f3/1b/c6f31bb7235170871479d7a100dc7072.jpg",
+                    description: "Tall floor lamp with a elegant marble base and a linen shade, providing warm ambient light.",
+                    dimensions: "160 × 30 × 30 cm",
+                    material: "Marble & Linen",
+                    colour: "Natural",
+                    featured: false,
+                    badge: ""
+                },
+                {
+                    id: 8,
+                    name: "Entertainment Unit",
+                    category: "Living Room",
+                    price: 45000,
+                    oldPrice: 52000,
+                    image: "https://i.pinimg.com/736x/d8/a3/69/d8a369dffc357d65d88460078d07c539.jpg",
+                    description: "Modern entertainment unit with sliding doors and cable management system.",
+                    dimensions: "200 × 50 × 60 cm",
+                    material: "Engineered Wood",
+                    colour: "Walnut",
+                    featured: false,
+                    badge: "Sale"
+                },
+                {
+                    id: 9,
+                    name: "Sofa Cum Bed",
+                    category: "Living Room",
+                    price: 65000,
+                    oldPrice: 72000,
+                    image: "https://i.pinimg.com/736x/4e/9e/92/4e9e92dda31a042600a890c15e0dfb88.jpg",
+                    description: "Convertible sofa that easily transforms into a comfortable double bed – ideal for guests.",
+                    dimensions: "200 × 90 × 85 cm (sofa), 200 × 150 cm (bed)",
+                    material: "Fabric & Foam",
+                    colour: "Grey",
+                    featured: false,
+                    badge: ""
+                },
+                {
+                    id: 10,
+                    name: "Wall Art Set of 3",
+                    category: "Living Room",
+                    price: 8000,
+                    oldPrice: 10000,
+                    image: "https://i.pinimg.com/736x/e0/31/91/e03191ee0ac0e93ed74a64b159e3345e.jpg",
+                    description: "Set of three abstract wall art pieces in neutral tones, ready to hang.",
+                    dimensions: "60 × 80 cm each",
+                    material: "Canvas & Wood",
+                    colour: "Mixed",
+                    featured: false,
+                    badge: ""
+                },
+
+                // ========== BEDROOM (10) ==========
+                {
+                    id: 11,
+                    name: "King Size Upholstered Bed",
+                    category: "Bedroom",
+                    price: 95000,
+                    oldPrice: 110000,
+                    image: "https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?w=600&h=600&fit=crop&crop=center&auto=format",
+                    description: "Elegant king-size bed with a padded headboard and sturdy wooden frame.",
+                    dimensions: "200 × 180 × 100 cm",
+                    material: "Fabric & Wood",
+                    colour: "Grey",
+                    featured: true,
+                    badge: "Bestseller"
+                },
+                {
+                    id: 12,
+                    name: "Wardrobe with Mirror",
+                    category: "Bedroom",
+                    price: 68000,
+                    oldPrice: 78000,
+                    image: "https://images.unsplash.com/photo-1597019558926-4a596af6e5cf?w=600&h=600&fit=crop&crop=center&auto=format",
+                    description: "Spacious 5-door wardrobe with full-length mirror and adjustable shelves.",
+                    dimensions: "250 × 60 × 220 cm",
+                    material: "Engineered Wood",
+                    colour: "White",
+                    featured: false,
+                    badge: ""
+                },
+                {
+                    id: 13,
+                    name: "Nightstand Set of 2",
+                    category: "Bedroom",
+                    price: 18000,
+                    oldPrice: 22000,
+                    image: "https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=600&h=600&fit=crop&crop=center&auto=format",
+                    description: "Pair of wooden nightstands with drawers, perfect for bedside essentials.",
+                    dimensions: "50 × 40 × 55 cm each",
+                    material: "Solid Wood",
+                    colour: "Walnut",
+                    featured: false,
+                    badge: ""
+                },
+                {
+                    id: 14,
+                    name: "Dressing Table with Stool",
+                    category: "Bedroom",
+                    price: 35000,
+                    oldPrice: 40000,
+                    image: "https://images.unsplash.com/photo-1618220179428-22790b461013?w=600&h=600&fit=crop&crop=center&auto=format",
+                    description: "Classic dressing table with a large mirror and a matching cushioned stool.",
+                    dimensions: "120 × 45 × 75 cm",
+                    material: "Wood & Glass",
+                    colour: "White",
+                    featured: false,
+                    badge: ""
+                },
+                {
+                    id: 15,
+                    name: "Queen Size Platform Bed",
+                    category: "Bedroom",
+                    price: 72000,
+                    oldPrice: 83000,
+                    image: "https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?w=600&h=600&fit=crop&crop=center&auto=format",
+                    description: "Modern platform bed with a low-profile design and solid wood slats.",
+                    dimensions: "200 × 160 × 40 cm",
+                    material: "Solid Wood",
+                    colour: "Oak",
+                    featured: true,
+                    badge: "New"
+                },
+                {
+                    id: 16,
+                    name: "Bedside Lamp Set",
+                    category: "Bedroom",
+                    price: 9000,
+                    oldPrice: 11000,
+                    image: "https://images.unsplash.com/photo-1507473885765-e6ed057f782c?w=600&h=600&fit=crop&crop=center&auto=format",
+                    description: "Pair of ceramic bedside lamps with fabric shades, creating a cozy ambiance.",
+                    dimensions: "30 × 30 × 50 cm each",
+                    material: "Ceramic & Fabric",
+                    colour: "White",
+                    featured: false,
+                    badge: ""
+                },
+                {
+                    id: 17,
+                    name: "Storage Ottoman",
+                    category: "Bedroom",
+                    price: 14000,
+                    oldPrice: null,
+                    image: "https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=600&h=600&fit=crop&crop=center&auto=format",
+                    description: "Versatile storage ottoman with a cushioned top – doubles as seating and storage.",
+                    dimensions: "100 × 45 × 45 cm",
+                    material: "Fabric & Wood",
+                    colour: "Charcoal",
+                    featured: false,
+                    badge: ""
+                },
+                {
+                    id: 18,
+                    name: "Wall Mounted Shelves",
+                    category: "Bedroom",
+                    price: 12000,
+                    oldPrice: null,
+                    image: "https://images.unsplash.com/photo-1594647575634-8d21b379e6d5?w=600&h=600&fit=crop&crop=center&auto=format",
+                    description: "Set of three floating shelves for displaying books, photos, and decor.",
+                    dimensions: "80 × 20 × 5 cm each",
+                    material: "Wood",
+                    colour: "Walnut",
+                    featured: false,
+                    badge: ""
+                },
+                {
+                    id: 19,
+                    name: "Full Length Mirror",
+                    category: "Bedroom",
+                    price: 10000,
+                    oldPrice: 13000,
+                    image: "https://images.unsplash.com/photo-1618220179428-22790b461013?w=600&h=600&fit=crop&crop=center&auto=format",
+                    description: "Elegant full-length mirror with a slim wooden frame, perfect for any room.",
+                    dimensions: "50 × 180 × 3 cm",
+                    material: "Glass & Wood",
+                    colour: "Oak",
+                    featured: false,
+                    badge: "Sale"
+                },
+                {
+                    id: 20,
+                    name: "Linen Bedding Set",
+                    category: "Bedroom",
+                    price: 16000,
+                    oldPrice: 20000,
+                    image: "https://images.unsplash.com/photo-1556228453-efd6c1ff04f6?w=600&h=600&fit=crop&crop=center&auto=format",
+                    description: "Premium linen bedding set with a relaxed, lived-in feel. Includes duvet cover and pillowcases.",
+                    dimensions: "Queen Size",
+                    material: "Linen",
+                    colour: "Natural",
+                    featured: false,
+                    badge: ""
+                },
+
+                // ========== DINING (10) ==========
+                {
+                    id: 21,
+                    name: "Extendable Dining Table",
+                    category: "Dining",
+                    price: 58000,
+                    oldPrice: 68000,
+                    image: "https://images.unsplash.com/photo-1617806118233-18e1de247200?w=600&h=600&fit=crop&crop=center&auto=format",
+                    description: "Versatile extendable dining table with a solid wood top and modern legs.",
+                    dimensions: "180 × 90 × 76 cm (extended to 240 cm)",
+                    material: "Solid Wood",
+                    colour: "Oak",
+                    featured: true,
+                    badge: "Bestseller"
+                },
+                {
+                    id: 22,
+                    name: "Dining Chair Set of 6",
+                    category: "Dining",
+                    price: 32000,
+                    oldPrice: 38000,
+                    image: "https://images.unsplash.com/photo-1592078615290-033ee584e267?w=600&h=600&fit=crop&crop=center&auto=format",
+                    description: "Set of six elegant dining chairs with tapered wooden legs and upholstered seats.",
+                    dimensions: "45 × 50 × 85 cm each",
+                    material: "Wood & Fabric",
+                    colour: "Walnut",
+                    featured: false,
+                    badge: ""
+                },
+                {
+                    id: 23,
+                    name: "Glass Dining Table",
+                    category: "Dining",
+                    price: 42000,
+                    oldPrice: 49000,
+                    image: "https://images.unsplash.com/photo-1617806118233-18e1de247200?w=600&h=600&fit=crop&crop=center&auto=format",
+                    description: "Contemporary dining table with a tempered glass top and chrome-finished legs.",
+                    dimensions: "200 × 100 × 76 cm",
+                    material: "Glass & Metal",
+                    colour: "Clear",
+                    featured: false,
+                    badge: ""
+                },
+                {
+                    id: 24,
+                    name: "Dining Bench",
+                    category: "Dining",
+                    price: 18000,
+                    oldPrice: 22000,
+                    image: "https://images.unsplash.com/photo-1592078615290-033ee584e267?w=600&h=600&fit=crop&crop=center&auto=format",
+                    description: "Solid wooden dining bench with a natural finish, seating up to three people.",
+                    dimensions: "180 × 40 × 45 cm",
+                    material: "Solid Wood",
+                    colour: "Natural",
+                    featured: false,
+                    badge: ""
+                },
+                {
+                    id: 25,
+                    name: "Sideboard with Drawers",
+                    category: "Dining",
+                    price: 38000,
+                    oldPrice: 43000,
+                    image: "https://images.unsplash.com/photo-1597019558926-4a596af6e5cf?w=600&h=600&fit=crop&crop=center&auto=format",
+                    description: "Elegant sideboard with multiple drawers and cabinets, perfect for dining room storage.",
+                    dimensions: "160 × 45 × 85 cm",
+                    material: "Wood",
+                    colour: "Walnut",
+                    featured: false,
+                    badge: ""
+                },
+                {
+                    id: 26,
+                    name: "Bar Stool Set of 2",
+                    category: "Dining",
+                    price: 14000,
+                    oldPrice: null,
+                    image: "https://images.unsplash.com/photo-1592078615290-033ee584e267?w=600&h=600&fit=crop&crop=center&auto=format",
+                    description: "Set of two modern bar stools with a footrest and cushioned seat.",
+                    dimensions: "45 × 45 × 75 cm each",
+                    material: "Metal & Fabric",
+                    colour: "Charcoal",
+                    featured: false,
+                    badge: ""
+                },
+                {
+                    id: 27,
+                    name: "Dining Table with Marble Top",
+                    category: "Dining",
+                    price: 75000,
+                    oldPrice: 88000,
+                    image: "https://images.unsplash.com/photo-1617806118233-18e1de247200?w=600&h=600&fit=crop&crop=center&auto=format",
+                    description: "Luxurious dining table with a polished marble top and a solid wood base.",
+                    dimensions: "220 × 100 × 76 cm",
+                    material: "Marble & Wood",
+                    colour: "White & Oak",
+                    featured: true,
+                    badge: "New"
+                },
+                {
+                    id: 28,
+                    name: "Trolley Serving Cart",
+                    category: "Dining",
+                    price: 12000,
+                    oldPrice: 15000,
+                    image: "https://images.unsplash.com/photo-1551298370-9d3d53740c72?w=600&h=600&fit=crop&crop=center&auto=format",
+                    description: "Stylish serving cart with two shelves, perfect for entertaining and dining.",
+                    dimensions: "80 × 40 × 80 cm",
+                    material: "Metal & Wood",
+                    colour: "Gold & Walnut",
+                    featured: false,
+                    badge: ""
+                },
+                {
+                    id: 29,
+                    name: "Dining Chair Set of 4",
+                    category: "Dining",
+                    price: 22000,
+                    oldPrice: 26000,
+                    image: "https://images.unsplash.com/photo-1592078615290-033ee584e267?w=600&h=600&fit=crop&crop=center&auto=format",
+                    description: "Set of four classic dining chairs with a solid wood frame and woven seat.",
+                    dimensions: "45 × 50 × 85 cm each",
+                    material: "Wood & Rattan",
+                    colour: "Natural",
+                    featured: false,
+                    badge: "Sale"
+                },
+                {
+                    id: 30,
+                    name: "Table Runner & Placemat Set",
+                    category: "Dining",
+                    price: 5000,
+                    oldPrice: 7000,
+                    image: "https://images.unsplash.com/photo-1581539250439-c96689b516dd?w=600&h=600&fit=crop&crop=center&auto=format",
+                    description: "Set of linen table runner and 6 placemats, adding a touch of elegance to your table.",
+                    dimensions: "Runner: 180 × 40 cm, Placemats: 45 × 35 cm each",
+                    material: "Linen",
+                    colour: "Natural",
+                    featured: false,
+                    badge: ""
+                },
+
+                // ========== OFFICE (10) ==========
+                {
+                    id: 31,
+                    name: "Executive Desk",
+                    category: "Office",
+                    price: 68000,
+                    oldPrice: 78000,
+                    image: "https://images.unsplash.com/photo-1518455027359-f3f8164ba6bd?w=600&h=600&fit=crop&crop=center&auto=format",
+                    description: "Spacious executive desk with a large work surface and integrated cable management.",
+                    dimensions: "180 × 80 × 75 cm",
+                    material: "Engineered Wood & Metal",
+                    colour: "Walnut",
+                    featured: true,
+                    badge: "Bestseller"
+                },
+                {
+                    id: 32,
+                    name: "Ergonomic Office Chair",
+                    category: "Office",
+                    price: 32000,
+                    oldPrice: 40000,
+                    image: "https://images.unsplash.com/photo-1589386417686-0d34b5903d23?w=600&h=600&fit=crop&crop=center&auto=format",
+                    description: "Premium ergonomic chair with adjustable lumbar support and breathable mesh back.",
+                    dimensions: "65 × 65 × 120 cm",
+                    material: "Mesh & Metal",
+                    colour: "Black",
+                    featured: true,
+                    badge: "New"
+                },
+                {
+                    id: 33,
+                    name: "Bookshelf with Drawers",
+                    category: "Office",
+                    price: 42000,
+                    oldPrice: 49000,
+                    image: "https://images.unsplash.com/photo-1594647575634-8d21b379e6d5?w=600&h=600&fit=crop&crop=center&auto=format",
+                    description: "Tall bookshelf with adjustable shelves and bottom drawers for extra storage.",
+                    dimensions: "120 × 40 × 200 cm",
+                    material: "Wood",
+                    colour: "Oak",
+                    featured: false,
+                    badge: ""
+                },
+                {
+                    id: 34,
+                    name: "Desk Organizer Set",
+                    category: "Office",
+                    price: 6000,
+                    oldPrice: 8000,
+                    image: "https://images.unsplash.com/photo-1594647575634-8d21b379e6d5?w=600&h=600&fit=crop&crop=center&auto=format",
+                    description: "Complete desk organizer set with pen holder, file tray, and document sorter.",
+                    dimensions: "Various sizes",
+                    material: "Metal & Wood",
+                    colour: "Charcoal",
+                    featured: false,
+                    badge: ""
+                },
+                {
+                    id: 35,
+                    name: "Filing Cabinet",
+                    category: "Office",
+                    price: 25000,
+                    oldPrice: 30000,
+                    image: "https://images.unsplash.com/photo-1594647575634-8d21b379e6d5?w=600&h=600&fit=crop&crop=center&auto=format",
+                    description: "Lockable filing cabinet with two drawers, perfect for important documents.",
+                    dimensions: "45 × 60 × 75 cm",
+                    material: "Metal",
+                    colour: "Charcoal",
+                    featured: false,
+                    badge: ""
+                },
+                {
+                    id: 36,
+                    name: "Desk Lamp",
+                    category: "Office",
+                    price: 7000,
+                    oldPrice: 9000,
+                    image: "https://images.unsplash.com/photo-1507473885765-e6ed057f782c?w=600&h=600&fit=crop&crop=center&auto=format",
+                    description: "Adjustable desk lamp with a flexible arm and warm LED light.",
+                    dimensions: "40 × 15 × 45 cm",
+                    material: "Metal & Plastic",
+                    colour: "Black",
+                    featured: false,
+                    badge: ""
+                },
+                {
+                    id: 37,
+                    name: "Meeting Table",
+                    category: "Office",
+                    price: 55000,
+                    oldPrice: 65000,
+                    image: "https://images.unsplash.com/photo-1518455027359-f3f8164ba6bd?w=600&h=600&fit=crop&crop=center&auto=format",
+                    description: "Large meeting table with a sleek finish, seating up to 8 people comfortably.",
+                    dimensions: "240 × 120 × 75 cm",
+                    material: "Wood & Metal",
+                    colour: "Walnut",
+                    featured: false,
+                    badge: ""
+                },
+                {
+                    id: 38,
+                    name: "Office Chair Mat",
+                    category: "Office",
+                    price: 5000,
+                    oldPrice: 6500,
+                    image: "https://images.unsplash.com/photo-1581539250439-c96689b516dd?w=600&h=600&fit=crop&crop=center&auto=format",
+                    description: "Durable chair mat for carpeted floors, ensuring smooth movement.",
+                    dimensions: "120 × 90 cm",
+                    material: "PVC",
+                    colour: "Clear",
+                    featured: false,
+                    badge: ""
+                },
+                {
+                    id: 39,
+                    name: "Wall Clock",
+                    category: "Office",
+                    price: 8000,
+                    oldPrice: 10000,
+                    image: "https://images.unsplash.com/photo-1507473885765-e6ed057f782c?w=600&h=600&fit=crop&crop=center&auto=format",
+                    description: "Classic wall clock with a minimalist design, perfect for any office space.",
+                    dimensions: "40 cm diameter",
+                    material: "Metal & Glass",
+                    colour: "Black & White",
+                    featured: false,
+                    badge: ""
+                },
+                {
+                    id: 40,
+                    name: "Storage Cabinet",
+                    category: "Office",
+                    price: 35000,
+                    oldPrice: 42000,
+                    image: "https://images.unsplash.com/photo-1594647575634-8d21b379e6d5?w=600&h=600&fit=crop&crop=center&auto=format",
+                    description: "Tall storage cabinet with adjustable shelves and lockable doors.",
+                    dimensions: "90 × 45 × 180 cm",
+                    material: "Engineered Wood",
+                    colour: "White",
+                    featured: false,
+                    badge: ""
+                },
+
+                // ========== ACCESSORIES (10) ==========
+                {
+                    id: 41,
+                    name: "Ceramic Vase Set",
+                    category: "Accessories",
+                    price: 6000,
+                    oldPrice: 8000,
+                    image: "https://images.unsplash.com/photo-1568234920235-2a2b6e1f890d?w=600&h=600&fit=crop&crop=center&auto=format",
+                    description: "Set of three handcrafted ceramic vases in varying sizes, perfect for fresh or dried flowers.",
+                    dimensions: "25 × 25 × 35 cm (largest)",
+                    material: "Ceramic",
+                    colour: "Ivory",
+                    featured: false,
+                    badge: ""
+                },
+                {
+                    id: 42,
+                    name: "Decorative Cushion Set",
+                    category: "Accessories",
+                    price: 7000,
+                    oldPrice: 9000,
+                    image: "https://images.unsplash.com/photo-1581539250439-c96689b516dd?w=600&h=600&fit=crop&crop=center&auto=format",
+                    description: "Set of two decorative cushions with geometric patterns and soft velvet covers.",
+                    dimensions: "50 × 50 cm each",
+                    material: "Velvet & Cotton",
+                    colour: "Navy & Gold",
+                    featured: false,
+                    badge: ""
+                },
+                {
+                    id: 43,
+                    name: "Wall Mirror – Round",
+                    category: "Accessories",
+                    price: 9000,
+                    oldPrice: 11000,
+                    image: "https://images.unsplash.com/photo-1618220179428-22790b461013?w=600&h=600&fit=crop&crop=center&auto=format",
+                    description: "Round wall mirror with a sleek metal frame, adding depth and light to any room.",
+                    dimensions: "60 cm diameter",
+                    material: "Glass & Metal",
+                    colour: "Gold",
+                    featured: false,
+                    badge: ""
+                },
+                {
+                    id: 44,
+                    name: "Tabletop Planters",
+                    category: "Accessories",
+                    price: 4000,
+                    oldPrice: 5500,
+                    image: "https://images.unsplash.com/photo-1568234920235-2a2b6e1f890d?w=600&h=600&fit=crop&crop=center&auto=format",
+                    description: "Set of two small ceramic planters, ideal for succulents or small indoor plants.",
+                    dimensions: "12 × 12 × 15 cm each",
+                    material: "Ceramic",
+                    colour: "Terracotta",
+                    featured: false,
+                    badge: ""
+                },
+                {
+                    id: 45,
+                    name: "Faux Fur Throw Blanket",
+                    category: "Accessories",
+                    price: 8500,
+                    oldPrice: 11000,
+                    image: "https://images.unsplash.com/photo-1581539250439-c96689b516dd?w=600&h=600&fit=crop&crop=center&auto=format",
+                    description: "Luxuriously soft faux fur throw blanket, perfect for cozying up on the sofa.",
+                    dimensions: "150 × 200 cm",
+                    material: "Faux Fur",
+                    colour: "Cream",
+                    featured: false,
+                    badge: ""
+                },
+                {
+                    id: 46,
+                    name: "Scented Candle Set",
+                    category: "Accessories",
+                    price: 4000,
+                    oldPrice: null,
+                    image: "https://images.unsplash.com/photo-1507473885765-e6ed057f782c?w=600&h=600&fit=crop&crop=center&auto=format",
+                    description: "Set of three natural soy wax candles with calming scents: lavender, vanilla, and sandalwood.",
+                    dimensions: "8 × 8 × 10 cm each",
+                    material: "Soy Wax",
+                    colour: "Natural",
+                    featured: false,
+                    badge: ""
+                },
+                {
+                    id: 47,
+                    name: "Photo Frame Set",
+                    category: "Accessories",
+                    price: 5000,
+                    oldPrice: 6500,
+                    image: "https://images.unsplash.com/photo-1618220179428-22790b461013?w=600&h=600&fit=crop&crop=center&auto=format",
+                    description: "Set of three wooden photo frames in different sizes, perfect for displaying memories.",
+                    dimensions: "20 × 25 cm, 30 × 40 cm, 40 × 50 cm",
+                    material: "Wood",
+                    colour: "Oak",
+                    featured: false,
+                    badge: ""
+                },
+                {
+                    id: 48,
+                    name: "Decorative Tray",
+                    category: "Accessories",
+                    price: 3500,
+                    oldPrice: null,
+                    image: "https://images.unsplash.com/photo-1551298370-9d3d53740c72?w=600&h=600&fit=crop&crop=center&auto=format",
+                    description: "Elegant serving tray with metal handles, perfect for coffee tables or ottomans.",
+                    dimensions: "50 × 35 × 5 cm",
+                    material: "Wood & Metal",
+                    colour: "Natural & Gold",
+                    featured: false,
+                    badge: ""
+                },
+                {
+                    id: 49,
+                    name: "Set of 3 Sculptures",
+                    category: "Accessories",
+                    price: 12000,
+                    oldPrice: 15000,
+                    image: "https://images.unsplash.com/photo-1558618666-fcd25c85f2f3?w=600&h=600&fit=crop&crop=center&auto=format",
+                    description: "Abstract metal sculptures in organic shapes, adding an artistic touch to your space.",
+                    dimensions: "Various sizes (30-60 cm tall)",
+                    material: "Metal",
+                    colour: "Black",
+                    featured: false,
+                    badge: ""
+                },
+                {
+                    id: 50,
+                    name: "Throw Pillow Set",
+                    category: "Accessories",
+                    price: 6000,
+                    oldPrice: 7500,
+                    image: "https://images.unsplash.com/photo-1581539250439-c96689b516dd?w=600&h=600&fit=crop&crop=center&auto=format",
+                    description: "Set of two decorative throw pillows with textured weaves and subtle patterns.",
+                    dimensions: "45 × 45 cm each",
+                    material: "Cotton",
+                    colour: "Beige & Charcoal",
+                    featured: false,
+                    badge: ""
+                },
+
+                // ========== OUTDOOR (10) ==========
+                {
+                    id: 51,
+                    name: "Outdoor Sofa Set",
+                    category: "Outdoor",
+                    price: 85000,
+                    oldPrice: 100000,
+                    image: "https://images.unsplash.com/photo-1551298370-9d3d53740c72?w=600&h=600&fit=crop&crop=center&auto=format",
+                    description: "Complete outdoor sofa set with weather-resistant cushions and durable rattan frame.",
+                    dimensions: "Sofa: 200 × 80 × 70 cm, Chairs: 70 × 70 × 70 cm",
+                    material: "Rattan & Fabric",
+                    colour: "Natural",
+                    featured: true,
+                    badge: "Bestseller"
+                },
+                {
+                    id: 52,
+                    name: "Patio Dining Table",
+                    category: "Outdoor",
+                    price: 48000,
+                    oldPrice: 56000,
+                    image: "https://images.unsplash.com/photo-1551298370-9d3d53740c72?w=600&h=600&fit=crop&crop=center&auto=format",
+                    description: "Round patio dining table with a durable finish, seating up to 6 people.",
+                    dimensions: "150 cm diameter × 75 cm height",
+                    material: "Metal & Glass",
+                    colour: "Black",
+                    featured: false,
+                    badge: ""
+                },
+                {
+                    id: 53,
+                    name: "Outdoor Lounge Chair",
+                    category: "Outdoor",
+                    price: 28000,
+                    oldPrice: 34000,
+                    image: "https://images.unsplash.com/photo-1592078615290-033ee584e267?w=600&h=600&fit=crop&crop=center&auto=format",
+                    description: "Comfortable outdoor lounge chair with an adjustable backrest and weather-resistant fabric.",
+                    dimensions: "75 × 70 × 100 cm",
+                    material: "Aluminum & Fabric",
+                    colour: "Grey",
+                    featured: false,
+                    badge: ""
+                },
+                {
+                    id: 54,
+                    name: "Fire Pit Table",
+                    category: "Outdoor",
+                    price: 32000,
+                    oldPrice: 38000,
+                    image: "https://images.unsplash.com/photo-1551298370-9d3d53740c72?w=600&h=600&fit=crop&crop=center&auto=format",
+                    description: "Multi-functional fire pit table with a natural gas burner and protective cover.",
+                    dimensions: "120 × 120 × 60 cm",
+                    material: "Metal & Stone",
+                    colour: "Grey",
+                    featured: false,
+                    badge: "New"
+                },
+                {
+                    id: 55,
+                    name: "Outdoor Cushion Set",
+                    category: "Outdoor",
+                    price: 12000,
+                    oldPrice: 15000,
+                    image: "https://images.unsplash.com/photo-1581539250439-c96689b516dd?w=600&h=600&fit=crop&crop=center&auto=format",
+                    description: "Set of weather-resistant outdoor cushions in a vibrant tropical pattern.",
+                    dimensions: "50 × 50 cm (set of 4)",
+                    material: "Polyester",
+                    colour: "Tropical",
+                    featured: false,
+                    badge: ""
+                },
+                {
+                    id: 56,
+                    name: "Planter Stand Set",
+                    category: "Outdoor",
+                    price: 8000,
+                    oldPrice: 10000,
+                    image: "https://images.unsplash.com/photo-1568234920235-2a2b6e1f890d?w=600&h=600&fit=crop&crop=center&auto=format",
+                    description: "Set of three metal planter stands in different heights, perfect for displaying potted plants.",
+                    dimensions: "Various heights (40-70 cm)",
+                    material: "Metal",
+                    colour: "Black",
+                    featured: false,
+                    badge: ""
+                },
+                {
+                    id: 57,
+                    name: "Outdoor Bar Cart",
+                    category: "Outdoor",
+                    price: 22000,
+                    oldPrice: 26000,
+                    image: "https://images.unsplash.com/photo-1551298370-9d3d53740c72?w=600&h=600&fit=crop&crop=center&auto=format",
+                    description: "Stylish outdoor bar cart with wheels and a removable ice bucket, perfect for entertaining.",
+                    dimensions: "90 × 45 × 90 cm",
+                    material: "Metal & Wood",
+                    colour: "Rustic Brown",
+                    featured: false,
+                    badge: ""
+                },
+                {
+                    id: 58,
+                    name: "Sun Umbrella",
+                    category: "Outdoor",
+                    price: 15000,
+                    oldPrice: 18000,
+                    image: "https://images.unsplash.com/photo-1551298370-9d3d53740c72?w=600&h=600&fit=crop&crop=center&auto=format",
+                    description: "Large patio umbrella with UV protection and a sturdy aluminum pole.",
+                    dimensions: "300 cm diameter",
+                    material: "Polyester & Aluminum",
+                    colour: "Terracotta",
+                    featured: false,
+                    badge: ""
+                },
+                {
+                    id: 59,
+                    name: "Outdoor Storage Box",
+                    category: "Outdoor",
+                    price: 18000,
+                    oldPrice: 22000,
+                    image: "https://images.unsplash.com/photo-1592078615290-033ee584e267?w=600&h=600&fit=crop&crop=center&auto=format",
+                    description: "Waterproof outdoor storage box for cushions, tools, and garden essentials.",
+                    dimensions: "120 × 50 × 60 cm",
+                    material: "Plastic & Wood",
+                    colour: "Charcoal",
+                    featured: false,
+                    badge: ""
+                },
+                {
+                    id: 60,
+                    name: "Hanging Egg Chair",
+                    category: "Outdoor",
+                    price: 35000,
+                    oldPrice: 42000,
+                    image: "https://images.unsplash.com/photo-1592078615290-033ee584e267?w=600&h=600&fit=crop&crop=center&auto=format",
+                    description: "Swinging hanging egg chair with a comfortable cushion, perfect for relaxing outdoors.",
+                    dimensions: "100 × 80 × 120 cm",
+                    material: "Rattan & Metal",
+                    colour: "Natural",
+                    featured: true,
+                    badge: "New"
+                }
+            ];
+
+            // =============================================
+            // STATE
+            // =============================================
+            let currentFilter = 'all';
+            let currentSort = 'featured';
+            let currentView = 'grid';
+            let searchQuery = '';
+            let visibleCount = 24;
+            const stepSize = 12;
+            let filteredProducts = [...productData];
+            let cart = [];
+            let qvQty = 1;
+            let qvProductId = null;
+
+            // =============================================
+            // DOM REFS
+            // =============================================
+            const $ = (sel) => document.querySelector(sel);
+            const $$ = (sel) => document.querySelectorAll(sel);
+
+            const grid = $('#productGrid');
+            const loadMoreBtn = $('#loadMoreBtn');
+            const filterScroll = $('#filterScroll');
+            const sortSelect = $('#sortSelect');
+            const viewBtns = $$('.view-toggle button');
+            const searchInput = $('#searchInput');
+            const productCountEl = $('#productCount');
+
+            const cartBadge = $('#cartBadge');
+            const cartPanel = $('#cartPanel');
+            const cartOverlay = $('#cartOverlay');
+            const cartItems = $('#cartItems');
+            const cartTotal = $('#cartTotal');
+
+            const qvOverlay = $('#quickviewOverlay');
+            const qvImage = $('#qvImage');
+            const qvCategory = $('#qvCategory');
+            const qvName = $('#qvName');
+            const qvPrice = $('#qvPrice');
+            const qvOldPrice = $('#qvOldPrice');
+            const qvDesc = $('#qvDesc');
+            const qvDimensions = $('#qvDimensions');
+            const qvMaterial = $('#qvMaterial');
+            const qvColour = $('#qvColour');
+            const qvQtyDisplay = $('#qvQtyDisplay');
+            const qvAddBtn = $('#qvAddBtn');
+
+            // =============================================
+            // THEME
+            // =============================================
+            let theme = localStorage.getItem('dakiwa-theme') ||
+                (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+
+            function setTheme(t) {
+                theme = t;
+                document.documentElement.setAttribute('data-theme', t);
+                localStorage.setItem('dakiwa-theme', t);
+                const icon = $('#themeIcon');
+                if (t === 'dark') {
+                    icon.className = 'fas fa-sun';
+                } else {
+                    icon.className = 'fas fa-moon';
+                }
+            }
+            setTheme(theme);
+            $('#themeToggle').addEventListener('click', () => {
+                setTheme(theme === 'dark' ? 'light' : 'dark');
+            });
+
+            // =============================================
+            // CART LOGIC
+            // =============================================
+            function addToCart(product, qty = 1) {
+                const existing = cart.find(item => item.id === product.id);
+                if (existing) {
+                    existing.qty += qty;
+                } else {
+                    cart.push({ ...product, qty });
+                }
+                updateCartUI();
+                saveCart();
+                renderCartPanel();
+            }
+
+            function removeFromCart(index) {
+                cart.splice(index, 1);
+                updateCartUI();
+                saveCart();
+                renderCartPanel();
+            }
+
+            function updateCartUI() {
+                const total = cart.reduce((sum, i) => sum + i.qty, 0);
+                cartBadge.textContent = total;
+            }
+
+            function saveCart() {
+                try {
+                    localStorage.setItem('dakiwa-cart', JSON.stringify(cart));
+                } catch (_) {}
+            }
+
+            function loadCart() {
+                try {
+                    const data = localStorage.getItem('dakiwa-cart');
+                    if (data) { cart = JSON.parse(data); if (!Array.isArray(cart)) cart = []; }
+                } catch (_) { cart = []; }
+                updateCartUI();
+                renderCartPanel();
+            }
+
+            function renderCartPanel() {
+                if (cart.length === 0) {
+                    cartItems.innerHTML = `
+                                <div class="cart-empty">
+                                    <i class="fas fa-shopping-bag"></i>
+                                    <p>Your cart is empty.<br />Start adding some beautiful pieces.</p>
+                                </div>
+                            `;
+                    cartTotal.textContent = '$0.00';
+                    return;
+                }
+
+                let html = '';
+                let total = 0;
+                cart.forEach((item, index) => {
+                    const subtotal = item.price * item.qty;
+                    total += subtotal;
+                    html += `
+                                <div class="cart-item" data-index="${index}">
+                                    <img src="${item.image}" alt="${item.name}" loading="lazy" />
+                                    <div class="item-details">
+                                        <div class="name">${item.name}</div>
+                                        <div class="price">KSh ${item.price.toLocaleString()}</div>
+                                    </div>
+                                    <div class="qty-control">
+                                        <button class="cart-qty-dec" data-index="${index}">−</button>
+                                        <span>${item.qty}</span>
+                                        <button class="cart-qty-inc" data-index="${index}">+</button>
+                                    </div>
+                                    <button class="remove-item" data-index="${index}">
+                                        <i class="fas fa-trash-alt"></i>
+                                    </button>
+                                </div>
+                            `;
+                });
+
+                cartItems.innerHTML = html;
+                cartTotal.textContent = 'KSh ' + total.toLocaleString();
+
+                cartItems.querySelectorAll('.cart-qty-dec').forEach(btn => {
+                    btn.addEventListener('click', function() {
+                        const idx = parseInt(this.dataset.index);
+                        if (cart[idx].qty > 1) {
+                            cart[idx].qty--;
+                        } else {
+                            cart.splice(idx, 1);
+                        }
+                        updateCartUI();
+                        saveCart();
+                        renderCartPanel();
+                    });
+                });
+
+                cartItems.querySelectorAll('.cart-qty-inc').forEach(btn => {
+                    btn.addEventListener('click', function() {
+                        const idx = parseInt(this.dataset.index);
+                        cart[idx].qty++;
+                        updateCartUI();
+                        saveCart();
+                        renderCartPanel();
+                    });
+                });
+
+                cartItems.querySelectorAll('.remove-item').forEach(btn => {
+                    btn.addEventListener('click', function() {
+                        const idx = parseInt(this.dataset.index);
+                        cart.splice(idx, 1);
+                        updateCartUI();
+                        saveCart();
+                        renderCartPanel();
+                    });
+                });
+            }
+
+            function toggleCart(open) {
+                const isOpen = open !== undefined ? open : !cartPanel.classList.contains('open');
+                cartPanel.classList.toggle('open', isOpen);
+                cartOverlay.classList.toggle('open', isOpen);
+                document.body.style.overflow = isOpen ? 'hidden' : '';
+            }
+
+            $('#cartToggle').addEventListener('click', () => toggleCart());
+            $('#closeCart').addEventListener('click', () => toggleCart(false));
+            cartOverlay.addEventListener('click', () => toggleCart(false));
+
+            // =============================================
+            // FILTER, SORT, SEARCH, VIEW
+            // =============================================
+            function getFilteredAndSorted() {
+                let result = [...productData];
+
+                if (currentFilter !== 'all') {
+                    result = result.filter(p => p.category === currentFilter);
+                }
+
+                if (searchQuery.trim() !== '') {
+                    const q = searchQuery.trim().toLowerCase();
+                    result = result.filter(p =>
+                        p.name.toLowerCase().includes(q) ||
+                        p.category.toLowerCase().includes(q) ||
+                        p.material.toLowerCase().includes(q)
+                    );
+                }
+
+                switch (currentSort) {
+                    case 'price-asc':
+                        result.sort((a, b) => a.price - b.price);
+                        break;
+                    case 'price-desc':
+                        result.sort((a, b) => b.price - a.price);
+                        break;
+                    case 'name':
+                        result.sort((a, b) => a.name.localeCompare(b.name));
+                        break;
+                    case 'newest':
+                        result.sort((a, b) => b.id - a.id);
+                        break;
+                    default:
+                        break;
+                }
+
+                return result;
+            }
+
+            function renderProducts() {
+                filteredProducts = getFilteredAndSorted();
+                const total = filteredProducts.length;
+                const show = Math.min(visibleCount, total);
+                const visible = filteredProducts.slice(0, show);
+
+                if (visible.length === 0) {
+                    grid.innerHTML = `
+                                <div style="grid-column:1/-1;text-align:center;padding:60px 0;color:var(--color-gray-500);">
+                                    <i class="fas fa-search" style="font-size:2rem;margin-bottom:16px;display:block;opacity:0.4;"></i>
+                                    <p style="font-weight:300;">No products match your criteria.</p>
+                                    <button class="filter-pill" data-filter="all" style="margin-top:12px;border-color:var(--color-gray-300);">Clear filters</button>
+                                </div>
+                            `;
+                    loadMoreBtn.disabled = true;
+                    loadMoreBtn.innerHTML = 'No more products';
+                    productCountEl.textContent = '0';
+                    return;
+                }
+
+                const isListView = currentView === 'list';
+
+                grid.style.display = 'grid';
+                if (isListView) {
+                    grid.style.gridTemplateColumns = '1fr';
+                    grid.style.gap = '16px';
+                } else {
+                    grid.style.gridTemplateColumns = '';
+                    grid.style.gap = '';
+                }
+
+                grid.innerHTML = visible.map((p, idx) => {
+                    const hasOldPrice = p.oldPrice && p.oldPrice > 0;
+                    return `
+                                <div class="product-card" data-id="${p.id}" style="transition-delay:${idx * 0.03}s;">
+                                    <div class="image-wrap" style="${isListView ? 'flex:0 0 160px;' : ''}">
+                                        <img src="${p.image}" alt="${p.name}" loading="lazy" />
+                                        ${p.badge ? `<span class="card-badge ${p.badge === 'New' ? 'new' : p.badge === 'Sale' ? 'sale' : ''}">${p.badge}</span>` : ''}
+                                        <button class="quick-add" data-id="${p.id}">
+                                            <i class="fas fa-plus"></i> Quick Add
+                                        </button>
+                                    </div>
+                                    <div class="card-info" style="${isListView ? 'flex:1;' : ''}">
+                                        <div class="category-tag">${p.category}</div>
+                                        <div class="product-name">${p.name}</div>
+                                        <div class="product-price">
+                                            KSh ${p.price.toLocaleString()}
+                                            ${hasOldPrice ? `<span class="old-price">KSh ${p.oldPrice.toLocaleString()}</span>` : ''}
+                                        </div>
+                                        <div class="product-meta">
+                                            <span><i class="fas fa-ruler-combined"></i> ${p.dimensions}</span>
+                                            <span><i class="fas fa-tree"></i> ${p.material}</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            `;
+                }).join('');
+
+                productCountEl.textContent = total;
+
+                if (show >= total) {
+                    loadMoreBtn.disabled = true;
+                    loadMoreBtn.innerHTML = 'All products loaded';
+                } else {
+                    loadMoreBtn.disabled = false;
+                    loadMoreBtn.innerHTML = `<i class="fas fa-plus-circle"></i> Load more (${show}/${total})`;
+                }
+
+                grid.querySelectorAll('.quick-add').forEach(btn => {
+                    btn.addEventListener('click', function(e) {
+                        e.stopPropagation();
+                        const id = parseInt(this.dataset.id);
+                        const product = productData.find(p => p.id === id);
+                        if (product) {
+                            addToCart(product, 1);
+                            this.innerHTML = '<i class="fas fa-check"></i> Added';
+                            setTimeout(() => {
+                                this.innerHTML = '<i class="fas fa-plus"></i> Quick Add';
+                            }, 1500);
+                        }
+                    });
+                });
+
+                grid.querySelectorAll('.product-card').forEach(card => {
+                    card.addEventListener('click', function() {
+                        const id = parseInt(this.dataset.id);
+                        openQuickView(id);
+                    });
+                });
+
+                requestAnimationFrame(() => {
+                    grid.querySelectorAll('.product-card').forEach((card, i) => {
+                        setTimeout(() => {
+                            card.classList.add('visible');
+                        }, i * 30);
+                    });
+                });
+            }
+
+            // =============================================
+            // QUICK VIEW
+            // =============================================
+            function openQuickView(id) {
+                const product = productData.find(p => p.id === id);
+                if (!product) return;
+                qvProductId = id;
+                qvQty = 1;
+                qvQtyDisplay.textContent = '1';
+
+                qvImage.src = product.image;
+                qvImage.alt = product.name;
+                qvCategory.textContent = product.category;
+                qvName.textContent = product.name;
+                qvPrice.innerHTML =
+                    `KSh ${product.price.toLocaleString()}${product.oldPrice ? ` <span class="old-price">KSh ${product.oldPrice.toLocaleString()}</span>` : ''}`;
+                qvDesc.textContent = product.desc;
+                qvDimensions.textContent = product.dimensions || '—';
+                qvMaterial.textContent = product.material || '—';
+                qvColour.textContent = product.colour || '—';
+
+                qvOverlay.classList.add('open');
+                document.body.style.overflow = 'hidden';
+            }
+
+            function closeQuickView() {
+                qvOverlay.classList.remove('open');
+                document.body.style.overflow = '';
+            }
+
+            $('#closeQv').addEventListener('click', closeQuickView);
+            qvOverlay.addEventListener('click', function(e) {
+                if (e.target === this) closeQuickView();
+            });
+
+            $('#qvQtyDec').addEventListener('click', () => {
+                if (qvQty > 1) { qvQty--;
+                    qvQtyDisplay.textContent = qvQty; }
+            });
+            $('#qvQtyInc').addEventListener('click', () => {
+                qvQty++;
+                qvQtyDisplay.textContent = qvQty;
+            });
+
+            qvAddBtn.addEventListener('click', () => {
+                const product = productData.find(p => p.id === qvProductId);
+                if (product) {
+                    addToCart(product, qvQty);
+                    closeQuickView();
+                }
+            });
+
+            // =============================================
+            // FILTER BAR EVENTS
+            // =============================================
+            filterScroll.addEventListener('click', function(e) {
+                const btn = e.target.closest('.filter-pill');
+                if (!btn) return;
+                const filter = btn.dataset.filter;
+                filterScroll.querySelectorAll('.filter-pill').forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+                currentFilter = filter;
+                visibleCount = stepSize;
+                renderProducts();
+            });
+
+            sortSelect.addEventListener('change', function() {
+                currentSort = this.value;
+                visibleCount = stepSize;
+                renderProducts();
+            });
+
+            viewBtns.forEach(btn => {
+                btn.addEventListener('click', function() {
+                    viewBtns.forEach(b => b.classList.remove('active'));
+                    this.classList.add('active');
+                    currentView = this.dataset.view;
+                    renderProducts();
+                });
+            });
+
+            searchInput.addEventListener('input', function() {
+                searchQuery = this.value;
+                visibleCount = stepSize;
+                renderProducts();
+            });
+
+            // =============================================
+            // LOAD MORE
+            // =============================================
+            loadMoreBtn.addEventListener('click', function() {
+                const total = getFilteredAndSorted().length;
+                if (visibleCount < total) {
+                    visibleCount = Math.min(visibleCount + stepSize, total);
+                    renderProducts();
+                }
+            });
+
+            // =============================================
+            // MENU OVERLAY
+            // =============================================
+            const menuOverlay = $('#menuOverlay');
+            const hamburger = $('#menuToggle');
+            const closeMenu = $('#closeMenu');
+
+            function toggleMenu(open) {
+                const isOpen = open !== undefined ? open : !menuOverlay.classList.contains('open');
+                menuOverlay.classList.toggle('open', isOpen);
+                hamburger.classList.toggle('active', isOpen);
+                document.body.style.overflow = isOpen ? 'hidden' : '';
+            }
+
+            hamburger.addEventListener('click', () => toggleMenu());
+            closeMenu.addEventListener('click', () => toggleMenu(false));
+            menuOverlay.addEventListener('click', (e) => {
+                if (e.target === menuOverlay) toggleMenu(false);
+            });
+
+            // =============================================
+            // INIT
+            // =============================================
+            loadCart();
+            renderProducts();
+
+            document.addEventListener('keydown', (e) => {
+                if (e.key === 'Escape') {
+                    if (cartPanel.classList.contains('open')) toggleCart(false);
+                    if (qvOverlay.classList.contains('open')) closeQuickView();
+                    if (menuOverlay.classList.contains('open')) toggleMenu(false);
+                }
+            });
+
+            console.log(`🪑 Dakiwa Shop — ${productData.length} products across 6 categories.`);
+            console.log('✨ Each product includes rich metadata, images, and pricing in KSh.');
+        })();
+    </script>
+
+</body>
+</html>
