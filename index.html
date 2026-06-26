@@ -13,10 +13,6 @@
     <!-- Font Awesome 6 (free) for icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
 
-    <!-- model-viewer for 3D/AR -->
-    <script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/4.0.0/model-viewer.min.js">
-    </script>
-
     <style>
         /* =============================================
                    GLOBAL RESET & BASE
@@ -592,29 +588,29 @@
             transform: translateX(4px);
         }
 
-        .hero-visual {
+        /* Hero image - standard image replacing 3D viewer */
+        .hero-image-wrap {
             position: relative;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .hero-visual model-viewer {
-            width: 100%;
-            height: 420px;
-            max-width: 600px;
             border-radius: var(--radius-lg);
-            background: transparent;
+            overflow: hidden;
             box-shadow: var(--shadow-soft);
+            aspect-ratio: 4 / 3;
+            background: var(--color-gray-100);
         }
 
-        @media (max-width: 1024px) {
-            .hero-visual model-viewer {
-                height: 320px;
-            }
+        .hero-image-wrap img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+            transition: transform 0.8s cubic-bezier(0.23, 1, 0.32, 1);
         }
 
-        .hero-visual .floating-badge {
+        .hero-image-wrap:hover img {
+            transform: scale(1.02);
+        }
+
+        .hero-image-wrap .floating-badge {
             position: absolute;
             bottom: 20px;
             right: 20px;
@@ -631,7 +627,7 @@
             gap: 8px;
         }
 
-        [data-theme="dark"] .hero-visual .floating-badge {
+        [data-theme="dark"] .hero-image-wrap .floating-badge {
             background: rgba(30, 30, 28, 0.9);
             color: #f5f5f4;
         }
@@ -1240,7 +1236,7 @@
         }
 
         /* =============================================
-                   PRODUCT DETAIL PAGE (split layout)
+                   PRODUCT DETAIL PAGE (split layout) - with normal image
                    ============================================= */
         .pdp-wrapper {
             padding-top: var(--nav-height);
@@ -1268,13 +1264,14 @@
             overflow: hidden;
             background: var(--color-gray-100);
             min-height: 400px;
+            aspect-ratio: 4 / 3;
         }
 
-        .pdp-viewer model-viewer {
+        .pdp-viewer img {
             width: 100%;
             height: 100%;
-            min-height: 400px;
-            background: transparent;
+            object-fit: cover;
+            display: block;
         }
 
         .pdp-viewer .ar-btn {
@@ -1525,7 +1522,7 @@
         }
 
         /* =============================================
-                   TRACE FEATURE (sustainability storytelling)
+                   TRACE FEATURE (sustainability storytelling - Kenya focused)
                    ============================================= */
         .trace-section {
             margin: 64px 0;
@@ -1691,9 +1688,6 @@
             .pdp-viewer {
                 min-height: 280px;
             }
-            .pdp-viewer model-viewer {
-                min-height: 280px;
-            }
             .filters-panel {
                 width: 100%;
                 max-width: 100%;
@@ -1709,6 +1703,9 @@
             }
             .featured-scroll .scroll-item {
                 flex: 0 0 180px;
+            }
+            .hero-image-wrap {
+                aspect-ratio: 4 / 3;
             }
         }
 
@@ -1874,7 +1871,7 @@
         <div class="container">
             <a href="#" class="logo" aria-label="Dakiwa Furnitures">
                 <i class="fas fa-chair"></i>
-                Dakiwa<span>.</span>
+                Dakiwa Furnitures<span>.</span>
             </a>
 
             <div class="nav-actions">
@@ -1904,8 +1901,8 @@
             <i class="fas fa-times"></i>
         </button>
         <nav>
-            <a href="index.html">home</a>
-            <a href="shop.html">shop</a>
+            <a href="index.html">Home</a>
+            <a href="shop.html">Shop</a>
             <a href="#">Journal</a>
             <a href="#">Contact</a>
         </nav>
@@ -1955,10 +1952,10 @@
         <div class="filter-group">
             <label>Price</label>
             <div class="filter-options">
-                <button>Under $500</button>
-                <button>$500 – $1,000</button>
-                <button>$1,000 – $2,500</button>
-                <button>$2,500+</button>
+                <button>Under KSh 10,000</button>
+                <button>KSh 5,000 – 10,000</button>
+                <button>KSh 10,000 – 15,000</button>
+                <button>KSh 15,000+</button>
             </div>
         </div>
     </div>
@@ -1987,10 +1984,10 @@
         <div class="cart-footer" id="cartFooter">
             <div class="total">
                 <span>Total</span>
-                <span id="cartTotal">$0.00</span>
+                <span id="cartTotal">KSh 0.00</span>
             </div>
             <button class="checkout-btn" id="checkoutBtn">
-                <i class="fas fa-lock" style="margin-right:8px;"></i> Proceed to Checkout
+                <i class="fas fa-lock" style="margin-right:8px;"></i> 
             </button>
         </div>
     </div>
@@ -2008,8 +2005,8 @@
                     <div class="hero-text animate-fade-in-up">
                         <h1>Furniture that <em>breathes</em>.</h1>
                         <p>
-                            Timeless pieces crafted with intention — where Japanese minimalism
-                            meets Scandinavian warmth. Every curve, every grain tells a story.
+                            Timeless pieces crafted with intention — where minimalism meets warmth.
+                            Every curve, every grain tells a story of Kenyan craftsmanship.
                         </p>
                         <a href="#" class="btn-primary">
                             Explore Collection
@@ -2017,748 +2014,779 @@
                         </a>
                     </div>
 
-                    <div class="hero-visual animate-fade-in-up delay-2">
-                        <model-viewer
-                        src="https://i.pinimg.com/1200x/72/17/71/721771e9ee4efbd86e37f8e006fb4911.jpg"
-                        alt="3D furniture preview"
-                        ar
-                        ar-modes="webxr scene-viewer quick-look"
-                        camera-controls
-                        touch-action="pan-y"
-                        disable-zoom
-                        shadow-intensity="1"
-                        exposure="1.2"
-                        style="width:100%;height:420px;"
+                    <!-- Hero Image - normal image replacing 3D viewer -->
+                    <div class="hero-image-wrap animate-fade-in-up delay-2">
+                        <img
+                        src="https://images.unsplash.com/photo-1618220179428-22790b461013?w=800&h=600&fit=crop&crop=center&auto=format"
+                        alt="Dakiwa furniture showcase - elegant living room interior"
                         loading="lazy"
-                        >
-                        <div class="progress-bar hide" slot="progress-bar">
-                            <div class="update-bar"></div>
+                        />
+                        <div class="floating-badge">
+                            <i class="fas fa-cube" style="color:var(--color-warm-accent);"></i>
+                            Crafted in Kenya
                         </div>
-                        <button slot="ar-button" style="display:none;">View in AR</button>
-                    </model-viewer>
-                    <div class="floating-badge">
-                        <i class="fas fa-cube" style="color:var(--color-warm-accent);"></i>
-                        Drag to explore
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- ========== SHOP BY ROOM ========== -->
-    <section class="container" style="padding-top:24px;">
-        <h2 class="section-title animate-fade-in-up">Shop by Room</h2>
-        <p class="section-subtitle animate-fade-in-up delay-1">Curated collections for every space.</p>
+        <!-- ========== SHOP BY ROOM ========== -->
+        <section class="container" style="padding-top:24px;">
+            <h2 class="section-title animate-fade-in-up">Shop by Room</h2>
+            <p class="section-subtitle animate-fade-in-up delay-1">Curated collections for every space.</p>
 
-        <div class="shop-rooms">
-            <div class="room-card animate-fade-in-up delay-1">
-                <img src="https://images.unsplash.com/photo-1618220179428-22790b461013?w=600&h=600&fit=crop&crop=center&auto=format" alt="Bedroom" loading="lazy" />
-                <div class="room-label">
-                    <h3>Bedroom</h3>
-                    <p>Serene sanctuaries</p>
-                </div>
-            </div>
-            <div class="room-card animate-fade-in-up delay-2">
-                <img src="https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=600&h=600&fit=crop&crop=center&auto=format" alt="Living Room" loading="lazy" />
-                <div class="room-label">
-                    <h3>Living Room</h3>
-                    <p>Warm &amp; inviting</p>
-                </div>
-            </div>
-            <div class="room-card animate-fade-in-up delay-3">
-                <img src="https://i.pinimg.com/736x/cf/bc/84/cfbc8443799fd947515d09f637c7e819.jpg" alt="Dining" loading="lazy" />
-                <div class="room-label">
-                    <h3>Dining</h3>
-                    <p>Gather &amp; savour</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- ========== FEATURED COLLECTIONS (horizontal scroll) ========== -->
-    <section class="container featured-scroll">
-        <div class="sticky-label">Featured Collections</div>
-        <div class="scroll-track" id="featuredTrack">
-            <!-- Items injected by JS -->
-        </div>
-    </section>
-
-    <!-- ========== SHOP / PRODUCT GRID ========== -->
-    <section class="container" id="shop">
-        <div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:12px; margin-top:16px;">
-            <h2 class="section-title" style="margin-bottom:0;">All Products</h2>
-            <button class="filters-toggle" id="filtersToggle">
-                <i class="fas fa-sliders-h"></i> Filters
-            </button>
-        </div>
-
-        <div class="shop-grid" id="productGrid">
-            <!-- Rendered by JS -->
-        </div>
-    </section>
-
-    <!-- ========== PRODUCT DETAIL PAGE (PDP) demo ========== -->
-    <section class="pdp-wrapper" id="pdp">
-        <div class="container">
-            <div class="pdp-grid">
-                <div class="pdp-viewer">
-                    <model-viewer
-                    src="https://modelviewer.dev/shared-assets/models/glTF-Sample-Models/2.0/DamagedHelmet/glTF/DamagedHelmet.gltf"
-                    alt="Dakiwa TV Stand - Oak"
-                    ar
-                    ar-modes="webxr scene-viewer quick-look"
-                    camera-controls
-                    touch-action="pan-y"
-                    shadow-intensity="1"
-                    exposure="1.2"
-                    style="width:100%;height:100%;min-height:400px;"
-                    loading="lazy"
-                    >
-                    <div class="progress-bar hide" slot="progress-bar">
-                        <div class="update-bar"></div>
+            <div class="shop-rooms">
+                <div class="room-card animate-fade-in-up delay-1">
+                    <img src="https://i.pinimg.com/1200x/ed/e1/29/ede129bc821b34d5bcb58795c2631095.jpg" alt="Bedroom" loading="lazy" />
+                    <div class="room-label">
+                        <h3>Bedroom</h3>
+                        <p>Serene sanctuaries</p>
                     </div>
-                    <button slot="ar-button" style="display:none;">View in AR</button>
-                </model-viewer>
-                <button class="ar-btn" id="arBtn">
-                    <i class="fas fa-vr-cardboard"></i> View in AR
+                </div>
+                <div class="room-card animate-fade-in-up delay-2">
+                    <img src="https://i.pinimg.com/736x/76/22/97/7622979704f4ab2755c3d46ddeeb586f.jpg" alt="Living Room" loading="lazy" />
+                    <div class="room-label">
+                        <h3>Living Room</h3>
+                        <p>Warm &amp; inviting</p>
+                    </div>
+                </div>
+                <div class="room-card animate-fade-in-up delay-3">
+                    <img src="https://i.pinimg.com/736x/cf/bc/84/cfbc8443799fd947515d09f637c7e819.jpg" alt="Dining" loading="lazy" />
+                    <div class="room-label">
+                        <h3>Dining</h3>
+                        <p>Gather &amp; savour</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ========== FEATURED COLLECTIONS (horizontal scroll) ========== -->
+        <section class="container featured-scroll">
+            <div class="sticky-label">Featured Collections</div>
+            <div class="scroll-track" id="featuredTrack">
+                <!-- Items injected by JS -->
+            </div>
+        </section>
+
+        <!-- ========== SHOP / PRODUCT GRID ========== -->
+        <section class="container" id="shop">
+            <div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:12px; margin-top:16px;">
+                <h2 class="section-title" style="margin-bottom:0;">All Products</h2>
+                <button class="filters-toggle" id="filtersToggle">
+                    <i class="fas fa-sliders-h"></i> Filters
                 </button>
             </div>
 
-            <div class="pdp-info">
-                <h1 class="product-name">Oslo TV Stand</h1>
-                <div class="product-price"></div>
-                <p class="product-desc">
-                    A sculptural balance of solid oak and brushed steel.
-                    Designed to breathe — with soft-close doors and hidden cable management.
-                </p>
+            <div class="shop-grid" id="productGrid">
+                <!-- Rendered by JS -->
+            </div>
+        </section>
 
-                <div class="meta-row">
-                    <span><i class="fas fa-ruler-combined"></i> 160 × 45 × 55 cm</span>
-                    <span><i class="fas fa-tree"></i> Oak / Walnut</span>
-                    <span><i class="fas fa-leaf"></i> FSC Certified</span>
-                </div>
-
-                <div class="add-to-cart">
-                    <div class="qty-selector">
-                        <button id="qtyDec" aria-label="Decrease quantity">−</button>
-                        <span id="qtyDisplay">1</span>
-                        <button id="qtyInc" aria-label="Increase quantity">+</button>
+        <!-- ========== PRODUCT DETAIL PAGE (PDP) demo ========== -->
+        <section class="pdp-wrapper" id="pdp">
+            <div class="container">
+                <div class="pdp-grid">
+                    <!-- PDP Image - normal image replacing 3D viewer -->
+                    <div class="pdp-viewer">
+                        <img
+                        id="pdpMainImage"
+                        src="https://i.pinimg.com/1200x/6f/bc/e4/6fbce4bc9360ed7ac91d9cc3065224e1.jpg"
+                        alt="Dakiwa TV Stand - Oak"
+                        loading="lazy"
+                        />
+                        <button class="ar-btn" id="arBtn" style="display:none;">
+                            <i class="fas fa-vr-cardboard"></i> View in AR
+                        </button>
                     </div>
-                    <button class="cart-btn" id="pdpAddToCart">
-                        <i class="fas fa-plus" style="margin-right:8px;"></i> Add to Cart
-                    </button>
+
+                    <div class="pdp-info">
+                        <h1 class="product-name" id="pdpName"> TV Stand</h1>
+                        <div class="product-price" id="pdpPrice">KSh 9,000</div>
+                        <p class="product-desc" id="pdpDesc">
+                            A sculptural balance of solid oak and brushed steel.
+                            Designed to breathe — with soft-close doors and hidden cable management.
+                        </p>
+
+                        <div class="meta-row" id="pdpMeta">
+                            <span><i class="fas fa-ruler-combined"></i> <span id="pdpDimensions">160 × 45 × 55 cm</span></span>
+                            <span><i class="fas fa-tree"></i> <span id="pdpMaterial">Oak / Walnut</span></span>
+                            <span><i class="fas fa-leaf"></i> FSC Certified</span>
+                        </div>
+
+                        <div class="add-to-cart">
+                            <div class="qty-selector">
+                                <button id="qtyDec" aria-label="Decrease quantity">−</button>
+                                <span id="qtyDisplay">1</span>
+                                <button id="qtyInc" aria-label="Increase quantity">+</button>
+                            </div>
+                            <button class="cart-btn" id="pdpAddToCart">
+                                <i class="fas fa-plus" style="margin-right:8px;"></i> Add to Cart
+                            </button>
+                        </div>
+
+                        <!-- Complete the Look -->
+                        <div class="complete-look">
+                            <h4><i class="fas fa-magic" style="margin-right:6px;color:var(--color-warm-accent);"></i> Complete the Look</h4>
+                            <div class="look-carousel" id="lookCarousel">
+                                <!-- Injected by JS -->
+                            </div>
+                        </div>
+                    </div>
                 </div>
 
-                <!-- Complete the Look -->
-                <div class="complete-look">
-                    <h4><i class="fas fa-magic" style="margin-right:6px;color:var(--color-warm-accent);"></i> Complete the Look</h4>
-                    <div class="look-carousel" id="lookCarousel">
+                <!-- Customers also bought -->
+                <div class="also-bought">
+                    <h3>Customers also bought</h3>
+                    <div class="drag-carousel" id="alsoBought">
                         <!-- Injected by JS -->
                     </div>
                 </div>
-            </div>
-        </div>
 
-        <!-- Customers also bought -->
-        <div class="also-bought">
-            <h3>Customers also bought</h3>
-            <div class="drag-carousel" id="alsoBought">
-                <!-- Injected by JS -->
-            </div>
-        </div>
-
-        <!-- Trace (sustainability) -->
-        <div class="trace-section">
-            <h3 style="font-family:var(--font-serif);font-weight:400;font-size:1.4rem;">
-                <i class="fas fa-seedling" style="color:var(--color-warm-accent);margin-right:10px;"></i>
-                Trace the journey
-            </h3>
-            <p style="color:var(--color-gray-500);font-weight:300;max-width:500px;margin-top:4px;">
-                From forest to workshop — every piece has a story.
-            </p>
-            <div class="trace-timeline">
-                <div class="trace-step">
-                    <div class="step-icon">1</div>
-                    <div class="step-content">
-                        <div class="step-title">Sustainably harvested</div>
-                        <div class="step-desc">Oak from FSC-certified forests in Sweden</div>
-                    </div>
-                </div>
-                <div class="trace-step">
-                    <div class="step-icon">2</div>
-                    <div class="step-content">
-                        <div class="step-title">Handcrafted in Kyoto</div>
-                        <div class="step-desc">Meticulously shaped by master artisans</div>
-                    </div>
-                </div>
-                <div class="trace-step">
-                    <div class="step-icon">3</div>
-                    <div class="step-content">
-                        <div class="step-title">Finished with natural oils</div>
-                        <div class="step-desc">Non-toxic, plant-based protection</div>
-                    </div>
-                </div>
-                <div class="trace-step">
-                    <div class="step-icon">4</div>
-                    <div class="step-content">
-                        <div class="step-title">Delivered to your door</div>
-                        <div class="step-desc">Carbon-neutral shipping, with care</div>
+                <!-- Trace (sustainability) - Kenya focused -->
+                <div class="trace-section">
+                    <h3 style="font-family:var(--font-serif);font-weight:400;font-size:1.4rem;">
+                        <i class="fas fa-seedling" style="color:var(--color-warm-accent);margin-right:10px;"></i>
+                        Trace the journey
+                    </h3>
+                    <p style="color:var(--color-gray-500);font-weight:300;max-width:500px;margin-top:4px;">
+                        From Kenyan forests to your home — every piece has a story.
+                    </p>
+                    <div class="trace-timeline">
+                        <div class="trace-step">
+                            <div class="step-icon">1</div>
+                            <div class="step-content">
+                                <div class="step-title">Sustainably harvested</div>
+                                <div class="step-desc">Oak from FSC-certified forests in Kenya</div>
+                            </div>
+                        </div>
+                        <div class="trace-step">
+                            <div class="step-icon">2</div>
+                            <div class="step-content">
+                                <div class="step-title">Handcrafted in Nairobi</div>
+                                <div class="step-desc">Meticulously shaped by master artisans</div>
+                            </div>
+                        </div>
+                        <div class="trace-step">
+                            <div class="step-icon">3</div>
+                            <div class="step-content">
+                                <div class="step-title">Finished with natural oils</div>
+                                <div class="step-desc">Non-toxic, plant-based protection</div>
+                            </div>
+                        </div>
+                        <div class="trace-step">
+                            <div class="step-icon">4</div>
+                            <div class="step-content">
+                                <div class="step-title">Delivered to your door</div>
+                                <div class="step-desc">Carbon-neutral shipping, with care</div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
-    </div>
-</section>
+        </section>
 
-</main>
+    </main>
 
-<!-- =============================================
-FOOTER
-============================================= -->
-<footer class="site-footer">
-    <div class="container">
-        <div class="footer-grid">
-            <div class="footer-brand">
-                <a href="#" class="logo">
-                    <i class="fas fa-chair"></i>
-                    Dakiwa<span>.</span>
-                </a>
-                <p>Furniture that breathes. Timeless design for modern living.</p>
+    <!-- =============================================
+    FOOTER
+    ============================================= -->
+    <footer class="site-footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <a href="#" class="logo">
+                        <i class="fas fa-chair"></i>
+                        Dakiwa<span>.</span>
+                    </a>
+                    <p>Furniture that breathes. Timeless design for modern living, crafted in Kenya.</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Explore</h4>
+                    <a href="#">Shop</a>
+                    <a href="#">Our Story</a>
+                    <a href="#">Journal</a>
+                    <a href="#">Contact</a>
+                </div>
+                <div class="footer-col">
+                    <h4>Support</h4>
+                    <a href="#">FAQ</a>
+                    <a href="#">Shipping</a>
+                    <a href="#">Returns</a>
+                    <a href="#">Care Guide</a>
+                </div>
             </div>
-            <div class="footer-col">
-                <h4>Explore</h4>
-                <a href="#">Shop</a>
-                <a href="#">Our Story</a>
-                <a href="#">Journal</a>
-                <a href="#">Contact</a>
-            </div>
-            <div class="footer-col">
-                <h4>Support</h4>
-                <a href="#">FAQ</a>
-                <a href="#">Shipping</a>
-                <a href="#">Returns</a>
-                <a href="#">Care Guide</a>
+            <div class="footer-bottom">
+                &copy; 2026 Dakiwa Furnitures. Crafted with intention in Kenya.
             </div>
         </div>
-        <div class="footer-bottom">
-            &copy; 2026 Dakiwa Furnitures. Crafted with intention.
-        </div>
-    </div>
-</footer>
+    </footer>
 
-<!-- =============================================
-COOKIE CONSENT BANNER
-============================================= -->
-<div class="cookie-banner" id="cookieBanner">
-    <span>We use minimal cookies to improve your experience. No tracking, no fuss.</span>
-    <div class="cookie-actions">
-        <button id="cookieAccept">Accept</button>
-        <button class="cookie-dismiss" id="cookieDismiss">Dismiss</button>
-    </div>
-</div>
+    <!-- =============================================
+    COOKIE CONSENT BANNER
+    ============================================= -->
+   
 
-<!-- =============================================
-JAVASCRIPT
-============================================= -->
-<script>
-    (function() {
-        'use strict';
+    <!-- =============================================
+    JAVASCRIPT – Resilient with error handling
+    ============================================= -->
+    <script>
+        (function() {
+            'use strict';
 
-        // =============================================
-        // DATA
-        // =============================================
-        const products = [{
-            id: 1,
-            name: 'Oslo TV Stand',
-            category: 'TV Stands',
-            price: 1490,
-            material: 'Oak',
-            colour: 'Oak',
-            image: 'https://images.unsplash.com/photo-1594026112284-02bb6f3352fe?w=600&h=600&fit=crop&crop=center&auto=format',
-            desc: 'Sculptural balance of solid oak and brushed steel.',
-            dimensions: '160 × 45 × 55 cm'
-        }, {
-            id: 2,
-            name: 'Kyoto Bed Frame',
-            category: 'Beds',
-            price: 2450,
-            material: 'Walnut',
-            colour: 'Walnut',
-            image: 'https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?w=600&h=600&fit=crop&crop=center&auto=format',
-            desc: 'A floating platform bed with hand-joined walnut headboard.',
-            dimensions: '200 × 180 × 90 cm'
-        }, {
-            id: 3,
-            name: 'Hiroshi Lounge Chair',
-            category: 'Chairs',
-            price: 890,
-            material: 'Fabric',
-            colour: 'Charcoal',
-            image: 'https://images.unsplash.com/photo-1567538096630-e0c55bd6374c?w=600&h=600&fit=crop&crop=center&auto=format',
-            desc: 'Wrapped in bouclé with a solid oak frame. Pure comfort.',
-            dimensions: '70 × 72 × 68 cm'
-        }, {
-            id: 4,
-            name: 'Sakura Dining Table',
-            category: 'Tables',
-            price: 3200,
-            material: 'Marble',
-            colour: 'Ivory',
-            image: 'https://images.unsplash.com/photo-1617806118233-18e1de247200?w=600&h=600&fit=crop&crop=center&auto=format',
-            desc: 'Italian Carrara marble meets sculpted oak base.',
-            dimensions: '240 × 100 × 76 cm'
-        }, {
-            id: 5,
-            name: 'Kumo Sideboard',
-            category: 'TV Stands',
-            price: 1850,
-            material: 'Wood',
-            colour: 'Natural',
-            image: 'https://images.unsplash.com/photo-1597019558926-4a596af6e5cf?w=600&h=600&fit=crop&crop=center&auto=format',
-            desc: 'Cloud-like curves with soft-close doors and hidden compartments.',
-            dimensions: '180 × 50 × 80 cm'
-        }, {
-            id: 6,
-            name: 'Zen Stool',
-            category: 'Chairs',
-            price: 420,
-            material: 'Metal',
-            colour: 'Charcoal',
-            image: 'https://images.unsplash.com/photo-1592078615290-033ee584e267?w=600&h=600&fit=crop&crop=center&auto=format',
-            desc: 'Minimalist steel frame with a warm walnut seat.',
-            dimensions: '45 × 45 × 48 cm'
-        }];
+            // =============================================
+            // DATA - Kenya-focused product names and KSh pricing
+            // =============================================
+            const products = [{
+                id: 1,
+                name: ' TV Stand',
+                category: 'TV Stands',
+                price: ,
+                material: 'Oak',
+                colour: 'Oak',
+                image: 'https://i.pinimg.com/1200x/04/74/0a/04740afdda9db416b78fa98282926eb8.jpg',
+                desc: 'Sculptural balance of solid oak and brushed steel.',
+                dimensions: '160 × 45 × 55 cm'
+            }, {
+                id: 2,
+                name: ' Bed Frame',
+                category: 'Beds',
+                price: ,
+                material: 'Walnut',
+                colour: 'Walnut',
+                image: 'https://i.pinimg.com/1200x/77/44/de/7744de123cfc8a9e379da1f59c91d04a.jpg',
+                desc: 'A floating platform bed with hand-joined walnut headboard.',
+                dimensions: '200 × 180 × 90 cm'
+            }, {
+                id: 3,
+                name: ' Lounge Chair',
+                category: 'Chairs',
+                price: 89000,
+                material: 'Fabric',
+                colour: 'Charcoal',
+                image: 'https://i.pinimg.com/1200x/be/12/1e/be121e719c5738af90a53879bfcb4a86.jpg',
+                desc: 'Wrapped in bouclé with a solid oak frame. Pure comfort.',
+                dimensions: '70 × 72 × 68 cm'
+            }, {
+                id: 4,
+                name: ' Dining Table',
+                category: 'Tables',
+                price: ,
+                material: 'Marble',
+                colour: 'Ivory',
+                image: 'https://i.pinimg.com/1200x/cc/66/0c/cc660c538a11952368f910e2e226d184.jpg',
+                desc: 'Italian Carrara marble meets sculpted oak base.',
+                dimensions: '240 × 100 × 76 cm'
+            }, {
+                id: 5,
+                name: ' Sideboard',
+                category: 'TV Stands',
+                price: 185000,
+                material: 'Wood',
+                colour: 'Natural',
+                image: 'https://i.pinimg.com/736x/22/9f/02/229f02b5e8a28c3f9f077348dad6a4de.jpg',
+                desc: 'Cloud-like curves with soft-close doors and hidden compartments.',
+                dimensions: '180 × 50 × 80 cm'
+            }, {
+                id: 6,
+                name: ' Stool',
+                category: 'Chairs',
+                price: 42000,
+                material: 'Metal',
+                colour: 'Charcoal',
+                image: 'https://i.pinimg.com/736x/13/21/b3/1321b3e6fa5ac3ef3c11fa1e8091fe81.jpg',
+                desc: 'Minimalist steel frame with a warm walnut seat.',
+                dimensions: '45 × 45 × 48 cm'
+            }];
 
-        const featuredItems = [
-            { name: 'Oslo TV Stand', price: '$1,490', image: 'https://images.unsplash.com/photo-1594026112284-02bb6f3352fe?w=400&h=300&fit=crop&crop=center&auto=format' },
-            { name: 'Kyoto Bed', price: '$2,450', image: 'https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?w=400&h=300&fit=crop&crop=center&auto=format' },
-            { name: 'Hiroshi Chair', price: '$890', image: 'https://images.unsplash.com/photo-1567538096630-e0c55bd6374c?w=400&h=300&fit=crop&crop=center&auto=format' },
-            { name: 'Sakura Table', price: '$3,200', image: 'https://images.unsplash.com/photo-1617806118233-18e1de247200?w=400&h=300&fit=crop&crop=center&auto=format' },
-            { name: 'Kumo Sideboard', price: '$1,850', image: 'https://images.unsplash.com/photo-1597019558926-4a596af6e5cf?w=400&h=300&fit=crop&crop=center&auto=format' },
-        ];
+           
 
-        const lookItems = [
-            { name: 'Kumo Sideboard', image: 'https://images.unsplash.com/photo-1597019558926-4a596af6e5cf?w=200&h=200&fit=crop&crop=center&auto=format' },
-            { name: 'Zen Stool', image: 'https://images.unsplash.com/photo-1592078615290-033ee584e267?w=200&h=200&fit=crop&crop=center&auto=format' },
-            { name: 'Hiroshi Chair', image: 'https://images.unsplash.com/photo-1567538096630-e0c55bd6374c?w=200&h=200&fit=crop&crop=center&auto=format' },
-            { name: 'Oslo TV Stand', image: 'https://images.unsplash.com/photo-1594026112284-02bb6f3352fe?w=200&h=200&fit=crop&crop=center&auto=format' },
-        ];
+          
 
-        const alsoBoughtItems = [
-            { name: 'Kumo Sideboard', price: '$1,850', image: 'https://images.unsplash.com/photo-1597019558926-4a596af6e5cf?w=300&h=200&fit=crop&crop=center&auto=format' },
-            { name: 'Zen Stool', price: '$420', image: 'https://images.unsplash.com/photo-1592078615290-033ee584e267?w=300&h=200&fit=crop&crop=center&auto=format' },
-            { name: 'Hiroshi Chair', price: '$890', image: 'https://images.unsplash.com/photo-1567538096630-e0c55bd6374c?w=300&h=200&fit=crop&crop=center&auto=format' },
-            { name: 'Sakura Table', price: '$3,200', image: 'https://images.unsplash.com/photo-1617806118233-18e1de247200?w=300&h=200&fit=crop&crop=center&auto=format' },
-            { name: 'Oslo TV Stand', price: '$1,490', image: 'https://images.unsplash.com/photo-1594026112284-02bb6f3352fe?w=300&h=200&fit=crop&crop=center&auto=format' },
-        ];
+            // =============================================
+            // STATE
+            // =============================================
+            let cart = [];
+            let currentQty = 1;
+            let theme = localStorage.getItem('dakiwa-theme') ||
+                (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
 
-        // =============================================
-        // STATE
-        // =============================================
-        let cart = [];
-        let currentQty = 1;
-        let theme = localStorage.getItem('dakiwa-theme') ||
-            (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+            // =============================================
+            // DOM REFS with safe access
+            // =============================================
+            const $ = (sel) => document.querySelector(sel);
+            const $$ = (sel) => document.querySelectorAll(sel);
 
-        // =============================================
-        // DOM REFS
-        // =============================================
-        const $ = (sel) => document.querySelector(sel);
-        const $$ = (sel) => document.querySelectorAll(sel);
+            const productGrid = $('#productGrid');
+            const featuredTrack = $('#featuredTrack');
+            const lookCarousel = $('#lookCarousel');
+            const alsoBought = $('#alsoBought');
+            const cartItems = $('#cartItems');
+            const cartTotal = $('#cartTotal');
+            const cartBadge = $('#cartBadge');
+            const cartPanel = $('#cartPanel');
+            const cartOverlay = $('#cartOverlay');
+            const menuOverlay = $('#menuOverlay');
+            const filtersPanel = $('#filtersPanel');
+            const cookieBanner = $('#cookieBanner');
+            const qtyDisplay = $('#qtyDisplay');
 
-        const productGrid = $('#productGrid');
-        const featuredTrack = $('#featuredTrack');
-        const lookCarousel = $('#lookCarousel');
-        const alsoBought = $('#alsoBought');
-        const cartItems = $('#cartItems');
-        const cartTotal = $('#cartTotal');
-        const cartBadge = $('#cartBadge');
-        const cartPanel = $('#cartPanel');
-        const cartOverlay = $('#cartOverlay');
-        const menuOverlay = $('#menuOverlay');
-        const filtersPanel = $('#filtersPanel');
-        const cookieBanner = $('#cookieBanner');
-        const qtyDisplay = $('#qtyDisplay');
-
-        // =============================================
-        // RENDER FUNCTIONS
-        // =============================================
-        function renderProducts() {
-            productGrid.innerHTML = products.map(p => `
-                        <div class="product-card" data-id="${p.id}">
-                            <img class="card-image" src="${p.image}" alt="${p.name}" loading="lazy" />
-                            <button class="quick-view" data-id="${p.id}">Quick View</button>
-                            <div class="card-overlay">
-                                <div class="name">${p.name}</div>
-                                <div class="desc">${p.desc}</div>
-                                <div class="price">$${p.price.toLocaleString()}</div>
-                            </div>
-                        </div>
-                    `).join('');
-        }
-
-        function renderFeatured() {
-            featuredTrack.innerHTML = featuredItems.map(item => `
-                        <div class="scroll-item">
-                            <img src="${item.image}" alt="${item.name}" loading="lazy" />
-                            <div class="item-info">
-                                <h4>${item.name}</h4>
-                                <p>${item.price}</p>
-                            </div>
-                        </div>
-                    `).join('');
-        }
-
-        function renderLook() {
-            lookCarousel.innerHTML = lookItems.map(item => `
-                        <div class="look-item">
-                            <img src="${item.image}" alt="${item.name}" loading="lazy" />
-                            <div class="label">${item.name}</div>
-                        </div>
-                    `).join('');
-        }
-
-        function renderAlsoBought() {
-            alsoBought.innerHTML = alsoBoughtItems.map(item => `
-                        <div class="item">
-                            <img src="${item.image}" alt="${item.name}" loading="lazy" />
-                            <div class="info">
-                                <div class="name">${item.name}</div>
-                                <div class="price">${item.price}</div>
-                            </div>
-                        </div>
-                    `).join('');
-        }
-
-        function renderCart() {
-            if (cart.length === 0) {
-                cartItems.innerHTML = `
-                            <div class="cart-empty">
-                                <i class="fas fa-shopping-bag"></i>
-                                <p>Your cart is empty.<br />Start adding some beautiful pieces.</p>
-                            </div>
-                        `;
-                cartTotal.textContent = '$0.00';
-                cartBadge.textContent = '0';
-                return;
+            // =============================================
+            // RENDER FUNCTIONS with error handling
+            // =============================================
+            function renderProducts() {
+                try {
+                    if (!productGrid) return;
+                    productGrid.innerHTML = products.map(p => `
+                                <div class="product-card" data-id="${p.id}">
+                                    <img class="card-image" src="${p.image}" alt="${p.name}" loading="lazy" onerror="this.src='https://placehold.co/600x600/FAFAF9/1E1E1E?text=Image+Not+Found'" />
+                                    <button class="quick-view" data-id="${p.id}">Quick View</button>
+                                    <div class="card-overlay">
+                                        <div class="name">${p.name}</div>
+                                        <div class="desc">${p.desc}</div>
+                                        <div class="price">KSh ${p.price.toLocaleString()}</div>
+                                    </div>
+                                </div>
+                            `).join('');
+                } catch (e) {
+                    console.warn('Error rendering products:', e);
+                }
             }
 
-            let html = '';
-            let total = 0;
-            cart.forEach((item, index) => {
-                const subtotal = item.price * item.qty;
-                total += subtotal;
-                html += `
-                            <div class="cart-item" data-index="${index}">
-                                <img src="${item.image}" alt="${item.name}" loading="lazy" />
-                                <div class="item-details">
-                                    <div class="name">${item.name}</div>
-                                    <div class="price">$${item.price.toLocaleString()}</div>
+            function renderFeatured() {
+                try {
+                    if (!featuredTrack) return;
+                    featuredTrack.innerHTML = featuredItems.map(item => `
+                                <div class="scroll-item">
+                                    <img src="${item.image}" alt="${item.name}" loading="lazy" onerror="this.src='https://placehold.co/400x300/FAFAF9/1E1E1E?text=Image+Not+Found'" />
+                                    <div class="item-info">
+                                        <h4>${item.name}</h4>
+                                        <p>${item.price}</p>
+                                    </div>
                                 </div>
-                                <div class="qty-control">
-                                    <button class="cart-qty-dec" data-index="${index}">−</button>
-                                    <span>${item.qty}</span>
-                                    <button class="cart-qty-inc" data-index="${index}">+</button>
+                            `).join('');
+                } catch (e) {
+                    console.warn('Error rendering featured:', e);
+                }
+            }
+
+            function renderLook() {
+                try {
+                    if (!lookCarousel) return;
+                    lookCarousel.innerHTML = lookItems.map(item => `
+                                <div class="look-item">
+                                    <img src="${item.image}" alt="${item.name}" loading="lazy" onerror="this.src='https://placehold.co/200x200/FAFAF9/1E1E1E?text=Image+Not+Found'" />
+                                    <div class="label">${item.name}</div>
                                 </div>
-                                <button class="remove-item" data-index="${index}">
-                                    <i class="fas fa-trash-alt"></i>
-                                </button>
-                            </div>
-                        `;
-            });
+                            `).join('');
+                } catch (e) {
+                    console.warn('Error rendering look items:', e);
+                }
+            }
 
-            cartItems.innerHTML = html;
-            cartTotal.textContent = '$' + total.toLocaleString();
-            cartBadge.textContent = cart.reduce((sum, i) => sum + i.qty, 0);
+            function renderAlsoBought() {
+                try {
+                    if (!alsoBought) return;
+                    alsoBought.innerHTML = alsoBoughtItems.map(item => `
+                                <div class="item">
+                                    <img src="${item.image}" alt="${item.name}" loading="lazy" onerror="this.src='https://placehold.co/300x200/FAFAF9/1E1E1E?text=Image+Not+Found'" />
+                                    <div class="info">
+                                        <div class="name">${item.name}</div>
+                                        <div class="price">${item.price}</div>
+                                    </div>
+                                </div>
+                            `).join('');
+                } catch (e) {
+                    console.warn('Error rendering also bought:', e);
+                }
+            }
 
-            // Attach cart events
-            cartItems.querySelectorAll('.cart-qty-dec').forEach(btn => {
-                btn.addEventListener('click', function() {
-                    const idx = parseInt(this.dataset.index);
-                    if (cart[idx].qty > 1) {
-                        cart[idx].qty--;
-                    } else {
-                        cart.splice(idx, 1);
+            function renderCart() {
+                try {
+                    if (!cartItems || !cartTotal || !cartBadge) return;
+
+                    if (cart.length === 0) {
+                        cartItems.innerHTML = `
+                                    <div class="cart-empty">
+                                        <i class="fas fa-shopping-bag"></i>
+                                        <p>Your cart is empty.<br />Start adding some beautiful pieces.</p>
+                                    </div>
+                                `;
+                        cartTotal.textContent = 'KSh 0.00';
+                        cartBadge.textContent = '0';
+                        return;
                     }
-                    renderCart();
-                    saveCart();
-                });
-            });
 
-            cartItems.querySelectorAll('.cart-qty-inc').forEach(btn => {
-                btn.addEventListener('click', function() {
-                    const idx = parseInt(this.dataset.index);
-                    cart[idx].qty++;
-                    renderCart();
-                    saveCart();
-                });
-            });
+                    let html = '';
+                    let total = 0;
+                    cart.forEach((item, index) => {
+                        const subtotal = item.price * item.qty;
+                        total += subtotal;
+                        html += `
+                                    <div class="cart-item" data-index="${index}">
+                                        <img src="${item.image}" alt="${item.name}" loading="lazy" onerror="this.src='https://placehold.co/60x60/FAFAF9/1E1E1E?text=?'" />
+                                        <div class="item-details">
+                                            <div class="name">${item.name}</div>
+                                            <div class="price">KSh ${item.price.toLocaleString()}</div>
+                                        </div>
+                                        <div class="qty-control">
+                                            <button class="cart-qty-dec" data-index="${index}">−</button>
+                                            <span>${item.qty}</span>
+                                            <button class="cart-qty-inc" data-index="${index}">+</button>
+                                        </div>
+                                        <button class="remove-item" data-index="${index}">
+                                            <i class="fas fa-trash-alt"></i>
+                                        </button>
+                                    </div>
+                                `;
+                    });
 
-            cartItems.querySelectorAll('.remove-item').forEach(btn => {
-                btn.addEventListener('click', function() {
-                    const idx = parseInt(this.dataset.index);
-                    cart.splice(idx, 1);
-                    renderCart();
-                    saveCart();
-                });
-            });
-        }
+                    cartItems.innerHTML = html;
+                    cartTotal.textContent = 'KSh ' + total.toLocaleString();
+                    cartBadge.textContent = cart.reduce((sum, i) => sum + i.qty, 0);
 
-        // =============================================
-        // CART PERSISTENCE
-        // =============================================
-        function saveCart() {
-            try {
-                localStorage.setItem('dakiwa-cart', JSON.stringify(cart));
-            } catch (_) { /* ignore */ }
-        }
+                    // Attach cart events with safe binding
+                    cartItems.querySelectorAll('.cart-qty-dec').forEach(btn => {
+                        btn.addEventListener('click', function() {
+                            try {
+                                const idx = parseInt(this.dataset.index);
+                                if (cart[idx] && cart[idx].qty > 1) {
+                                    cart[idx].qty--;
+                                } else if (cart[idx]) {
+                                    cart.splice(idx, 1);
+                                }
+                                renderCart();
+                                saveCart();
+                            } catch (e) { console.warn('Cart dec error:', e); }
+                        });
+                    });
 
-        function loadCart() {
-            try {
-                const data = localStorage.getItem('dakiwa-cart');
-                if (data) {
-                    cart = JSON.parse(data);
-                    if (!Array.isArray(cart)) cart = [];
+                    cartItems.querySelectorAll('.cart-qty-inc').forEach(btn => {
+                        btn.addEventListener('click', function() {
+                            try {
+                                const idx = parseInt(this.dataset.index);
+                                if (cart[idx]) {
+                                    cart[idx].qty++;
+                                }
+                                renderCart();
+                                saveCart();
+                            } catch (e) { console.warn('Cart inc error:', e); }
+                        });
+                    });
+
+                    cartItems.querySelectorAll('.remove-item').forEach(btn => {
+                        btn.addEventListener('click', function() {
+                            try {
+                                const idx = parseInt(this.dataset.index);
+                                cart.splice(idx, 1);
+                                renderCart();
+                                saveCart();
+                            } catch (e) { console.warn('Cart remove error:', e); }
+                        });
+                    });
+                } catch (e) {
+                    console.warn('Error rendering cart:', e);
                 }
-            } catch (_) { cart = []; }
-            renderCart();
-        }
-
-        // =============================================
-        // THEME
-        // =============================================
-        function setTheme(t) {
-            theme = t;
-            document.documentElement.setAttribute('data-theme', t);
-            localStorage.setItem('dakiwa-theme', t);
-            const icon = $('#themeIcon');
-            if (t === 'dark') {
-                icon.className = 'fas fa-sun';
-            } else {
-                icon.className = 'fas fa-moon';
             }
-        }
 
-        // =============================================
-        // UI TOGGLES
-        // =============================================
-        function toggleMenu(open) {
-            menuOverlay.classList.toggle('open', open);
-            const hamburger = $('#menuToggle');
-            hamburger.classList.toggle('active', open);
-            document.body.style.overflow = open ? 'hidden' : '';
-        }
-
-        function toggleCart(open) {
-            const isOpen = open !== undefined ? open : !cartPanel.classList.contains('open');
-            cartPanel.classList.toggle('open', isOpen);
-            cartOverlay.classList.toggle('open', isOpen);
-            document.body.style.overflow = isOpen ? 'hidden' : '';
-        }
-
-        function toggleFilters(open) {
-            const isOpen = open !== undefined ? open : !filtersPanel.classList.contains('open');
-            filtersPanel.classList.toggle('open', isOpen);
-            document.body.style.overflow = isOpen ? 'hidden' : '';
-        }
-
-        // =============================================
-        // EVENT BINDING
-        // =============================================
-        function init() {
-            // Theme
-            setTheme(theme);
-            $('#themeToggle').addEventListener('click', () => {
-                setTheme(theme === 'dark' ? 'light' : 'dark');
-            });
-
-            // Menu
-            $('#menuToggle').addEventListener('click', () => toggleMenu());
-            $('#closeMenu').addEventListener('click', () => toggleMenu(false));
-            menuOverlay.addEventListener('click', (e) => {
-                if (e.target === menuOverlay) toggleMenu(false);
-            });
-
-            // Cart
-            $('#cartToggle').addEventListener('click', () => toggleCart());
-            $('#closeCart').addEventListener('click', () => toggleCart(false));
-            cartOverlay.addEventListener('click', () => toggleCart(false));
-
-            // Filters
-            $('#filtersToggle').addEventListener('click', () => toggleFilters());
-            $('#closeFilters').addEventListener('click', () => toggleFilters(false));
-
-            // Cookie banner
-            if (!localStorage.getItem('dakiwa-cookie')) {
-                setTimeout(() => cookieBanner.classList.add('show'), 1200);
+            // =============================================
+            // CART PERSISTENCE with error handling
+            // =============================================
+            function saveCart() {
+                try {
+                    localStorage.setItem('dakiwa-cart', JSON.stringify(cart));
+                } catch (_) { /* ignore */ }
             }
-            $('#cookieAccept').addEventListener('click', () => {
-                localStorage.setItem('dakiwa-cookie', 'accepted');
-                cookieBanner.classList.remove('show');
-            });
-            $('#cookieDismiss').addEventListener('click', () => {
-                localStorage.setItem('dakiwa-cookie', 'dismissed');
-                cookieBanner.classList.remove('show');
-            });
 
-            // PDP quantity
-            $('#qtyDec').addEventListener('click', () => {
-                if (currentQty > 1) { currentQty--;
-                    qtyDisplay.textContent = currentQty; }
-            });
-            $('#qtyInc').addEventListener('click', () => {
-                currentQty++;
-                qtyDisplay.textContent = currentQty;
-            });
-
-            // PDP Add to Cart
-            $('#pdpAddToCart').addEventListener('click', () => {
-                const p = products[0];
-                const existing = cart.find(item => item.id === p.id);
-                if (existing) {
-                    existing.qty += currentQty;
-                } else {
-                    cart.push({ ...p, qty: currentQty });
-                }
+            function loadCart() {
+                try {
+                    const data = localStorage.getItem('dakiwa-cart');
+                    if (data) {
+                        const parsed = JSON.parse(data);
+                        if (Array.isArray(parsed)) cart = parsed;
+                    }
+                } catch (_) { cart = []; }
                 renderCart();
-                saveCart();
-                toggleCart(true);
-                currentQty = 1;
-                qtyDisplay.textContent = '1';
-            });
-
-            // Quick view buttons (delegated)
-            productGrid.addEventListener('click', (e) => {
-                const btn = e.target.closest('.quick-view');
-                if (btn) {
-                    const id = parseInt(btn.dataset.id);
-                    const p = products.find(pr => pr.id === id);
-                    if (p) {
-                        // scroll to PDP and update
-                        document.getElementById('pdp').scrollIntoView({ behavior: 'smooth' });
-                        // update PDP with product data
-                        const nameEl = document.querySelector('.pdp-info .product-name');
-                        const priceEl = document.querySelector('.pdp-info .product-price');
-                        const descEl = document.querySelector('.pdp-info .product-desc');
-                        if (nameEl) nameEl.textContent = p.name;
-                        if (priceEl) priceEl.textContent = '$' + p.price.toLocaleString();
-                        if (descEl) descEl.textContent = p.desc;
-                        // update meta
-                        const metaRow = document.querySelector('.pdp-info .meta-row');
-                        if (metaRow) {
-                            metaRow.innerHTML = `
-                                        <span><i class="fas fa-ruler-combined"></i> ${p.dimensions || '160 × 45 × 55 cm'}</span>
-                                        <span><i class="fas fa-tree"></i> ${p.material}</span>
-                                        <span><i class="fas fa-leaf"></i> FSC Certified</span>
-                                    `;
-                        }
-                        // update model-viewer src (just for demo, we keep the helmet)
-                        // In production, you'd swap the 3D model source.
-                    }
-                }
-            });
-
-            // Product card click to PDP
-            productGrid.addEventListener('click', (e) => {
-                const card = e.target.closest('.product-card');
-                if (card && !e.target.closest('.quick-view')) {
-                    const id = parseInt(card.dataset.id);
-                    const p = products.find(pr => pr.id === id);
-                    if (p) {
-                        document.getElementById('pdp').scrollIntoView({ behavior: 'smooth' });
-                        const nameEl = document.querySelector('.pdp-info .product-name');
-                        const priceEl = document.querySelector('.pdp-info .product-price');
-                        const descEl = document.querySelector('.pdp-info .product-desc');
-                        if (nameEl) nameEl.textContent = p.name;
-                        if (priceEl) priceEl.textContent = '$' + p.price.toLocaleString();
-                        if (descEl) descEl.textContent = p.desc;
-                        const metaRow = document.querySelector('.pdp-info .meta-row');
-                        if (metaRow) {
-                            metaRow.innerHTML = `
-                                        <span><i class="fas fa-ruler-combined"></i> ${p.dimensions || '160 × 45 × 55 cm'}</span>
-                                        <span><i class="fas fa-tree"></i> ${p.material}</span>
-                                        <span><i class="fas fa-leaf"></i> FSC Certified</span>
-                                    `;
-                        }
-                    }
-                }
-            });
-
-            // AR button
-            $('#arBtn').addEventListener('click', () => {
-                const viewer = document.querySelector('.pdp-viewer model-viewer');
-                if (viewer && viewer.canActivateAR) {
-                    viewer.activateAR();
-                } else {
-                    alert('AR is not supported on this device.\nTry using a compatible mobile browser.');
-                }
-            });
-
-            // Keyboard shortcuts: Escape to close overlays
-            document.addEventListener('keydown', (e) => {
-                if (e.key === 'Escape') {
-                    if (cartPanel.classList.contains('open')) toggleCart(false);
-                    if (filtersPanel.classList.contains('open')) toggleFilters(false);
-                    if (menuOverlay.classList.contains('open')) toggleMenu(false);
-                }
-            });
-
-            // Render everything
-            renderProducts();
-            renderFeatured();
-            renderLook();
-            renderAlsoBought();
-            loadCart();
-
-            // Intersection Observer for fade-in animations
-            const observer = new IntersectionObserver((entries) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        entry.target.style.opacity = '1';
-                        entry.target.style.transform = 'translateY(0)';
-                    }
-                });
-            }, { threshold: 0.1 });
-
-            document.querySelectorAll('.animate-fade-in-up, .animate-fade-in, .animate-scale-in')
-                .forEach(el => {
-                    if (!el.style.opacity) {
-                        el.style.opacity = '0';
-                        el.style.transform = 'translateY(24px)';
-                        observer.observe(el);
-                    }
-                });
-
-            // Simulate edge personalisation: show "Continue where you left off" for returning
-            const sessionId = localStorage.getItem('dakiwa-session') || 'new';
-            if (sessionId !== 'new' && cart.length > 0) {
-                const hero = document.querySelector('.hero-text');
-                if (hero) {
-                    const p = document.createElement('p');
-                    p.style.cssText =
-                        'font-size:0.9rem;color:var(--color-warm-accent);font-weight:500;margin-top:-8px;';
-                    p.innerHTML = `<i class="fas fa-undo-alt" style="margin-right:8px;"></i> Continue where you left off — ${cart.length} item${cart.length > 1 ? 's' : ''} in your cart.`;
-                    hero.appendChild(p);
-                }
-            }
-            if (sessionId === 'new') {
-                localStorage.setItem('dakiwa-session', 'returning');
             }
 
-            console.log('Dakiwa Furnitures — built with intention.');
-        }
+            // =============================================
+            // THEME with safe DOM access
+            // =============================================
+            function setTheme(t) {
+                try {
+                    theme = t;
+                    document.documentElement.setAttribute('data-theme', t);
+                    localStorage.setItem('dakiwa-theme', t);
+                    const icon = $('#themeIcon');
+                    if (icon) {
+                        icon.className = t === 'dark' ? 'fas fa-sun' : 'fas fa-moon';
+                    }
+                } catch (e) { console.warn('Theme error:', e); }
+            }
 
-        // =============================================
-        // START
-        // =============================================
-        if (document.readyState === 'loading') {
-            document.addEventListener('DOMContentLoaded', init);
-        } else {
-            init();
-        }
+            // =============================================
+            // UI TOGGLES with safe access
+            // =============================================
+            function toggleMenu(open) {
+                try {
+                    const isOpen = open !== undefined ? open : !menuOverlay.classList.contains('open');
+                    menuOverlay.classList.toggle('open', isOpen);
+                    const hamburger = $('#menuToggle');
+                    if (hamburger) hamburger.classList.toggle('active', isOpen);
+                    document.body.style.overflow = isOpen ? 'hidden' : '';
+                } catch (e) { console.warn('Menu toggle error:', e); }
+            }
 
-    })();
-</script>
+            function toggleCart(open) {
+                try {
+                    const isOpen = open !== undefined ? open : !cartPanel.classList.contains('open');
+                    cartPanel.classList.toggle('open', isOpen);
+                    cartOverlay.classList.toggle('open', isOpen);
+                    document.body.style.overflow = isOpen ? 'hidden' : '';
+                } catch (e) { console.warn('Cart toggle error:', e); }
+            }
+
+            function toggleFilters(open) {
+                try {
+                    const isOpen = open !== undefined ? open : !filtersPanel.classList.contains('open');
+                    filtersPanel.classList.toggle('open', isOpen);
+                    document.body.style.overflow = isOpen ? 'hidden' : '';
+                } catch (e) { console.warn('Filters toggle error:', e); }
+            }
+
+            // =============================================
+            // PDP UPDATE with safe DOM access
+            // =============================================
+            function updatePDP(product) {
+                try {
+                    if (!product) return;
+                    const nameEl = document.querySelector('.pdp-info .product-name');
+                    const priceEl = document.querySelector('.pdp-info .product-price');
+                    const descEl = document.querySelector('.pdp-info .product-desc');
+                    const imgEl = document.getElementById('pdpMainImage');
+                    const dimsEl = document.getElementById('pdpDimensions');
+                    const matEl = document.getElementById('pdpMaterial');
+
+                    if (nameEl) nameEl.textContent = product.name;
+                    if (priceEl) priceEl.textContent = 'KSh ' + product.price.toLocaleString();
+                    if (descEl) descEl.textContent = product.desc;
+                    if (imgEl) {
+                        imgEl.src = product.image;
+                        imgEl.alt = product.name;
+                        imgEl.onerror = function() {
+                            this.src = 'https://placehold.co/800x600/FAFAF9/1E1E1E?text=Image+Not+Found';
+                        };
+                    }
+                    if (dimsEl) dimsEl.textContent = product.dimensions || '160 × 45 × 55 cm';
+                    if (matEl) matEl.textContent = product.material || 'Oak / Walnut';
+                } catch (e) {
+                    console.warn('Error updating PDP:', e);
+                }
+            }
+
+            // =============================================
+            // EVENT BINDING with safe handlers
+            // =============================================
+            function init() {
+                try {
+                    // Theme
+                    setTheme(theme);
+                    const themeToggle = $('#themeToggle');
+                    if (themeToggle) {
+                        themeToggle.addEventListener('click', () => {
+                            setTheme(theme === 'dark' ? 'light' : 'dark');
+                        });
+                    }
+
+                    // Menu
+                    const menuToggle = $('#menuToggle');
+                    const closeMenu = $('#closeMenu');
+                    if (menuToggle) menuToggle.addEventListener('click', () => toggleMenu());
+                    if (closeMenu) closeMenu.addEventListener('click', () => toggleMenu(false));
+                    if (menuOverlay) {
+                        menuOverlay.addEventListener('click', (e) => {
+                            if (e.target === menuOverlay) toggleMenu(false);
+                        });
+                    }
+
+                    // Cart
+                    const cartToggleBtn = $('#cartToggle');
+                    const closeCart = $('#closeCart');
+                    if (cartToggleBtn) cartToggleBtn.addEventListener('click', () => toggleCart());
+                    if (closeCart) closeCart.addEventListener('click', () => toggleCart(false));
+                    if (cartOverlay) cartOverlay.addEventListener('click', () => toggleCart(false));
+
+                    // Filters
+                    const filtersToggle = $('#filtersToggle');
+                    const closeFilters = $('#closeFilters');
+                    if (filtersToggle) filtersToggle.addEventListener('click', () => toggleFilters());
+                    if (closeFilters) closeFilters.addEventListener('click', () => toggleFilters(false));
+
+                    // Cookie banner
+                    if (!localStorage.getItem('dakiwa-cookie')) {
+                        setTimeout(() => {
+                            if (cookieBanner) cookieBanner.classList.add('show');
+                        }, 1200);
+                    }
+                    const cookieAccept = $('#cookieAccept');
+                    const cookieDismiss = $('#cookieDismiss');
+                    if (cookieAccept) {
+                        cookieAccept.addEventListener('click', () => {
+                            localStorage.setItem('dakiwa-cookie', 'accepted');
+                            if (cookieBanner) cookieBanner.classList.remove('show');
+                        });
+                    }
+                    if (cookieDismiss) {
+                        cookieDismiss.addEventListener('click', () => {
+                            localStorage.setItem('dakiwa-cookie', 'dismissed');
+                            if (cookieBanner) cookieBanner.classList.remove('show');
+                        });
+                    }
+
+                    // PDP quantity
+                    const qtyDec = $('#qtyDec');
+                    const qtyInc = $('#qtyInc');
+                    if (qtyDec) {
+                        qtyDec.addEventListener('click', () => {
+                            if (currentQty > 1) { currentQty--;
+                                if (qtyDisplay) qtyDisplay.textContent = currentQty; }
+                        });
+                    }
+                    if (qtyInc) {
+                        qtyInc.addEventListener('click', () => {
+                            currentQty++;
+                            if (qtyDisplay) qtyDisplay.textContent = currentQty;
+                        });
+                    }
+
+                    // PDP Add to Cart
+                    const pdpAddBtn = $('#pdpAddToCart');
+                    if (pdpAddBtn) {
+                        pdpAddBtn.addEventListener('click', () => {
+                            try {
+                                const p = products[0];
+                                if (!p) return;
+                                const existing = cart.find(item => item.id === p.id);
+                                if (existing) {
+                                    existing.qty += currentQty;
+                                } else {
+                                    cart.push({ ...p, qty: currentQty });
+                                }
+                                renderCart();
+                                saveCart();
+                                toggleCart(true);
+                                currentQty = 1;
+                                if (qtyDisplay) qtyDisplay.textContent = '1';
+                            } catch (e) { console.warn('Add to cart error:', e); }
+                        });
+                    }
+
+                    // Quick view buttons (delegated)
+                    if (productGrid) {
+                        productGrid.addEventListener('click', (e) => {
+                            try {
+                                const btn = e.target.closest('.quick-view');
+                                if (btn) {
+                                    const id = parseInt(btn.dataset.id);
+                                    const p = products.find(pr => pr.id === id);
+                                    if (p) {
+                                        document.getElementById('pdp').scrollIntoView({ behavior: 'smooth' });
+                                        updatePDP(p);
+                                    }
+                                }
+                            } catch (e) { console.warn('Quick view error:', e); }
+                        });
+
+                        // Product card click to PDP
+                        productGrid.addEventListener('click', (e) => {
+                            try {
+                                const card = e.target.closest('.product-card');
+                                if (card && !e.target.closest('.quick-view')) {
+                                    const id = parseInt(card.dataset.id);
+                                    const p = products.find(pr => pr.id === id);
+                                    if (p) {
+                                        document.getElementById('pdp').scrollIntoView({ behavior: 'smooth' });
+                                        updatePDP(p);
+                                    }
+                                }
+                            } catch (e) { console.warn('Product click error:', e); }
+                        });
+                    }
+
+                    // AR button - hidden since we removed 3D viewer
+                    const arBtn = $('#arBtn');
+                    if (arBtn) arBtn.style.display = 'none';
+
+                    // Keyboard shortcuts
+                    document.addEventListener('keydown', (e) => {
+                        if (e.key === 'Escape') {
+                            try {
+                                if (cartPanel && cartPanel.classList.contains('open')) toggleCart(false);
+                                if (filtersPanel && filtersPanel.classList.contains('open')) toggleFilters(false);
+                                if (menuOverlay && menuOverlay.classList.contains('open')) toggleMenu(false);
+                            } catch (_) { /* ignore */ }
+                        }
+                    });
+
+                    // Render everything
+                    renderProducts();
+                    renderFeatured();
+                    renderLook();
+                    renderAlsoBought();
+                    loadCart();
+
+                    // Intersection Observer for fade-in animations
+                    const observer = new IntersectionObserver((entries) => {
+                        entries.forEach(entry => {
+                            if (entry.isIntersecting) {
+                                entry.target.style.opacity = '1';
+                                entry.target.style.transform = 'translateY(0)';
+                            }
+                        });
+                    }, { threshold: 0.1 });
+
+                    document.querySelectorAll('.animate-fade-in-up, .animate-fade-in, .animate-scale-in')
+                        .forEach(el => {
+                            if (!el.style.opacity) {
+                                el.style.opacity = '0';
+                                el.style.transform = 'translateY(24px)';
+                                observer.observe(el);
+                            }
+                        });
+
+                    // Session personalisation
+                    const sessionId = localStorage.getItem('dakiwa-session') || 'new';
+                    if (sessionId !== 'new' && cart.length > 0) {
+                        const hero = document.querySelector('.hero-text');
+                        if (hero) {
+                            const p = document.createElement('p');
+                            p.style.cssText =
+                                'font-size:0.9rem;color:var(--color-warm-accent);font-weight:500;margin-top:-8px;';
+                            p.innerHTML =
+                                `<i class="fas fa-undo-alt" style="margin-right:8px;"></i> Continue where you left off — ${cart.length} item${cart.length > 1 ? 's' : ''} in your cart.`;
+                            hero.appendChild(p);
+                        }
+                    }
+                    if (sessionId === 'new') {
+                        localStorage.setItem('dakiwa-session', 'returning');
+                    }
+
+                    console.log('Dakiwa Furnitures — built with intention in Kenya.');
+                } catch (e) {
+                    console.warn('Initialisation error:', e);
+                }
+            }
+
+            // =============================================
+            // START
+            // =============================================
+            if (document.readyState === 'loading') {
+                document.addEventListener('DOMContentLoaded', init);
+            } else {
+                init();
+            }
+
+        })();
+    </script>
 
 </body>
 </html>
