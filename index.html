@@ -1987,7 +1987,7 @@
                 <span id="cartTotal">KSh 0.00</span>
             </div>
             <button class="checkout-btn" id="checkoutBtn">
-                <i class="fas fa-lock" style="margin-right:8px;"></i> 
+                <i class="fas fa-lock" style="margin-right:8px;"></i>
             </button>
         </div>
     </div>
@@ -2016,11 +2016,7 @@
 
                     <!-- Hero Image - normal image replacing 3D viewer -->
                     <div class="hero-image-wrap animate-fade-in-up delay-2">
-                        <img
-                        src="https://images.unsplash.com/photo-1618220179428-22790b461013?w=800&h=600&fit=crop&crop=center&auto=format"
-                        alt="Dakiwa furniture showcase - elegant living room interior"
-                        loading="lazy"
-                        />
+                        <img src="https://images.unsplash.com/photo-1618220179428-22790b461013?w=800&h=600&fit=crop&crop=center&auto=format" alt="Dakiwa furniture showcase - elegant living room interior" loading="lazy" />
                         <div class="floating-badge">
                             <i class="fas fa-cube" style="color:var(--color-warm-accent);"></i>
                             Crafted in Kenya
@@ -2088,12 +2084,7 @@
                 <div class="pdp-grid">
                     <!-- PDP Image - normal image replacing 3D viewer -->
                     <div class="pdp-viewer">
-                        <img
-                        id="pdpMainImage"
-                        src="https://i.pinimg.com/1200x/6f/bc/e4/6fbce4bc9360ed7ac91d9cc3065224e1.jpg"
-                        alt="Dakiwa TV Stand - Oak"
-                        loading="lazy"
-                        />
+                        <img id="pdpMainImage" src="https://i.pinimg.com/1200x/6f/bc/e4/6fbce4bc9360ed7ac91d9cc3065224e1.jpg" alt="Dakiwa TV Stand - Oak" loading="lazy" />
                         <button class="ar-btn" id="arBtn" style="display:none;">
                             <i class="fas fa-vr-cardboard"></i> View in AR
                         </button>
@@ -2134,11 +2125,13 @@
                     </div>
                 </div>
 
-                <!-- Customers also bought -->
+                <!-- ============================================= -->
+                <!-- CUSTOMERS ALSO BOUGHT — simplified & editable    -->
+                <!-- ============================================= -->
                 <div class="also-bought">
                     <h3>Customers also bought</h3>
                     <div class="drag-carousel" id="alsoBought">
-                        <!-- Injected by JS -->
+                        <!-- Injected by JS from the simple data array below -->
                     </div>
                 </div>
 
@@ -2224,7 +2217,7 @@
     <!-- =============================================
     COOKIE CONSENT BANNER
     ============================================= -->
-   
+
 
     <!-- =============================================
     JAVASCRIPT – Resilient with error handling
@@ -2240,7 +2233,7 @@
                 id: 1,
                 name: ' TV Stand',
                 category: 'TV Stands',
-                price: ,
+                price: 9000,
                 material: 'Oak',
                 colour: 'Oak',
                 image: 'https://i.pinimg.com/1200x/04/74/0a/04740afdda9db416b78fa98282926eb8.jpg',
@@ -2250,7 +2243,7 @@
                 id: 2,
                 name: ' Bed Frame',
                 category: 'Beds',
-                price: ,
+                price: 185000,
                 material: 'Walnut',
                 colour: 'Walnut',
                 image: 'https://i.pinimg.com/1200x/77/44/de/7744de123cfc8a9e379da1f59c91d04a.jpg',
@@ -2270,7 +2263,7 @@
                 id: 4,
                 name: ' Dining Table',
                 category: 'Tables',
-                price: ,
+                price: 220000,
                 material: 'Marble',
                 colour: 'Ivory',
                 image: 'https://i.pinimg.com/1200x/cc/66/0c/cc660c538a11952368f910e2e226d184.jpg',
@@ -2298,9 +2291,70 @@
                 dimensions: '45 × 45 × 48 cm'
             }];
 
-           
+            // =============================================
+            // FEATURED ITEMS (for horizontal scroll)
+            // =============================================
+            const featuredItems = [{
+                name: 'Oak TV Stand',
+                price: 'KSh 9,000',
+                image: 'https://i.pinimg.com/1200x/04/74/0a/04740afdda9db416b78fa98282926eb8.jpg'
+            }, {
+                name: 'Walnut Bed Frame',
+                price: 'KSh 185,000',
+                image: 'https://i.pinimg.com/1200x/77/44/de/7744de123cfc8a9e379da1f59c91d04a.jpg'
+            }, {
+                name: 'Bouclé Lounge Chair',
+                price: 'KSh 89,000',
+                image: 'https://i.pinimg.com/1200x/be/12/1e/be121e719c5738af90a53879bfcb4a86.jpg'
+            }, {
+                name: 'Marble Dining Table',
+                price: 'KSh 220,000',
+                image: 'https://i.pinimg.com/1200x/cc/66/0c/cc660c538a11952368f910e2e226d184.jpg'
+            }];
 
-          
+            // =============================================
+            // "COMPLETE THE LOOK" ITEMS
+            // =============================================
+            const lookItems = [{
+                name: 'Side Table',
+                image: 'https://i.pinimg.com/736x/13/21/b3/1321b3e6fa5ac3ef3c11fa1e8091fe81.jpg'
+            }, {
+                name: 'Floor Lamp',
+                image: 'https://i.pinimg.com/736x/22/9f/02/229f02b5e8a28c3f9f077348dad6a4de.jpg'
+            }, {
+                name: 'Rug',
+                image: 'https://i.pinimg.com/1200x/ed/e1/29/ede129bc821b34d5bcb58795c2631095.jpg'
+            }, {
+                name: 'Wall Art',
+                image: 'https://i.pinimg.com/736x/76/22/97/7622979704f4ab2755c3d46ddeeb586f.jpg'
+            }];
+
+            // =============================================
+            // ★ CUSTOMERS ALSO BOUGHT — SIMPLE EDITABLE ARRAY ★
+            // =============================================
+            // Add, remove, or change items here – that's all you need to update.
+            // Each item needs: name, price (string with currency), and image URL.
+            const alsoBoughtItems = [{
+                name: 'Lounge Chair',
+                price: 'KSh 89,000',
+                image: 'https://i.pinimg.com/1200x/be/12/1e/be121e719c5738af90a53879bfcb4a86.jpg'
+            }, {
+                name: 'Side Table',
+                price: 'KSh 42,000',
+                image: 'https://i.pinimg.com/736x/13/21/b3/1321b3e6fa5ac3ef3c11fa1e8091fe81.jpg'
+            }, {
+                name: 'Floor Lamp',
+                price: 'KSh 35,000',
+                image: 'https://i.pinimg.com/736x/22/9f/02/229f02b5e8a28c3f9f077348dad6a4de.jpg'
+            }, {
+                name: 'Wall Mirror',
+                price: 'KSh 28,000',
+                image: 'https://i.pinimg.com/1200x/ed/e1/29/ede129bc821b34d5bcb58795c2631095.jpg'
+            }, {
+                name: 'Coffee Table',
+                price: 'KSh 65,000',
+                image: 'https://i.pinimg.com/736x/76/22/97/7622979704f4ab2755c3d46ddeeb586f.jpg'
+            }];
 
             // =============================================
             // STATE
@@ -2383,10 +2437,15 @@
                 }
             }
 
+            // =============================================
+            // ★ RENDER "CUSTOMERS ALSO BOUGHT" — clean & simple ★
+            // =============================================
             function renderAlsoBought() {
                 try {
-                    if (!alsoBought) return;
-                    alsoBought.innerHTML = alsoBoughtItems.map(item => `
+                    const container = document.getElementById('alsoBought');
+                    if (!container) return;
+
+                    container.innerHTML = alsoBoughtItems.map(item => `
                                 <div class="item">
                                     <img src="${item.image}" alt="${item.name}" loading="lazy" onerror="this.src='https://placehold.co/300x200/FAFAF9/1E1E1E?text=Image+Not+Found'" />
                                     <div class="info">
@@ -2731,7 +2790,7 @@
                     renderProducts();
                     renderFeatured();
                     renderLook();
-                    renderAlsoBought();
+                    renderAlsoBought(); // ← now uses the simple editable array
                     loadCart();
 
                     // Intersection Observer for fade-in animations
