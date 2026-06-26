@@ -2954,6 +2954,9 @@
             let theme = localStorage.getItem('dakiwa-theme') ||
                 (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
 
+            // --- BUG FIX: track the currently displayed product ---
+            let currentProduct = products[0]; // default to first product
+
             // =============================================
             // DOM REFS
             // =============================================
@@ -3218,11 +3221,14 @@
             }
 
             // =============================================
-            // PDP UPDATE
+            // PDP UPDATE – now sets currentProduct
             // =============================================
             function updatePDP(product) {
                 try {
                     if (!product) return;
+                    // store the product being displayed
+                    currentProduct = product;
+
                     const nameEl = document.querySelector('.pdp-info .product-name');
                     const priceEl = document.querySelector('.pdp-info .product-price');
                     const descEl = document.querySelector('.pdp-info .product-desc');
@@ -3335,12 +3341,14 @@
                         });
                     }
 
-                    // PDP Add to Cart
+                    // =============================================
+                    // ★ BUG FIX: Add to Cart uses currentProduct
+                    // =============================================
                     const pdpAddBtn = $('#pdpAddToCart');
                     if (pdpAddBtn) {
                         pdpAddBtn.addEventListener('click', () => {
                             try {
-                                const p = products[0];
+                                const p = currentProduct; // use the displayed product
                                 if (!p) return;
                                 const existing = cart.find(item => item.id === p.id);
                                 if (existing) {
@@ -3411,6 +3419,9 @@
                     renderAlsoBought();
                     renderBlog();
                     loadCart();
+
+                    // Set initial PDP to first product
+                    updatePDP(products[0]);
 
                     // Intersection Observer for fade-in animations
                     const observer = new IntersectionObserver((entries) => {
