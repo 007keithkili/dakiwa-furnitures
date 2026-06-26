@@ -828,6 +828,13 @@
             }
         }
 
+        @media (min-width: 1280px) {
+            .shop-grid {
+                grid-template-columns: repeat(4, 1fr);
+                gap: 32px;
+            }
+        }
+
         .product-card {
             position: relative;
             border-radius: var(--radius-md);
@@ -1584,6 +1591,345 @@
         }
 
         /* =============================================
+                   ★ NEW: TESTIMONIALS SECTION ★
+                   ============================================= */
+        .testimonials {
+            padding: 64px 0;
+            background: var(--color-gray-100);
+            margin: 32px 0 0;
+            border-top: 1px solid var(--color-gray-200);
+            border-bottom: 1px solid var(--color-gray-200);
+        }
+
+        .testimonials .testimonial-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 24px;
+            margin-top: 32px;
+        }
+
+        @media (min-width: 768px) {
+            .testimonials .testimonial-grid {
+                grid-template-columns: repeat(3, 1fr);
+                gap: 32px;
+            }
+        }
+
+        .testimonial-card {
+            background: var(--color-off-white);
+            padding: 32px 28px;
+            border-radius: var(--radius-md);
+            box-shadow: var(--shadow-soft);
+            transition: transform 0.4s, box-shadow 0.4s;
+            border: 1px solid var(--color-gray-200);
+        }
+
+        .testimonial-card:hover {
+            transform: translateY(-6px);
+            box-shadow: var(--shadow-medium);
+        }
+
+        .testimonial-card .stars {
+            color: #f59e0b;
+            letter-spacing: 2px;
+            font-size: 0.9rem;
+            margin-bottom: 12px;
+        }
+
+        .testimonial-card blockquote {
+            font-style: italic;
+            font-size: 0.95rem;
+            color: var(--color-gray-700);
+            line-height: 1.7;
+            margin-bottom: 16px;
+        }
+
+        .testimonial-card .customer {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .testimonial-card .customer img {
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            object-fit: cover;
+            background: var(--color-gray-200);
+        }
+
+        .testimonial-card .customer .name {
+            font-weight: 600;
+            font-size: 0.9rem;
+            color: var(--color-charcoal);
+        }
+
+        .testimonial-card .customer .role {
+            font-size: 0.8rem;
+            color: var(--color-gray-500);
+            font-weight: 300;
+        }
+
+        /* =============================================
+                   ★ NEW: BRAND STORY / ABOUT ★
+                   ============================================= */
+        .brand-story {
+            padding: 72px 0;
+            background: var(--color-off-white);
+        }
+
+        .brand-story .story-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 40px;
+            align-items: center;
+        }
+
+        @media (min-width: 1024px) {
+            .brand-story .story-grid {
+                grid-template-columns: 1fr 1fr;
+                gap: 64px;
+            }
+        }
+
+        .brand-story .story-image {
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+            aspect-ratio: 4 / 3;
+            background: var(--color-gray-100);
+        }
+
+        .brand-story .story-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+            transition: transform 0.8s cubic-bezier(0.23, 1, 0.32, 1);
+        }
+
+        .brand-story .story-image:hover img {
+            transform: scale(1.03);
+        }
+
+        .brand-story .story-text h2 {
+            font-family: var(--font-serif);
+            font-size: clamp(1.8rem, 3.5vw, 2.8rem);
+            font-weight: 400;
+            letter-spacing: -0.02em;
+            margin-bottom: 16px;
+            color: var(--color-charcoal);
+        }
+
+        .brand-story .story-text p {
+            color: var(--color-gray-600);
+            font-weight: 300;
+            line-height: 1.8;
+            margin-bottom: 16px;
+            max-width: 480px;
+        }
+
+        .brand-story .story-text .stats {
+            display: flex;
+            gap: 32px;
+            margin-top: 24px;
+            flex-wrap: wrap;
+        }
+
+        .brand-story .story-text .stats .stat {
+            text-align: left;
+        }
+
+        .brand-story .story-text .stats .stat .number {
+            font-family: var(--font-serif);
+            font-size: 2rem;
+            font-weight: 600;
+            color: var(--color-warm-accent);
+            display: block;
+        }
+
+        .brand-story .story-text .stats .stat .label {
+            font-size: 0.8rem;
+            color: var(--color-gray-500);
+            font-weight: 300;
+        }
+
+        /* =============================================
+                   ★ NEW: BLOG / JOURNAL ★
+                   ============================================= */
+        .blog-section {
+            padding: 64px 0;
+            border-bottom: 1px solid var(--color-gray-200);
+        }
+
+        .blog-section .blog-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 24px;
+            margin-top: 32px;
+        }
+
+        @media (min-width: 768px) {
+            .blog-section .blog-grid {
+                grid-template-columns: repeat(3, 1fr);
+                gap: 32px;
+            }
+        }
+
+        .blog-card {
+            border-radius: var(--radius-md);
+            overflow: hidden;
+            background: var(--color-gray-100);
+            transition: transform 0.4s, box-shadow 0.4s;
+            cursor: pointer;
+            border: 1px solid var(--color-gray-200);
+        }
+
+        .blog-card:hover {
+            transform: translateY(-6px);
+            box-shadow: var(--shadow-medium);
+        }
+
+        .blog-card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            display: block;
+            transition: transform 0.6s;
+        }
+
+        .blog-card:hover img {
+            transform: scale(1.04);
+        }
+
+        .blog-card .blog-content {
+            padding: 20px 24px 24px;
+        }
+
+        .blog-card .blog-content .tag {
+            font-size: 0.65rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.06em;
+            color: var(--color-warm-accent);
+            background: var(--color-warm-accent-light);
+            padding: 4px 12px;
+            border-radius: 40px;
+            display: inline-block;
+            margin-bottom: 8px;
+        }
+
+        .blog-card .blog-content h4 {
+            font-family: var(--font-serif);
+            font-size: 1.1rem;
+            font-weight: 400;
+            color: var(--color-charcoal);
+            margin-bottom: 6px;
+        }
+
+        .blog-card .blog-content p {
+            font-size: 0.9rem;
+            color: var(--color-gray-500);
+            font-weight: 300;
+            line-height: 1.6;
+        }
+
+        .blog-card .blog-content .read-more {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            margin-top: 12px;
+            font-size: 0.8rem;
+            font-weight: 500;
+            color: var(--color-warm-accent);
+            text-decoration: none;
+            transition: gap 0.3s;
+        }
+
+        .blog-card .blog-content .read-more:hover {
+            gap: 12px;
+        }
+
+        /* =============================================
+                   ★ NEW: NEWSLETTER ★
+                   ============================================= */
+        .newsletter-section {
+            padding: 64px 0;
+            background: var(--color-charcoal);
+            color: var(--color-off-white);
+            text-align: center;
+            margin: 0 0 32px;
+        }
+
+        [data-theme="dark"] .newsletter-section {
+            background: #1c1c1a;
+        }
+
+        .newsletter-section h2 {
+            font-family: var(--font-serif);
+            font-size: clamp(1.6rem, 3vw, 2.4rem);
+            font-weight: 400;
+            letter-spacing: -0.02em;
+            margin-bottom: 8px;
+        }
+
+        .newsletter-section p {
+            font-weight: 300;
+            opacity: 0.7;
+            margin-bottom: 24px;
+        }
+
+        .newsletter-section .newsletter-form {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            justify-content: center;
+            max-width: 480px;
+            margin: 0 auto;
+        }
+
+        .newsletter-section .newsletter-form input {
+            flex: 1;
+            min-width: 200px;
+            padding: 14px 24px;
+            border: none;
+            border-radius: 60px;
+            font-family: var(--font-sans);
+            font-size: 0.95rem;
+            background: rgba(255, 255, 255, 0.1);
+            color: var(--color-off-white);
+            outline: 1px solid transparent;
+            transition: outline 0.3s, background 0.3s;
+        }
+
+        .newsletter-section .newsletter-form input::placeholder {
+            color: rgba(255, 255, 255, 0.4);
+        }
+
+        .newsletter-section .newsletter-form input:focus {
+            outline: 1px solid var(--color-warm-accent);
+            background: rgba(255, 255, 255, 0.15);
+        }
+
+        .newsletter-section .newsletter-form button {
+            padding: 14px 32px;
+            background: var(--color-warm-accent);
+            border: none;
+            border-radius: 60px;
+            font-family: var(--font-sans);
+            font-size: 0.95rem;
+            font-weight: 500;
+            color: var(--color-charcoal);
+            cursor: pointer;
+            transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+        }
+
+        .newsletter-section .newsletter-form button:hover {
+            background: var(--color-warm-accent-light);
+            transform: scale(1.04);
+            box-shadow: 0 8px 32px rgba(212, 163, 115, 0.3);
+        }
+
+        /* =============================================
                    FOOTER
                    ============================================= */
         .site-footer {
@@ -1601,7 +1947,7 @@
 
         @media (min-width: 640px) {
             .site-footer .footer-grid {
-                grid-template-columns: 2fr 1fr 1fr;
+                grid-template-columns: 2fr 1fr 1fr 1fr;
             }
         }
 
@@ -1707,6 +2053,15 @@
             .hero-image-wrap {
                 aspect-ratio: 4 / 3;
             }
+            .testimonials .testimonial-grid {
+                grid-template-columns: 1fr;
+            }
+            .blog-section .blog-grid {
+                grid-template-columns: 1fr;
+            }
+            .brand-story .stats {
+                gap: 16px;
+            }
         }
 
         @media (min-width: 481px) and (max-width: 768px) {
@@ -1716,6 +2071,12 @@
             .shop-grid {
                 grid-template-columns: repeat(2, 1fr);
                 gap: 16px;
+            }
+            .testimonials .testimonial-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+            .blog-section .blog-grid {
+                grid-template-columns: 1fr 1fr;
             }
         }
 
@@ -1903,8 +2264,8 @@
         <nav>
             <a href="index.html">Home</a>
             <a href="shop.html">Shop</a>
-            <a href="#">Journal</a>
-            <a href="#">Contact</a>
+            <a href="#journal">Journal</a>
+            <a href="#contact">Contact</a>
         </nav>
     </div>
 
@@ -1925,6 +2286,8 @@
                 <button>Beds</button>
                 <button>Chairs</button>
                 <button>Tables</button>
+                <button>Storage</button>
+                <button>Desks</button>
             </div>
         </div>
 
@@ -1935,6 +2298,7 @@
                 <button>Metal</button>
                 <button>Fabric</button>
                 <button>Marble</button>
+                <button>Glass</button>
             </div>
         </div>
 
@@ -1946,6 +2310,7 @@
                 <button>Walnut</button>
                 <button>Charcoal</button>
                 <button>Ivory</button>
+                <button>Black</button>
             </div>
         </div>
 
@@ -1987,7 +2352,7 @@
                 <span id="cartTotal">KSh 0.00</span>
             </div>
             <button class="checkout-btn" id="checkoutBtn">
-                <i class="fas fa-lock" style="margin-right:8px;"></i>
+                <i class="fas fa-lock" style="margin-right:8px;"></i> Proceed to Checkout
             </button>
         </div>
     </div>
@@ -2008,13 +2373,13 @@
                             Timeless pieces crafted with intention — where minimalism meets warmth.
                             Every curve, every grain tells a story of Kenyan craftsmanship.
                         </p>
-                        <a href="#" class="btn-primary">
+                        <a href="#shop" class="btn-primary">
                             Explore Collection
                             <i class="fas fa-arrow-right"></i>
                         </a>
                     </div>
 
-                    <!-- Hero Image - normal image replacing 3D viewer -->
+                    <!-- Hero Image -->
                     <div class="hero-image-wrap animate-fade-in-up delay-2">
                         <img src="https://images.unsplash.com/photo-1618220179428-22790b461013?w=800&h=600&fit=crop&crop=center&auto=format" alt="Dakiwa furniture showcase - elegant living room interior" loading="lazy" />
                         <div class="floating-badge">
@@ -2082,7 +2447,7 @@
         <section class="pdp-wrapper" id="pdp">
             <div class="container">
                 <div class="pdp-grid">
-                    <!-- PDP Image - normal image replacing 3D viewer -->
+                    <!-- PDP Image -->
                     <div class="pdp-viewer">
                         <img id="pdpMainImage" src="https://i.pinimg.com/1200x/6f/bc/e4/6fbce4bc9360ed7ac91d9cc3065224e1.jpg" alt="Dakiwa TV Stand - Oak" loading="lazy" />
                         <button class="ar-btn" id="arBtn" style="display:none;">
@@ -2092,7 +2457,7 @@
 
                     <div class="pdp-info">
                         <h1 class="product-name" id="pdpName"> TV Stand</h1>
-                        <div class="product-price" id="pdpPrice">KSh ,000</div>
+                        <div class="product-price" id="pdpPrice">KSh 9,000</div>
                         <p class="product-desc" id="pdpDesc">
                             A sculptural balance of solid oak and brushed steel.
                             Designed to breathe — with soft-close doors and hidden cable management.
@@ -2126,16 +2491,16 @@
                 </div>
 
                 <!-- ============================================= -->
-                <!-- CUSTOMERS ALSO BOUGHT — simplified & editable    -->
+                <!-- CUSTOMERS ALSO BOUGHT                             -->
                 <!-- ============================================= -->
                 <div class="also-bought">
                     <h3>Customers also bought</h3>
                     <div class="drag-carousel" id="alsoBought">
-                        <!-- Injected by JS from the simple data array below -->
+                        <!-- Injected by JS -->
                     </div>
                 </div>
 
-                <!-- Trace (sustainability) - Kenya focused -->
+                <!-- Trace (sustainability) -->
                 <div class="trace-section">
                     <h3 style="font-family:var(--font-serif);font-weight:400;font-size:1.4rem;">
                         <i class="fas fa-seedling" style="color:var(--color-warm-accent);margin-right:10px;"></i>
@@ -2178,6 +2543,110 @@
             </div>
         </section>
 
+        <!-- ========== ★ NEW: TESTIMONIALS ★ ========== -->
+        <section class="testimonials" id="testimonials">
+            <div class="container">
+                <h2 class="section-title text-center" style="text-align:center;">What our customers say</h2>
+                <p class="section-subtitle text-center" style="text-align:center;max-width:500px;margin-left:auto;margin-right:auto;">
+                    Real stories from real people who've made Dakiwa part of their home.
+                </p>
+                <div class="testimonial-grid">
+                    <div class="testimonial-card animate-fade-in-up delay-1">
+                        <div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                        <blockquote>"The craftsmanship is extraordinary. Our new dining table is the heart of our home — every meal feels special."</blockquote>
+                        <div class="customer">
+                            <img src="https://i.pravatar.cc/100?img=1" alt="Customer" loading="lazy" />
+                            <div>
+                                <div class="name">Grace M.</div>
+                                <div class="role">Nairobi, Kenya</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="testimonial-card animate-fade-in-up delay-2">
+                        <div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                        <blockquote>"I've never seen furniture that feels so alive. The wood grain, the finish — it's like art you can use every day."</blockquote>
+                        <div class="customer">
+                            <img src="https://i.pravatar.cc/100?img=5" alt="Customer" loading="lazy" />
+                            <div>
+                                <div class="name">James K.</div>
+                                <div class="role">Mombasa, Kenya</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="testimonial-card animate-fade-in-up delay-3">
+                        <div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                        <blockquote>"Dakiwa transformed our living space. The team was so helpful, and the quality is unmatched. Absolutely love it!"</blockquote>
+                        <div class="customer">
+                            <img src="https://i.pravatar.cc/100?img=10" alt="Customer" loading="lazy" />
+                            <div>
+                                <div class="name">Amina W.</div>
+                                <div class="role">Kisumu, Kenya</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ========== ★ NEW: BRAND STORY ★ ========== -->
+        <section class="brand-story" id="about">
+            <div class="container">
+                <div class="story-grid">
+                    <div class="story-image animate-fade-in-up">
+                        <img src="https://images.unsplash.com/photo-1556228453-efd6c1ff04f6?w=800&h=600&fit=crop&crop=center&auto=format" alt="Dakiwa workshop - Kenyan craftsmanship" loading="lazy" />
+                    </div>
+                    <div class="story-text animate-fade-in-up delay-1">
+                        <h2>Rooted in Kenya,<br />crafted for the world.</h2>
+                        <p>
+                            Dakiwa was born from a love for honest materials and timeless design.
+                            Every piece is handcrafted in our Nairobi workshop, using sustainably sourced
+                            hardwoods and traditional joinery techniques passed down through generations.
+                        </p>
+                        <p>
+                            We believe furniture should not only be beautiful but also tell a story —
+                            of the land it came from, the hands that shaped it, and the home it will become part of.
+                        </p>
+                        <div class="stats">
+                            <div class="stat">
+                                <span class="number">12+</span>
+                                <span class="label">Years of Craft</span>
+                            </div>
+                            <div class="stat">
+                                <span class="number">200+</span>
+                                <span class="label">Pieces Delivered</span>
+                            </div>
+                            <div class="stat">
+                                <span class="number">100%</span>
+                                <span class="label">Made in Kenya</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ========== ★ NEW: BLOG / JOURNAL ★ ========== -->
+        <section class="blog-section container" id="journal">
+            <h2 class="section-title">From the Journal</h2>
+            <p class="section-subtitle">Stories, inspiration, and the art of living well.</p>
+            <div class="blog-grid" id="blogGrid">
+                <!-- Injected by JS -->
+            </div>
+        </section>
+
+        <!-- ========== ★ NEW: NEWSLETTER ★ ========== -->
+        <section class="newsletter-section" id="contact">
+            <div class="container">
+                <h2>Stay in the know.</h2>
+                <p>Subscribe to our newsletter for new arrivals, design stories, and exclusive offers.</p>
+                <form class="newsletter-form" id="newsletterForm">
+                    <input type="email" placeholder="Your email address" required aria-label="Email address" />
+                    <button type="submit">Subscribe <i class="fas fa-arrow-right" style="margin-left:6px;"></i></button>
+                </form>
+                <p style="font-size:0.75rem;opacity:0.4;margin-top:16px;">No spam. Unsubscribe anytime.</p>
+            </div>
+        </section>
+
     </main>
 
     <!-- =============================================
@@ -2195,10 +2664,10 @@
                 </div>
                 <div class="footer-col">
                     <h4>Explore</h4>
-                    <a href="shop.html">Shop</a>
-                    <a href="#">Our Story</a>
-                    <a href="#">Journal</a>
-                    <a href="#">Contact</a>
+                    <a href="#shop">Shop</a>
+                    <a href="#about">Our Story</a>
+                    <a href="#journal">Journal</a>
+                    <a href="#contact">Contact</a>
                 </div>
                 <div class="footer-col">
                     <h4>Support</h4>
@@ -2206,6 +2675,12 @@
                     <a href="#">Shipping</a>
                     <a href="#">Returns</a>
                     <a href="#">Care Guide</a>
+                </div>
+                <div class="footer-col">
+                    <h4>Connect</h4>
+                    <a href="#"><i class="fab fa-instagram" style="margin-right:8px;"></i>Instagram</a>
+                    <a href="#"><i class="fab fa-pinterest" style="margin-right:8px;"></i>Pinterest</a>
+                    <a href="#"><i class="fab fa-youtube" style="margin-right:8px;"></i>YouTube</a>
                 </div>
             </div>
             <div class="footer-bottom">
@@ -2217,7 +2692,13 @@
     <!-- =============================================
     COOKIE CONSENT BANNER
     ============================================= -->
-
+    <div class="cookie-banner" id="cookieBanner">
+        <span>We use cookies to enhance your experience. By continuing, you agree to our&nbsp;<a href="#" style="color:var(--color-warm-accent);text-decoration:underline;">Privacy Policy</a>.</span>
+        <div class="cookie-actions">
+            <button id="cookieAccept">Accept</button>
+            <button class="cookie-dismiss" id="cookieDismiss">Dismiss</button>
+        </div>
+    </div>
 
     <!-- =============================================
     JAVASCRIPT – Resilient with error handling
@@ -2227,13 +2708,13 @@
             'use strict';
 
             // =============================================
-            // DATA - Kenya-focused product names and KSh pricing
+            // ★ DATA – Expanded product catalog (14 items)
             // =============================================
             const products = [{
                 id: 1,
                 name: ' TV Stand',
                 category: 'TV Stands',
-                price: 000,
+                price: 9000,
                 material: 'Oak',
                 colour: 'Oak',
                 image: 'https://i.pinimg.com/1200x/04/74/0a/04740afdda9db416b78fa98282926eb8.jpg',
@@ -2243,7 +2724,7 @@
                 id: 2,
                 name: ' Bed Frame',
                 category: 'Beds',
-                price: 000,
+                price: 185000,
                 material: 'Walnut',
                 colour: 'Walnut',
                 image: 'https://i.pinimg.com/1200x/77/44/de/7744de123cfc8a9e379da1f59c91d04a.jpg',
@@ -2253,7 +2734,7 @@
                 id: 3,
                 name: ' Lounge Chair',
                 category: 'Chairs',
-                price: 000,
+                price: 89000,
                 material: 'Fabric',
                 colour: 'Charcoal',
                 image: 'https://i.pinimg.com/1200x/be/12/1e/be121e719c5738af90a53879bfcb4a86.jpg',
@@ -2263,7 +2744,7 @@
                 id: 4,
                 name: ' Dining Table',
                 category: 'Tables',
-                price: 000,
+                price: 220000,
                 material: 'Marble',
                 colour: 'Ivory',
                 image: 'https://i.pinimg.com/1200x/cc/66/0c/cc660c538a11952368f910e2e226d184.jpg',
@@ -2273,7 +2754,7 @@
                 id: 5,
                 name: ' Sideboard',
                 category: 'TV Stands',
-                price: 000,
+                price: 185000,
                 material: 'Wood',
                 colour: 'Natural',
                 image: 'https://i.pinimg.com/736x/22/9f/02/229f02b5e8a28c3f9f077348dad6a4de.jpg',
@@ -2283,77 +2764,186 @@
                 id: 6,
                 name: ' Stool',
                 category: 'Chairs',
-                price: 000,
+                price: 42000,
                 material: 'Metal',
                 colour: 'Charcoal',
                 image: 'https://i.pinimg.com/736x/13/21/b3/1321b3e6fa5ac3ef3c11fa1e8091fe81.jpg',
                 desc: 'Minimalist steel frame with a warm walnut seat.',
                 dimensions: '45 × 45 × 48 cm'
+            }, {
+                id: 7,
+                name: ' Bookshelf',
+                category: 'Storage',
+                price: 95000,
+                material: 'Wood',
+                colour: 'Walnut',
+                image: 'https://i.pinimg.com/1200x/6f/bc/e4/6fbce4bc9360ed7ac91d9cc3065224e1.jpg',
+                desc: 'A sculptural bookshelf with organic shelves that seem to float.',
+                dimensions: '120 × 35 × 180 cm'
+            }, {
+                id: 8,
+                name: ' Desk',
+                category: 'Desks',
+                price: 115000,
+                material: 'Oak',
+                colour: 'Oak',
+                image: 'https://i.pinimg.com/736x/64/d8/e5/64d8e532400548067eabfda2c7b25bce.jpg',
+                desc: 'A minimalist desk with hidden cable management and a warm oak top.',
+                dimensions: '140 × 70 × 76 cm'
+            }, {
+                id: 9,
+                name: ' Wardrobe',
+                category: 'Storage',
+                price: 275000,
+                material: 'Walnut',
+                colour: 'Walnut',
+                image: 'https://i.pinimg.com/736x/cc/1c/21/cc1c217926d2e4f8f74ae4e20790d2f6.jpg',
+                desc: 'A spacious wardrobe with soft-close doors and adjustable shelving.',
+                dimensions: '200 × 60 × 220 cm'
+            }, {
+                id: 10,
+                name: ' Nightstand',
+                category: 'Beds',
+                price: 55000,
+                material: 'Wood',
+                colour: 'Natural',
+                image: 'https://i.pinimg.com/736x/00/b1/9b/00b19b8f4cbddbc855659150fa71c233.jpg',
+                desc: 'A serene nightstand with a single drawer and hidden charging dock.',
+                dimensions: '50 × 40 × 55 cm'
+            }, {
+                id: 11,
+                name: ' Coffee Table',
+                category: 'Tables',
+                price: 68000,
+                material: 'Marble',
+                colour: 'Ivory',
+                image: 'https://i.pinimg.com/1200x/f3/5f/17/f35f172749fa0273bac923ca8a0938fd.jpg',
+                desc: 'A sculptural coffee table with a marble top and oak base.',
+                dimensions: '120 × 70 × 40 cm'
+            }, {
+                id: 12,
+                name: ' Console Table',
+                category: 'Tables',
+                price: 72000,
+                material: 'Metal',
+                colour: 'Black',
+                image: 'https://i.pinimg.com/736x/90/63/f6/9063f6c6ee608ed43f4ed2bd9d55a571.jpg',
+                desc: 'A slim console table with a powder-coated steel frame and oak top.',
+                dimensions: '140 × 35 × 80 cm'
+            }, {
+                id: 13,
+                name: ' Bench',
+                category: 'Chairs',
+                price: 48000,
+                material: 'Wood',
+                colour: 'Oak',
+                image: 'https://i.pinimg.com/736x/33/7b/2e/337b2e5b873f2ac2bafcfcd4245c1ec7.jpg',
+                desc: 'A simple, sculptural bench with a solid oak seat.',
+                dimensions: '120 × 35 × 45 cm'
+            }, {
+                id: 14,
+                name: ' Ottoman',
+                category: 'Chairs',
+                price: 32000,
+                material: 'Fabric',
+                colour: 'Charcoal',
+                image: 'https://i.pinimg.com/1200x/5f/8f/1c/5f8f1cdac83e49397eb01e73cfc7c333.jpg',
+                desc: 'A plush ottoman with a bouclé finish and a hidden storage compartment.',
+                dimensions: '60 × 60 × 40 cm'
             }];
 
             // =============================================
             // FEATURED ITEMS (for horizontal scroll)
             // =============================================
             const featuredItems = [{
-                name: 'stool',
-                price: 'KSh ,000',
+                name: 'Oak TV Stand',
+                price: 'KSh 9,000',
                 image: 'https://i.pinimg.com/1200x/04/74/0a/04740afdda9db416b78fa98282926eb8.jpg'
             }, {
-                name: 'sideboard',
-                price: 'KSh,000',
+                name: 'Walnut Bed Frame',
+                price: 'KSh 185,000',
                 image: 'https://i.pinimg.com/1200x/77/44/de/7744de123cfc8a9e379da1f59c91d04a.jpg'
             }, {
                 name: 'Bouclé Lounge Chair',
-                price: 'KSh ,000',
+                price: 'KSh 89,000',
                 image: 'https://i.pinimg.com/1200x/be/12/1e/be121e719c5738af90a53879bfcb4a86.jpg'
             }, {
                 name: 'Marble Dining Table',
                 price: 'KSh 220,000',
                 image: 'https://i.pinimg.com/1200x/cc/66/0c/cc660c538a11952368f910e2e226d184.jpg'
+            }, {
+                name: 'Bookshelf',
+                price: 'KSh 95,000',
+                image: 'https://i.pinimg.com/1200x/6f/bc/e4/6fbce4bc9360ed7ac91d9cc3065224e1.jpg'
+            }, {
+                name: 'Desk',
+                price: 'KSh 115,000',
+                image: 'https://i.pinimg.com/736x/64/d8/e5/64d8e532400548067eabfda2c7b25bce.jpg'
             }];
 
             // =============================================
             // "COMPLETE THE LOOK" ITEMS
             // =============================================
             const lookItems = [{
-                name: 'stool',
+                name: 'Side Table',
                 image: 'https://i.pinimg.com/736x/13/21/b3/1321b3e6fa5ac3ef3c11fa1e8091fe81.jpg'
             }, {
-                name: 'side board',
+                name: 'Floor Lamp',
                 image: 'https://i.pinimg.com/736x/22/9f/02/229f02b5e8a28c3f9f077348dad6a4de.jpg'
             }, {
-                name: 'bed',
+                name: 'Rug',
                 image: 'https://i.pinimg.com/1200x/ed/e1/29/ede129bc821b34d5bcb58795c2631095.jpg'
             }, {
-                name: 'sofa',
+                name: 'Wall Art',
                 image: 'https://i.pinimg.com/736x/76/22/97/7622979704f4ab2755c3d46ddeeb586f.jpg'
             }];
 
             // =============================================
-            // ★ CUSTOMERS ALSO BOUGHT — SIMPLE EDITABLE ARRAY ★
+            // ★ CUSTOMERS ALSO BOUGHT
             // =============================================
-            // Add, remove, or change items here – that's all you need to update.
-            // Each item needs: name, price (string with currency), and image URL.
             const alsoBoughtItems = [{
                 name: 'Lounge Chair',
-                price: 'KSh ,000',
+                price: 'KSh 89,000',
                 image: 'https://i.pinimg.com/1200x/be/12/1e/be121e719c5738af90a53879bfcb4a86.jpg'
             }, {
                 name: 'Side Table',
-                price: 'KSh ,000',
+                price: 'KSh 42,000',
                 image: 'https://i.pinimg.com/736x/64/d8/e5/64d8e532400548067eabfda2c7b25bce.jpg'
             }, {
                 name: 'Floor Lamp',
-                price: 'KSh ,000',
+                price: 'KSh 35,000',
                 image: 'https://i.pinimg.com/736x/00/b1/9b/00b19b8f4cbddbc855659150fa71c233.jpg'
             }, {
                 name: 'Wall Mirror',
-                price: 'KSh ,000',
+                price: 'KSh 28,000',
                 image: 'https://i.pinimg.com/1200x/f3/5f/17/f35f172749fa0273bac923ca8a0938fd.jpg'
             }, {
                 name: 'Coffee Table',
-                price: 'KSh ,000',
+                price: 'KSh 65,000',
                 image: 'https://i.pinimg.com/736x/cc/1c/21/cc1c217926d2e4f8f74ae4e20790d2f6.jpg'
+            }];
+
+            // =============================================
+            // ★ BLOG / JOURNAL DATA
+            // =============================================
+            const blogPosts = [{
+                title: 'The art of slow living',
+                excerpt: 'How to create a home that invites rest, reflection, and connection — with furniture that tells a story.',
+                tag: 'Design',
+                image: 'https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?w=600&h=400&fit=crop&crop=center&auto=format',
+                link: '#'
+            }, {
+                title: 'A guide to wood grain',
+                excerpt: 'Oak, walnut, teak — learn to read the language of wood and choose the perfect grain for your space.',
+                tag: 'Materials',
+                image: 'https://images.unsplash.com/photo-1618220179428-22790b461013?w=600&h=400&fit=crop&crop=center&auto=format',
+                link: '#'
+            }, {
+                title: 'Why we build by hand',
+                excerpt: 'In a world of mass production, we choose the slow path. Here\'s why craftsmanship matters more than ever.',
+                tag: 'Craft',
+                image: 'https://images.unsplash.com/photo-1556228453-efd6c1ff04f6?w=600&h=400&fit=crop&crop=center&auto=format',
+                link: '#'
             }];
 
             // =============================================
@@ -2365,7 +2955,7 @@
                 (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
 
             // =============================================
-            // DOM REFS with safe access
+            // DOM REFS
             // =============================================
             const $ = (sel) => document.querySelector(sel);
             const $$ = (sel) => document.querySelectorAll(sel);
@@ -2374,6 +2964,7 @@
             const featuredTrack = $('#featuredTrack');
             const lookCarousel = $('#lookCarousel');
             const alsoBought = $('#alsoBought');
+            const blogGrid = $('#blogGrid');
             const cartItems = $('#cartItems');
             const cartTotal = $('#cartTotal');
             const cartBadge = $('#cartBadge');
@@ -2385,7 +2976,7 @@
             const qtyDisplay = $('#qtyDisplay');
 
             // =============================================
-            // RENDER FUNCTIONS with error handling
+            // RENDER FUNCTIONS
             // =============================================
             function renderProducts() {
                 try {
@@ -2414,7 +3005,7 @@
                                     <img src="${item.image}" alt="${item.name}" loading="lazy" onerror="this.src='https://placehold.co/400x300/FAFAF9/1E1E1E?text=Image+Not+Found'" />
                                     <div class="item-info">
                                         <h4>${item.name}</h4>
-                                        <p>${item.price}</p>
+                                        <p class="price">${item.price}</p>
                                     </div>
                                 </div>
                             `).join('');
@@ -2437,15 +3028,10 @@
                 }
             }
 
-            // =============================================
-            // ★ RENDER "CUSTOMERS ALSO BOUGHT" — clean & simple ★
-            // =============================================
             function renderAlsoBought() {
                 try {
-                    const container = document.getElementById('alsoBought');
-                    if (!container) return;
-
-                    container.innerHTML = alsoBoughtItems.map(item => `
+                    if (!alsoBought) return;
+                    alsoBought.innerHTML = alsoBoughtItems.map(item => `
                                 <div class="item">
                                     <img src="${item.image}" alt="${item.name}" loading="lazy" onerror="this.src='https://placehold.co/300x200/FAFAF9/1E1E1E?text=Image+Not+Found'" />
                                     <div class="info">
@@ -2456,6 +3042,25 @@
                             `).join('');
                 } catch (e) {
                     console.warn('Error rendering also bought:', e);
+                }
+            }
+
+            function renderBlog() {
+                try {
+                    if (!blogGrid) return;
+                    blogGrid.innerHTML = blogPosts.map(post => `
+                                <div class="blog-card">
+                                    <img src="${post.image}" alt="${post.title}" loading="lazy" onerror="this.src='https://placehold.co/600x400/FAFAF9/1E1E1E?text=Image+Not+Found'" />
+                                    <div class="blog-content">
+                                        <span class="tag">${post.tag}</span>
+                                        <h4>${post.title}</h4>
+                                        <p>${post.excerpt}</p>
+                                        <a href="${post.link}" class="read-more">Read more <i class="fas fa-arrow-right"></i></a>
+                                    </div>
+                                </div>
+                            `).join('');
+                } catch (e) {
+                    console.warn('Error rendering blog:', e);
                 }
             }
 
@@ -2503,7 +3108,7 @@
                     cartTotal.textContent = 'KSh ' + total.toLocaleString();
                     cartBadge.textContent = cart.reduce((sum, i) => sum + i.qty, 0);
 
-                    // Attach cart events with safe binding
+                    // Attach cart events
                     cartItems.querySelectorAll('.cart-qty-dec').forEach(btn => {
                         btn.addEventListener('click', function() {
                             try {
@@ -2548,7 +3153,7 @@
             }
 
             // =============================================
-            // CART PERSISTENCE with error handling
+            // CART PERSISTENCE
             // =============================================
             function saveCart() {
                 try {
@@ -2568,7 +3173,7 @@
             }
 
             // =============================================
-            // THEME with safe DOM access
+            // THEME
             // =============================================
             function setTheme(t) {
                 try {
@@ -2583,7 +3188,7 @@
             }
 
             // =============================================
-            // UI TOGGLES with safe access
+            // UI TOGGLES
             // =============================================
             function toggleMenu(open) {
                 try {
@@ -2613,7 +3218,7 @@
             }
 
             // =============================================
-            // PDP UPDATE with safe DOM access
+            // PDP UPDATE
             // =============================================
             function updatePDP(product) {
                 try {
@@ -2643,7 +3248,7 @@
             }
 
             // =============================================
-            // EVENT BINDING with safe handlers
+            // EVENT BINDING
             // =============================================
             function init() {
                 try {
@@ -2698,6 +3303,19 @@
                         cookieDismiss.addEventListener('click', () => {
                             localStorage.setItem('dakiwa-cookie', 'dismissed');
                             if (cookieBanner) cookieBanner.classList.remove('show');
+                        });
+                    }
+
+                    // Newsletter
+                    const newsletterForm = $('#newsletterForm');
+                    if (newsletterForm) {
+                        newsletterForm.addEventListener('submit', (e) => {
+                            e.preventDefault();
+                            const input = newsletterForm.querySelector('input');
+                            if (input && input.value) {
+                                alert('Thank you for subscribing! We\'ll keep you posted.');
+                                input.value = '';
+                            }
                         });
                     }
 
@@ -2771,7 +3389,7 @@
                         });
                     }
 
-                    // AR button - hidden since we removed 3D viewer
+                    // AR button hidden
                     const arBtn = $('#arBtn');
                     if (arBtn) arBtn.style.display = 'none';
 
@@ -2790,7 +3408,8 @@
                     renderProducts();
                     renderFeatured();
                     renderLook();
-                    renderAlsoBought(); // ← now uses the simple editable array
+                    renderAlsoBought();
+                    renderBlog();
                     loadCart();
 
                     // Intersection Observer for fade-in animations
