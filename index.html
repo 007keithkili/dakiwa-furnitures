@@ -5,26 +5,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Dakiwa Furnitures – Modern E‑commerce</title>
 
-    <!-- Google Fonts: Inter & Playfair Display for elegance -->
+    <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700&family=Playfair+Display:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet" />
-
-    <!-- Font Awesome 6 (free) for icons -->
+    <!-- Font Awesome 6 -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
 
     <style>
-        /* =============================================
-                   GLOBAL RESET & BASE
-                   ============================================= */
-        *,
-        *::before,
-        *::after {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
         :root {
             --color-off-white: #FAFAF9;
             --color-charcoal: #1E1E1E;
@@ -40,63 +28,19 @@
             --color-gray-700: #44403c;
             --color-gray-800: #292524;
             --color-gray-900: #1c1917;
-
             --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
             --font-serif: 'Playfair Display', Georgia, serif;
-
             --shadow-soft: 0 8px 32px rgba(0, 0, 0, 0.06);
             --shadow-medium: 0 12px 48px rgba(0, 0, 0, 0.10);
             --shadow-hover: 0 20px 60px rgba(0, 0, 0, 0.14);
-
             --radius-sm: 8px;
             --radius-md: 16px;
             --radius-lg: 24px;
             --radius-xl: 32px;
-
-            --transition-smooth: 0.6s cubic-bezier(0.23, 1, 0.32, 1);
-            --transition-buttery: 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
-            --transition-bounce: 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
-
             --max-width: 1440px;
             --nav-height: 72px;
         }
 
-        /* Dark mode variables */
-        @media (prefers-color-scheme: dark) {
-            :root {
-                --color-off-white: #141413;
-                --color-charcoal: #f5f5f4;
-                --color-gray-100: #1c1c1a;
-                --color-gray-200: #2a2a28;
-                --color-gray-300: #3d3d3a;
-                --color-gray-400: #78716c;
-                --color-gray-500: #a8a29e;
-                --color-gray-600: #d6d3d1;
-                --color-gray-700: #e7e5e4;
-                --color-gray-800: #f5f5f4;
-                --color-gray-900: #fafaf9;
-                --shadow-soft: 0 8px 32px rgba(0, 0, 0, 0.4);
-                --shadow-medium: 0 12px 48px rgba(0, 0, 0, 0.5);
-                --shadow-hover: 0 20px 60px rgba(0, 0, 0, 0.6);
-            }
-        }
-
-        html {
-            scroll-behavior: smooth;
-            -webkit-font-smoothing: antialiased;
-            -moz-osx-font-smoothing: grayscale;
-        }
-
-        body {
-            font-family: var(--font-sans);
-            background: var(--color-off-white);
-            color: var(--color-charcoal);
-            line-height: 1.6;
-            transition: background 0.3s, color 0.3s;
-            overflow-x: hidden;
-        }
-
-        /* Dark mode toggle via data attribute */
         [data-theme="dark"] {
             --color-off-white: #141413;
             --color-charcoal: #f5f5f4;
@@ -114,198 +58,64 @@
             --shadow-hover: 0 20px 60px rgba(0, 0, 0, 0.6);
         }
 
-        [data-theme="light"] {
-            --color-off-white: #FAFAF9;
-            --color-charcoal: #1E1E1E;
-            --color-gray-100: #f5f5f4;
-            --color-gray-200: #e7e5e4;
-            --color-gray-300: #d6d3d1;
-            --color-gray-400: #a8a29e;
-            --color-gray-500: #78716c;
-            --color-gray-600: #57534e;
-            --color-gray-700: #44403c;
-            --color-gray-800: #292524;
-            --color-gray-900: #1c1917;
-            --shadow-soft: 0 8px 32px rgba(0, 0, 0, 0.06);
-            --shadow-medium: 0 12px 48px rgba(0, 0, 0, 0.10);
-            --shadow-hover: 0 20px 60px rgba(0, 0, 0, 0.14);
+        *,
+        *::before,
+        *::after {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
         }
 
-        /* =============================================
-                   UTILITY CLASSES
-                   ============================================= */
+        html {
+            scroll-behavior: smooth;
+            font-size: 16px;
+        }
+        body {
+            font-family: var(--font-sans);
+            background: var(--color-off-white);
+            color: var(--color-charcoal);
+            line-height: 1.6;
+            transition: background 0.3s, color 0.3s;
+            overflow-x: hidden;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+        }
+        h1, h2, h3, h4, p, span, div {
+            overflow-wrap: break-word;
+            word-wrap: break-word;
+        }
         .container {
             max-width: var(--max-width);
             margin: 0 auto;
             padding: 0 24px;
         }
+        @media (min-width: 768px) { .container { padding: 0 48px; } }
+        @media (min-width: 1024px) { .container { padding: 0 64px; } }
 
-        @media (min-width: 768px) {
-            .container {
-                padding: 0 48px;
-            }
-        }
-
-        @media (min-width: 1024px) {
-            .container {
-                padding: 0 64px;
-            }
-        }
-
-        .sr-only {
-            position: absolute;
-            width: 1px;
-            height: 1px;
-            padding: 0;
-            margin: -1px;
-            overflow: hidden;
-            clip: rect(0, 0, 0, 0);
-            border: 0;
-        }
-
-        /* =============================================
-                   SCROLLBAR (minimalist)
-                   ============================================= */
-        ::-webkit-scrollbar {
-            width: 6px;
-            height: 6px;
-        }
-        ::-webkit-scrollbar-track {
-            background: var(--color-gray-100);
-        }
-        ::-webkit-scrollbar-thumb {
-            background: var(--color-warm-accent);
-            border-radius: 12px;
-        }
-        ::-webkit-scrollbar-thumb:hover {
-            background: var(--color-warm-accent-dark);
-        }
-
-        /* =============================================
-                   ANIMATIONS
-                   ============================================= */
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(32px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        @keyframes fadeIn {
-            from {
-                opacity: 0;
-            }
-            to {
-                opacity: 1;
-            }
-        }
-
-        @keyframes shimmer {
-            0% {
-                background-position: -200% 0;
-            }
-            100% {
-                background-position: 200% 0;
-            }
-        }
-
-        @keyframes float {
-            0%,
-            100% {
-                transform: translateY(0);
-            }
-            50% {
-                transform: translateY(-8px);
-            }
-        }
-
-        @keyframes scaleIn {
-            from {
-                opacity: 0;
-                transform: scale(0.96);
-            }
-            to {
-                opacity: 1;
-                transform: scale(1);
-            }
-        }
-
-        .animate-fade-in-up {
-            animation: fadeInUp 0.8s cubic-bezier(0.23, 1, 0.32, 1) forwards;
-        }
-
-        .animate-fade-in {
-            animation: fadeIn 0.6s ease forwards;
-        }
-
-        .animate-scale-in {
-            animation: scaleIn 0.5s cubic-bezier(0.23, 1, 0.32, 1) forwards;
-        }
-
-        .animate-float {
-            animation: float 4s ease-in-out infinite;
-        }
-
-        .delay-1 {
-            animation-delay: 0.1s;
-        }
-        .delay-2 {
-            animation-delay: 0.2s;
-        }
-        .delay-3 {
-            animation-delay: 0.3s;
-        }
-        .delay-4 {
-            animation-delay: 0.4s;
-        }
-        .delay-5 {
-            animation-delay: 0.5s;
-        }
-
-        /* Shimmer skeleton */
-        .skeleton-shimmer {
-            background: linear-gradient(90deg,
-                    var(--color-gray-200) 25%,
-                    var(--color-gray-100) 50%,
-                    var(--color-gray-200) 75%);
-            background-size: 200% 100%;
-            animation: shimmer 1.8s ease-in-out infinite;
-            border-radius: var(--radius-sm);
-        }
-
-        /* =============================================
-                   NAVIGATION
-                   ============================================= */
+        /* Header */
         .site-header {
             position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
+            top: 0; left: 0; right: 0;
             z-index: 1000;
             height: var(--nav-height);
-            background: rgba(255, 255, 255, 0.72);
+            background: rgba(255,255,255,0.72);
             backdrop-filter: blur(16px) saturate(1.4);
-            -webkit-backdrop-filter: blur(16px) saturate(1.4);
-            border-bottom: 1px solid rgba(0, 0, 0, 0.04);
-            transition: background 0.3s, border-color 0.3s;
+            border-bottom: 1px solid rgba(0,0,0,0.04);
         }
-
         [data-theme="dark"] .site-header {
-            background: rgba(20, 20, 19, 0.8);
-            border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+            background: rgba(20,20,19,0.8);
+            border-bottom: 1px solid rgba(255,255,255,0.06);
         }
-
         .site-header .container {
             display: flex;
             align-items: center;
             justify-content: space-between;
             height: 100%;
         }
-
         .logo {
             font-family: var(--font-serif);
             font-size: 1.4rem;
@@ -317,24 +127,8 @@
             align-items: center;
             gap: 8px;
         }
-
-        .logo i {
-            color: var(--color-warm-accent);
-            font-size: 1.2rem;
-        }
-
-        .logo span {
-            font-weight: 300;
-            opacity: 0.6;
-        }
-
-        .nav-actions {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-        }
-
-        .nav-btn {
+        .nav-actions { display: flex; align-items: center; gap: 12px; }
+        .nav-btn, .theme-toggle {
             background: none;
             border: none;
             color: var(--color-charcoal);
@@ -348,146 +142,57 @@
             justify-content: center;
             position: relative;
         }
-
-        .nav-btn:hover {
+        .nav-btn:hover, .theme-toggle:hover {
             background: var(--color-gray-200);
             transform: scale(1.04);
         }
-
         .nav-btn .badge {
             position: absolute;
-            top: 2px;
-            right: 2px;
+            top: 2px; right: 2px;
             background: var(--color-warm-accent);
             color: #fff;
             font-size: 0.6rem;
             font-weight: 600;
-            width: 18px;
-            height: 18px;
+            width: 18px; height: 18px;
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
         }
 
-        .hamburger {
-            display: flex;
-            flex-direction: column;
-            gap: 5px;
-            padding: 4px;
-        }
-
-        .hamburger span {
-            display: block;
-            width: 24px;
-            height: 2px;
-            background: var(--color-charcoal);
-            border-radius: 4px;
-            transition: all 0.3s;
-            transform-origin: center;
-        }
-
-        .hamburger.active span:nth-child(1) {
-            transform: rotate(45deg) translate(5px, 5px);
-        }
-        .hamburger.active span:nth-child(2) {
-            opacity: 0;
-        }
-        .hamburger.active span:nth-child(3) {
-            transform: rotate(-45deg) translate(5px, -5px);
-        }
-
-        /* =============================================
-                   FULL-SCREEN OVERLAY MENU
-                   ============================================= */
+        /* Menu overlay */
         .menu-overlay {
             position: fixed;
             inset: 0;
             z-index: 999;
-            background: rgba(0, 0, 0, 0.6);
-            backdrop-filter: blur(20px) saturate(1.2);
-            -webkit-backdrop-filter: blur(20px) saturate(1.2);
+            background: rgba(0,0,0,0.6);
+            backdrop-filter: blur(20px);
             display: flex;
             align-items: center;
             justify-content: center;
             opacity: 0;
             visibility: hidden;
-            transition: opacity 0.5s cubic-bezier(0.23, 1, 0.32, 1),
-                visibility 0.5s;
+            transition: opacity 0.5s, visibility 0.5s;
         }
-
-        .menu-overlay.open {
-            opacity: 1;
-            visibility: visible;
-        }
-
-        .menu-overlay nav {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 32px;
-        }
-
+        .menu-overlay.open { opacity: 1; visibility: visible; }
+        .menu-overlay nav { display: flex; flex-direction: column; align-items: center; gap: 32px; }
         .menu-overlay a {
             font-family: var(--font-serif);
             font-size: 2.8rem;
             font-weight: 400;
             color: #fff;
             text-decoration: none;
-            letter-spacing: -0.02em;
             transition: color 0.3s, transform 0.3s;
-            position: relative;
-            padding: 4px 0;
         }
-
-        .menu-overlay a::after {
-            content: '';
+        .menu-overlay a:hover { color: var(--color-warm-accent-light); transform: translateY(-2px); }
+        .close-menu {
             position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 0;
-            height: 2px;
-            background: var(--color-warm-accent);
-            transition: width 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+            top: 28px; right: 32px;
+            background: none; border: none;
+            color: #fff; font-size: 2rem; cursor: pointer;
         }
 
-        .menu-overlay a:hover {
-            color: var(--color-warm-accent-light);
-            transform: translateY(-2px);
-        }
-
-        .menu-overlay a:hover::after {
-            width: 100%;
-        }
-
-        .menu-overlay .close-menu {
-            position: absolute;
-            top: 28px;
-            right: 32px;
-            background: none;
-            border: none;
-            color: #fff;
-            font-size: 2rem;
-            cursor: pointer;
-            opacity: 0.7;
-            transition: opacity 0.3s, transform 0.3s;
-        }
-
-        .menu-overlay .close-menu:hover {
-            opacity: 1;
-            transform: rotate(90deg);
-        }
-
-        @media (max-width: 640px) {
-            .menu-overlay a {
-                font-size: 2rem;
-                gap: 24px;
-            }
-        }
-
-        /* =============================================
-                   HERO SECTION
-                   ============================================= */
+        /* Hero */
         .hero {
             padding-top: var(--nav-height);
             min-height: 100vh;
@@ -497,66 +202,38 @@
             position: relative;
             overflow: hidden;
         }
-
         .hero-bg {
             position: absolute;
             inset: 0;
-            z-index: 0;
-            background:
-                radial-gradient(ellipse at 20% 50%, var(--color-warm-accent-light) 0%, transparent 60%),
-                radial-gradient(ellipse at 80% 20%, var(--color-gray-200) 0%, transparent 50%),
-                var(--color-off-white);
+            background: radial-gradient(ellipse at 20% 50%, var(--color-warm-accent-light) 0%, transparent 60%);
             opacity: 0.4;
-            transition: background 0.3s;
         }
-
-        .hero-content {
-            position: relative;
-            z-index: 1;
-            padding: 80px 0 60px;
-        }
-
         .hero-content .container {
             display: grid;
             grid-template-columns: 1fr;
             gap: 48px;
+            position: relative;
+            z-index: 1;
         }
-
         @media (min-width: 1024px) {
-            .hero-content .container {
-                grid-template-columns: 1fr 1fr;
-                align-items: center;
-                gap: 64px;
-            }
+            .hero-content .container { grid-template-columns: 1fr 1fr; gap: 64px; }
         }
-
         .hero-text h1 {
             font-family: var(--font-serif);
-            font-size: clamp(2.8rem, 8vw, 5.2rem);
+            font-size: clamp(2.4rem, 8vw, 5rem);
             font-weight: 400;
-            line-height: 1.08;
+            line-height: 1.1;
             letter-spacing: -0.03em;
-            color: var(--color-charcoal);
-            margin-bottom: 20px;
         }
-
-        .hero-text h1 em {
-            font-style: italic;
-            color: var(--color-warm-accent);
-            font-weight: 400;
-        }
-
+        .hero-text h1 em { font-style: italic; color: var(--color-warm-accent); }
         .hero-text p {
             font-size: 1.1rem;
             color: var(--color-gray-600);
-            max-width: 420px;
-            margin-bottom: 32px;
+            max-width: 440px;
+            margin: 20px 0 32px;
             font-weight: 300;
-            letter-spacing: 0.01em;
-            line-height: 1.7;
         }
-
-        .hero-text .btn-primary {
+        .btn-primary {
             display: inline-flex;
             align-items: center;
             gap: 12px;
@@ -565,234 +242,83 @@
             color: var(--color-off-white);
             border: none;
             border-radius: 60px;
-            font-family: var(--font-sans);
-            font-size: 0.95rem;
             font-weight: 500;
             cursor: pointer;
             transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
             text-decoration: none;
-            letter-spacing: 0.02em;
         }
-
-        .hero-text .btn-primary:hover {
+        .btn-primary:hover {
             transform: translateY(-4px) scale(1.02);
             box-shadow: var(--shadow-hover);
             background: var(--color-warm-accent-dark);
         }
-
-        .hero-text .btn-primary i {
-            transition: transform 0.3s;
-        }
-
-        .hero-text .btn-primary:hover i {
-            transform: translateX(4px);
-        }
-
-        /* Hero image - standard image replacing 3D viewer */
         .hero-image-wrap {
-            position: relative;
             border-radius: var(--radius-lg);
             overflow: hidden;
             box-shadow: var(--shadow-soft);
-            aspect-ratio: 4 / 3;
+            aspect-ratio: 4/3;
             background: var(--color-gray-100);
         }
-
-        .hero-image-wrap img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            display: block;
-            transition: transform 0.8s cubic-bezier(0.23, 1, 0.32, 1);
-        }
-
-        .hero-image-wrap:hover img {
-            transform: scale(1.02);
-        }
-
-        .hero-image-wrap .floating-badge {
+        .hero-image-wrap img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.8s; }
+        .hero-image-wrap:hover img { transform: scale(1.02); }
+        .floating-badge {
             position: absolute;
-            bottom: 20px;
-            right: 20px;
-            background: rgba(255, 255, 255, 0.9);
-            backdrop-filter: blur(8px);
-            padding: 12px 20px;
+            bottom: 20px; right: 20px;
+            background: rgba(255,255,255,0.9);
+            padding: 10px 20px;
             border-radius: 40px;
             font-size: 0.8rem;
             font-weight: 500;
             box-shadow: var(--shadow-soft);
-            color: var(--color-charcoal);
             display: flex;
             align-items: center;
             gap: 8px;
         }
 
-        [data-theme="dark"] .hero-image-wrap .floating-badge {
-            background: rgba(30, 30, 28, 0.9);
-            color: #f5f5f4;
-        }
-
-        /* =============================================
-                   SHOP BY ROOM (split-screen)
-                   ============================================= */
+        /* Section titles */
         .section-title {
             font-family: var(--font-serif);
             font-size: clamp(1.8rem, 4vw, 2.8rem);
             font-weight: 400;
             letter-spacing: -0.02em;
             margin-bottom: 12px;
-            color: var(--color-charcoal);
         }
-
         .section-subtitle {
             font-size: 1rem;
             color: var(--color-gray-500);
             font-weight: 300;
             margin-bottom: 40px;
-            letter-spacing: 0.02em;
         }
 
+        /* Rooms */
         .shop-rooms {
             display: grid;
             grid-template-columns: 1fr;
             gap: 16px;
             margin: 48px 0 64px;
         }
-
-        @media (min-width: 768px) {
-            .shop-rooms {
-                grid-template-columns: repeat(3, 1fr);
-                gap: 20px;
-            }
-        }
-
+        @media (min-width: 768px) { .shop-rooms { grid-template-columns: repeat(3, 1fr); gap: 20px; } }
         .room-card {
             position: relative;
             border-radius: var(--radius-md);
             overflow: hidden;
-            cursor: pointer;
-            aspect-ratio: 4 / 5;
+            aspect-ratio: 4/5;
             background: var(--color-gray-200);
-            transition: transform 0.5s cubic-bezier(0.23, 1, 0.32, 1),
-                box-shadow 0.5s;
+            transition: transform 0.5s, box-shadow 0.5s;
         }
-
-        .room-card:hover {
-            transform: translateY(-8px);
-            box-shadow: var(--shadow-hover);
-        }
-
-        .room-card img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: transform 0.8s cubic-bezier(0.23, 1, 0.32, 1);
-        }
-
-        .room-card:hover img {
-            transform: scale(1.04);
-        }
-
+        .room-card:hover { transform: translateY(-8px); box-shadow: var(--shadow-hover); }
+        .room-card img { width: 100%; height: 100%; object-fit: cover; }
         .room-card .room-label {
             position: absolute;
-            bottom: 0;
-            left: 0;
-            right: 0;
+            bottom: 0; left: 0; right: 0;
             padding: 32px 24px 24px;
-            background: linear-gradient(to top, rgba(0, 0, 0, 0.6) 0%, transparent 100%);
+            background: linear-gradient(to top, rgba(0,0,0,0.6), transparent);
             color: #fff;
         }
+        .room-card .room-label h3 { font-family: var(--font-serif); font-size: 1.6rem; font-weight: 400; }
 
-        .room-card .room-label h3 {
-            font-family: var(--font-serif);
-            font-size: 1.6rem;
-            font-weight: 400;
-            letter-spacing: -0.02em;
-        }
-
-        .room-card .room-label p {
-            font-size: 0.85rem;
-            opacity: 0.8;
-            font-weight: 300;
-        }
-
-        /* =============================================
-                   FEATURED COLLECTIONS (horizontal scroll)
-                   ============================================= */
-        .featured-scroll {
-            position: relative;
-            margin: 32px 0 64px;
-            overflow: hidden;
-        }
-
-        .featured-scroll .scroll-track {
-            display: flex;
-            gap: 24px;
-            overflow-x: auto;
-            padding: 8px 4px 24px;
-            scroll-snap-type: x mandatory;
-            -webkit-overflow-scrolling: touch;
-            scrollbar-width: none;
-        }
-
-        .featured-scroll .scroll-track::-webkit-scrollbar {
-            display: none;
-        }
-
-        .featured-scroll .scroll-item {
-            flex: 0 0 260px;
-            scroll-snap-align: start;
-            background: var(--color-gray-100);
-            border-radius: var(--radius-md);
-            overflow: hidden;
-            transition: transform 0.4s, box-shadow 0.4s;
-            cursor: pointer;
-        }
-
-        .featured-scroll .scroll-item:hover {
-            transform: translateY(-6px);
-            box-shadow: var(--shadow-medium);
-        }
-
-        .featured-scroll .scroll-item img {
-            width: 100%;
-            height: 200px;
-            object-fit: cover;
-            display: block;
-            transition: transform 0.6s;
-        }
-
-        .featured-scroll .scroll-item:hover img {
-            transform: scale(1.04);
-        }
-
-        .featured-scroll .scroll-item .item-info {
-            padding: 16px 20px 20px;
-        }
-
-        .featured-scroll .scroll-item .item-info h4 {
-            font-size: 1rem;
-            font-weight: 500;
-            color: var(--color-charcoal);
-        }
-
-        .featured-scroll .scroll-item .item-info p {
-            font-size: 0.85rem;
-            color: var(--color-gray-500);
-            font-weight: 300;
-            margin-top: 4px;
-        }
-
-        .featured-scroll .scroll-item .item-info .price {
-            font-weight: 600;
-            color: var(--color-warm-accent);
-            margin-top: 8px;
-            font-size: 1rem;
-        }
-
+        /* Featured scroll */
         .featured-scroll .sticky-label {
-            position: sticky;
-            left: 0;
             display: inline-block;
             background: var(--color-charcoal);
             color: var(--color-off-white);
@@ -804,161 +330,87 @@
             text-transform: uppercase;
             margin-bottom: 20px;
         }
+        .scroll-track {
+            display: flex;
+            gap: 24px;
+            overflow-x: auto;
+            padding: 8px 4px 24px;
+            scroll-snap-type: x mandatory;
+            scrollbar-width: none;
+        }
+        .scroll-track::-webkit-scrollbar { display: none; }
+        .scroll-item {
+            flex: 0 0 260px;
+            scroll-snap-align: start;
+            background: var(--color-gray-100);
+            border-radius: var(--radius-md);
+            overflow: hidden;
+            cursor: pointer;
+            transition: transform 0.4s, box-shadow 0.4s;
+        }
+        .scroll-item:hover { transform: translateY(-6px); box-shadow: var(--shadow-medium); }
+        .scroll-item img { width: 100%; height: 200px; object-fit: cover; }
+        .scroll-item .item-info { padding: 16px 20px 20px; }
+        .scroll-item .item-info h4 { font-size: 1rem; font-weight: 500; }
+        .scroll-item .item-info .price { font-weight: 600; color: var(--color-warm-accent); margin-top: 8px; }
 
-        /* =============================================
-                   PRODUCT GRID (Shop)
-                   ============================================= */
+        /* Product grid */
         .shop-grid {
             display: grid;
             grid-template-columns: repeat(2, 1fr);
             gap: 16px;
             margin: 32px 0 64px;
         }
-
-        @media (min-width: 640px) {
-            .shop-grid {
-                gap: 24px;
-            }
-        }
-
-        @media (min-width: 1024px) {
-            .shop-grid {
-                grid-template-columns: repeat(3, 1fr);
-                gap: 32px;
-            }
-        }
-
-        @media (min-width: 1280px) {
-            .shop-grid {
-                grid-template-columns: repeat(4, 1fr);
-                gap: 32px;
-            }
-        }
-
+        @media (min-width: 640px) { .shop-grid { gap: 24px; } }
+        @media (min-width: 1024px) { .shop-grid { grid-template-columns: repeat(3, 1fr); gap: 32px; } }
+        @media (min-width: 1280px) { .shop-grid { grid-template-columns: repeat(4, 1fr); gap: 32px; } }
         .product-card {
             position: relative;
             border-radius: var(--radius-md);
             overflow: hidden;
             background: var(--color-gray-100);
-            transition: transform 0.5s cubic-bezier(0.23, 1, 0.32, 1),
-                box-shadow 0.5s;
+            aspect-ratio: 3/4;
             cursor: pointer;
-            aspect-ratio: 3 / 4;
+            transition: transform 0.5s, box-shadow 0.5s;
         }
-
-        .product-card:hover {
-            transform: translateY(-8px);
-            box-shadow: var(--shadow-hover);
-        }
-
-        .product-card .card-image {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: transform 0.8s cubic-bezier(0.23, 1, 0.32, 1);
-            display: block;
-        }
-
-        .product-card:hover .card-image {
-            transform: scale(1.04);
-        }
-
+        .product-card:hover { transform: translateY(-8px); box-shadow: var(--shadow-hover); }
+        .product-card img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.8s; }
+        .product-card:hover img { transform: scale(1.04); }
         .product-card .card-overlay {
             position: absolute;
             inset: 0;
+            background: linear-gradient(to top, rgba(0,0,0,0.5), transparent 60%);
+            opacity: 0;
+            transition: opacity 0.5s;
             padding: 24px;
             display: flex;
             flex-direction: column;
             justify-content: flex-end;
-            background: linear-gradient(to top, rgba(0, 0, 0, 0.5) 0%, transparent 60%);
-            opacity: 0;
-            transition: opacity 0.5s;
         }
-
-        .product-card:hover .card-overlay {
-            opacity: 1;
-        }
-
-        .product-card .card-overlay .name {
-            font-family: var(--font-serif);
-            font-size: 1.2rem;
-            font-weight: 400;
-            color: #fff;
-            letter-spacing: -0.01em;
-        }
-
-        .product-card .card-overlay .desc {
-            font-size: 0.85rem;
-            color: rgba(255, 255, 255, 0.8);
-            font-weight: 300;
-            margin: 4px 0 8px;
-        }
-
-        .product-card .card-overlay .price {
-            font-weight: 600;
-            color: var(--color-warm-accent-light);
-            font-size: 1rem;
-        }
-
+        .product-card:hover .card-overlay { opacity: 1; }
+        .product-card .card-overlay .name { font-family: var(--font-serif); font-size: 1.2rem; color: #fff; line-height: 1.3; }
+        .product-card .card-overlay .price { font-weight: 600; color: var(--color-warm-accent-light); margin-top: 4px; }
         .product-card .quick-view {
             position: absolute;
-            top: 16px;
-            right: 16px;
-            background: rgba(255, 255, 255, 0.92);
-            backdrop-filter: blur(8px);
+            top: 16px; right: 16px;
+            background: rgba(255,255,255,0.92);
             border: none;
             padding: 8px 16px;
             border-radius: 40px;
             font-size: 0.75rem;
             font-weight: 500;
-            color: var(--color-charcoal);
             cursor: pointer;
             opacity: 0;
             transform: translateY(-8px);
-            transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
-            box-shadow: var(--shadow-soft);
+            transition: all 0.4s;
+            z-index: 2;
         }
+        .product-card:hover .quick-view { opacity: 1; transform: translateY(0); }
 
-        .product-card:hover .quick-view {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-        .product-card .quick-view:hover {
-            background: var(--color-warm-accent);
-            color: #fff;
-        }
-
-        /* =============================================
-                   FILTERS OVERLAY (slide-in)
-                   ============================================= */
-        .filters-toggle {
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            padding: 10px 24px;
-            background: var(--color-gray-100);
-            border: 1px solid var(--color-gray-200);
-            border-radius: 40px;
-            font-family: var(--font-sans);
-            font-size: 0.85rem;
-            font-weight: 500;
-            color: var(--color-charcoal);
-            cursor: pointer;
-            transition: all 0.3s;
-            margin-bottom: 24px;
-        }
-
-        .filters-toggle:hover {
-            background: var(--color-gray-200);
-            border-color: var(--color-gray-300);
-        }
-
+        /* Filters */
         .filters-panel {
             position: fixed;
-            top: 0;
-            left: 0;
-            bottom: 0;
+            top: 0; left: 0; bottom: 0;
             width: 340px;
             max-width: 90vw;
             z-index: 800;
@@ -966,2516 +418,706 @@
             box-shadow: var(--shadow-medium);
             padding: 32px 28px;
             transform: translateX(-100%);
-            transition: transform 0.5s cubic-bezier(0.23, 1, 0.32, 1);
+            transition: transform 0.5s;
             overflow-y: auto;
-            border-right: 1px solid var(--color-gray-200);
         }
-
-        .filters-panel.open {
-            transform: translateX(0);
-        }
-
-        .filters-panel .close-filters {
-            background: none;
-            border: none;
-            font-size: 1.4rem;
-            color: var(--color-charcoal);
-            cursor: pointer;
-            float: right;
-            padding: 4px;
-            transition: transform 0.3s;
-        }
-
-        .filters-panel .close-filters:hover {
-            transform: rotate(90deg);
-        }
-
-        .filters-panel h3 {
-            font-family: var(--font-serif);
-            font-size: 1.4rem;
-            font-weight: 400;
-            margin-bottom: 24px;
-            margin-top: 8px;
-        }
-
-        .filter-group {
-            margin-bottom: 24px;
-        }
-
-        .filter-group label {
-            display: block;
-            font-size: 0.7rem;
-            font-weight: 600;
-            text-transform: uppercase;
-            letter-spacing: 0.06em;
-            color: var(--color-gray-500);
-            margin-bottom: 8px;
-        }
-
-        .filter-group .filter-options {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 6px;
-        }
-
-        .filter-group .filter-options button {
+        .filters-panel.open { transform: translateX(0); }
+        .filter-group { margin-bottom: 24px; }
+        .filter-group label { display: block; font-size: 0.7rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.06em; color: var(--color-gray-500); margin-bottom: 8px; }
+        .filter-options { display: flex; flex-wrap: wrap; gap: 6px; }
+        .filter-options button {
             padding: 6px 16px;
             border: 1px solid var(--color-gray-200);
             border-radius: 40px;
             background: transparent;
             font-size: 0.8rem;
-            font-weight: 400;
-            color: var(--color-charcoal);
             cursor: pointer;
             transition: all 0.3s;
+            color: var(--color-charcoal);
         }
-
-        .filter-group .filter-options button:hover,
-        .filter-group .filter-options button.active {
+        .filter-options button.active,
+        .filter-options button:hover {
             background: var(--color-charcoal);
             color: var(--color-off-white);
             border-color: var(--color-charcoal);
         }
 
-        /* =============================================
-                   CART SLIDE-OUT
-                   ============================================= */
-        .cart-overlay {
-            position: fixed;
-            inset: 0;
-            z-index: 900;
-            background: rgba(0, 0, 0, 0.3);
-            backdrop-filter: blur(4px);
-            opacity: 0;
-            visibility: hidden;
-            transition: opacity 0.4s, visibility 0.4s;
-        }
-
-        .cart-overlay.open {
-            opacity: 1;
-            visibility: visible;
-        }
-
-        .cart-panel {
-            position: fixed;
-            top: 0;
-            right: 0;
-            bottom: 0;
-            width: 420px;
-            max-width: 92vw;
-            z-index: 950;
-            background: var(--color-off-white);
-            box-shadow: var(--shadow-hover);
-            padding: 32px 28px;
-            transform: translateX(100%);
-            transition: transform 0.5s cubic-bezier(0.23, 1, 0.32, 1);
-            display: flex;
-            flex-direction: column;
-            border-left: 1px solid var(--color-gray-200);
-        }
-
-        .cart-panel.open {
-            transform: translateX(0);
-        }
-
-        .cart-panel .cart-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 24px;
-            padding-bottom: 16px;
-            border-bottom: 1px solid var(--color-gray-200);
-        }
-
-        .cart-panel .cart-header h2 {
-            font-family: var(--font-serif);
-            font-size: 1.4rem;
-            font-weight: 400;
-        }
-
-        .cart-panel .cart-header button {
-            background: none;
-            border: none;
-            font-size: 1.2rem;
-            color: var(--color-charcoal);
-            cursor: pointer;
-            padding: 4px;
-            transition: transform 0.3s;
-        }
-
-        .cart-panel .cart-header button:hover {
-            transform: rotate(90deg);
-        }
-
-        .cart-items {
-            flex: 1;
-            overflow-y: auto;
-            padding-right: 4px;
-        }
-
-        .cart-item {
-            display: flex;
-            gap: 16px;
-            padding: 12px 0;
-            border-bottom: 1px solid var(--color-gray-200);
-            align-items: center;
-        }
-
-        .cart-item img {
-            width: 60px;
-            height: 60px;
-            object-fit: cover;
-            border-radius: var(--radius-sm);
-            background: var(--color-gray-100);
-        }
-
-        .cart-item .item-details {
-            flex: 1;
-        }
-
-        .cart-item .item-details .name {
-            font-weight: 500;
-            font-size: 0.9rem;
-        }
-
-        .cart-item .item-details .price {
-            font-size: 0.85rem;
-            color: var(--color-warm-accent);
-            font-weight: 500;
-        }
-
-        .cart-item .qty-control {
-            display: flex;
-            align-items: center;
-            gap: 8px;
-        }
-
-        .cart-item .qty-control button {
-            background: var(--color-gray-100);
-            border: none;
-            width: 28px;
-            height: 28px;
-            border-radius: 50%;
-            font-size: 0.9rem;
-            cursor: pointer;
-            transition: background 0.3s;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .cart-item .qty-control button:hover {
-            background: var(--color-gray-300);
-        }
-
-        .cart-item .qty-control span {
-            font-weight: 500;
-            min-width: 20px;
-            text-align: center;
-        }
-
-        .cart-item .remove-item {
-            background: none;
-            border: none;
-            color: var(--color-gray-400);
-            cursor: pointer;
-            font-size: 0.9rem;
-            transition: color 0.3s;
-            padding: 4px;
-        }
-
-        .cart-item .remove-item:hover {
-            color: #e74c3c;
-        }
-
-        .cart-footer {
-            padding-top: 20px;
-            border-top: 1px solid var(--color-gray-200);
-            margin-top: 12px;
-        }
-
-        .cart-footer .total {
-            display: flex;
-            justify-content: space-between;
-            font-weight: 600;
-            font-size: 1.1rem;
-            margin-bottom: 16px;
-        }
-
-        .cart-footer .checkout-btn {
-            width: 100%;
-            padding: 16px;
-            background: var(--color-charcoal);
-            color: var(--color-off-white);
-            border: none;
-            border-radius: 60px;
-            font-family: var(--font-sans);
-            font-size: 1rem;
-            font-weight: 500;
-            cursor: pointer;
-            transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
-        }
-
-        .cart-footer .checkout-btn:hover {
-            background: var(--color-warm-accent-dark);
-            transform: scale(1.02);
-            box-shadow: var(--shadow-medium);
-        }
-
-        .cart-empty {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            flex: 1;
-            color: var(--color-gray-500);
-            text-align: center;
-        }
-
-        .cart-empty i {
-            font-size: 3rem;
-            margin-bottom: 16px;
-            opacity: 0.4;
-        }
-
-        .cart-empty p {
-            font-weight: 300;
-        }
-
-        /* =============================================
-                   PRODUCT DETAIL PAGE (split layout) - with normal image
-                   ============================================= */
-        .pdp-wrapper {
-            padding-top: var(--nav-height);
-            min-height: 100vh;
-        }
-
-        .pdp-grid {
-            display: grid;
-            grid-template-columns: 1fr;
-            gap: 32px;
-            padding: 40px 0 64px;
-        }
-
-        @media (min-width: 1024px) {
-            .pdp-grid {
-                grid-template-columns: 60% 40%;
-                gap: 48px;
-                min-height: calc(100vh - var(--nav-height));
-            }
-        }
-
-        .pdp-viewer {
-            position: relative;
-            border-radius: var(--radius-md);
-            overflow: hidden;
-            background: var(--color-gray-100);
-            min-height: 400px;
-            aspect-ratio: 4 / 3;
-        }
-
-        .pdp-viewer img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            display: block;
-        }
-
-        .pdp-viewer .ar-btn {
-            position: absolute;
-            bottom: 20px;
-            right: 20px;
-            background: rgba(255, 255, 255, 0.9);
-            backdrop-filter: blur(8px);
-            border: none;
-            padding: 10px 20px;
-            border-radius: 40px;
-            font-size: 0.8rem;
-            font-weight: 500;
-            color: var(--color-charcoal);
-            cursor: pointer;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            box-shadow: var(--shadow-soft);
-            transition: all 0.3s;
-        }
-
-        .pdp-viewer .ar-btn:hover {
-            background: var(--color-warm-accent);
-            color: #fff;
-            transform: scale(1.04);
-        }
-
-        .pdp-info {
-            display: flex;
-            flex-direction: column;
-            gap: 20px;
-            padding: 8px 0;
-        }
-
-        .pdp-info .product-name {
-            font-family: var(--font-serif);
-            font-size: clamp(1.8rem, 3vw, 2.6rem);
-            font-weight: 400;
-            letter-spacing: -0.02em;
-            color: var(--color-charcoal);
-        }
-
-        .pdp-info .product-price {
-            font-size: 1.6rem;
-            font-weight: 600;
-            color: var(--color-warm-accent);
-        }
-
-        .pdp-info .product-desc {
-            font-size: 1rem;
-            color: var(--color-gray-600);
-            font-weight: 300;
-            line-height: 1.7;
-            max-width: 400px;
-        }
-
-        .pdp-info .meta-row {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 12px 24px;
-            font-size: 0.85rem;
-            color: var(--color-gray-500);
-            padding: 12px 0;
-            border-top: 1px solid var(--color-gray-200);
-            border-bottom: 1px solid var(--color-gray-200);
-        }
-
-        .pdp-info .meta-row span {
-            display: flex;
-            align-items: center;
-            gap: 6px;
-        }
-
-        .pdp-info .meta-row i {
-            color: var(--color-warm-accent);
-            width: 18px;
-        }
-
-        .pdp-info .add-to-cart {
-            display: flex;
-            gap: 12px;
-            margin-top: 8px;
-        }
-
-        .pdp-info .add-to-cart .qty-selector {
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            background: var(--color-gray-100);
-            border-radius: 60px;
-            padding: 4px 8px;
-            border: 1px solid var(--color-gray-200);
-        }
-
-        .pdp-info .add-to-cart .qty-selector button {
-            background: none;
-            border: none;
-            width: 36px;
-            height: 36px;
-            border-radius: 50%;
-            font-size: 1.2rem;
-            cursor: pointer;
-            transition: background 0.3s;
-            color: var(--color-charcoal);
-        }
-
-        .pdp-info .add-to-cart .qty-selector button:hover {
-            background: var(--color-gray-200);
-        }
-
-        .pdp-info .add-to-cart .qty-selector span {
-            font-weight: 500;
-            min-width: 28px;
-            text-align: center;
-            font-size: 1rem;
-        }
-
-        .pdp-info .add-to-cart .cart-btn {
-            flex: 1;
-            padding: 14px 32px;
-            background: var(--color-charcoal);
-            color: var(--color-off-white);
-            border: none;
-            border-radius: 60px;
-            font-family: var(--font-sans);
-            font-size: 0.95rem;
-            font-weight: 500;
-            cursor: pointer;
-            transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
-        }
-
-        .pdp-info .add-to-cart .cart-btn:hover {
-            background: var(--color-warm-accent-dark);
-            transform: scale(1.02);
-            box-shadow: var(--shadow-medium);
-        }
-
-        /* "Complete the Look" widget */
-        .complete-look {
-            margin-top: 24px;
-            padding: 20px 0;
-            border-top: 1px solid var(--color-gray-200);
-        }
-
-        .complete-look h4 {
-            font-size: 0.85rem;
-            font-weight: 500;
-            color: var(--color-gray-500);
-            letter-spacing: 0.04em;
-            text-transform: uppercase;
-            margin-bottom: 12px;
-        }
-
-        .complete-look .look-carousel {
-            display: flex;
-            gap: 12px;
-            overflow-x: auto;
-            padding: 4px 0 12px;
-            scrollbar-width: thin;
-        }
-
-        .complete-look .look-carousel .look-item {
-            flex: 0 0 100px;
-            text-align: center;
-            cursor: pointer;
-            transition: transform 0.3s;
-        }
-
-        .complete-look .look-carousel .look-item:hover {
-            transform: translateY(-4px);
-        }
-
-        .complete-look .look-carousel .look-item img {
-            width: 100%;
-            aspect-ratio: 1;
-            object-fit: cover;
-            border-radius: var(--radius-sm);
-            background: var(--color-gray-100);
-        }
-
-        .complete-look .look-carousel .look-item .label {
-            font-size: 0.7rem;
-            color: var(--color-gray-500);
-            margin-top: 4px;
-            font-weight: 400;
-        }
-
-        /* =============================================
-                   PDP - Customers also bought (horizontal drag)
-                   ============================================= */
-        .also-bought {
-            margin: 32px 0 64px;
-        }
-
-        .also-bought h3 {
-            font-family: var(--font-serif);
-            font-size: 1.4rem;
-            font-weight: 400;
-            margin-bottom: 20px;
-        }
-
-        .also-bought .drag-carousel {
-            display: flex;
-            gap: 16px;
-            overflow-x: auto;
-            padding: 8px 4px 16px;
-            scroll-snap-type: x mandatory;
-            -webkit-overflow-scrolling: touch;
-            scrollbar-width: thin;
-        }
-
-        .also-bought .drag-carousel .item {
-            flex: 0 0 160px;
-            scroll-snap-align: start;
-            background: var(--color-gray-100);
-            border-radius: var(--radius-sm);
-            overflow: hidden;
-            cursor: pointer;
-            transition: transform 0.3s, box-shadow 0.3s;
-        }
-
-        .also-bought .drag-carousel .item:hover {
-            transform: translateY(-4px);
-            box-shadow: var(--shadow-soft);
-        }
-
-        .also-bought .drag-carousel .item img {
-            width: 100%;
-            height: 140px;
-            object-fit: cover;
-            display: block;
-        }
-
-        .also-bought .drag-carousel .item .info {
-            padding: 10px 14px 14px;
-        }
-
-        .also-bought .drag-carousel .item .info .name {
-            font-size: 0.85rem;
-            font-weight: 500;
-        }
-
-        .also-bought .drag-carousel .item .info .price {
-            font-size: 0.8rem;
-            color: var(--color-warm-accent);
-            font-weight: 500;
-        }
-
-        /* =============================================
-                   TRACE FEATURE (sustainability storytelling - Kenya focused)
-                   ============================================= */
-        .trace-section {
-            margin: 64px 0;
-            padding: 48px 0;
-            border-top: 1px solid var(--color-gray-200);
-            border-bottom: 1px solid var(--color-gray-200);
-        }
-
-        .trace-section .trace-timeline {
-            display: flex;
-            flex-direction: column;
-            gap: 16px;
-            margin-top: 24px;
-        }
-
-        .trace-section .trace-step {
-            display: flex;
-            align-items: center;
-            gap: 16px;
-            padding: 12px 16px;
-            border-radius: var(--radius-sm);
-            background: var(--color-gray-100);
-            transition: background 0.3s, transform 0.3s;
-            cursor: default;
-        }
-
-        .trace-section .trace-step:hover {
-            background: var(--color-gray-200);
-            transform: translateX(6px);
-        }
-
-        .trace-section .trace-step .step-icon {
-            width: 40px;
-            height: 40px;
-            border-radius: 50%;
-            background: var(--color-warm-accent);
-            color: #fff;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-weight: 600;
-            font-size: 0.8rem;
-            flex-shrink: 0;
-        }
-
-        .trace-section .trace-step .step-content {
-            flex: 1;
-        }
-
-        .trace-section .trace-step .step-content .step-title {
-            font-weight: 500;
-            font-size: 0.95rem;
-        }
-
-        .trace-section .trace-step .step-content .step-desc {
-            font-size: 0.85rem;
-            color: var(--color-gray-500);
-            font-weight: 300;
-        }
-
-        /* =============================================
-                   ★ NEW: TESTIMONIALS SECTION ★
-                   ============================================= */
-        .testimonials {
-            padding: 64px 0;
-            background: var(--color-gray-100);
-            margin: 32px 0 0;
-            border-top: 1px solid var(--color-gray-200);
-            border-bottom: 1px solid var(--color-gray-200);
-        }
-
-        .testimonials .testimonial-grid {
-            display: grid;
-            grid-template-columns: 1fr;
-            gap: 24px;
-            margin-top: 32px;
-        }
-
-        @media (min-width: 768px) {
-            .testimonials .testimonial-grid {
-                grid-template-columns: repeat(3, 1fr);
-                gap: 32px;
-            }
-        }
-
-        .testimonial-card {
-            background: var(--color-off-white);
-            padding: 32px 28px;
-            border-radius: var(--radius-md);
-            box-shadow: var(--shadow-soft);
-            transition: transform 0.4s, box-shadow 0.4s;
-            border: 1px solid var(--color-gray-200);
-        }
-
-        .testimonial-card:hover {
-            transform: translateY(-6px);
-            box-shadow: var(--shadow-medium);
-        }
-
-        .testimonial-card .stars {
-            color: #f59e0b;
-            letter-spacing: 2px;
-            font-size: 0.9rem;
-            margin-bottom: 12px;
-        }
-
-        .testimonial-card blockquote {
-            font-style: italic;
-            font-size: 0.95rem;
-            color: var(--color-gray-700);
-            line-height: 1.7;
-            margin-bottom: 16px;
-        }
-
-        .testimonial-card .customer {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-        }
-
-        .testimonial-card .customer img {
-            width: 44px;
-            height: 44px;
-            border-radius: 50%;
-            object-fit: cover;
-            background: var(--color-gray-200);
-        }
-
-        .testimonial-card .customer .name {
-            font-weight: 600;
-            font-size: 0.9rem;
-            color: var(--color-charcoal);
-        }
-
-        .testimonial-card .customer .role {
-            font-size: 0.8rem;
-            color: var(--color-gray-500);
-            font-weight: 300;
-        }
-
-        /* =============================================
-                   ★ NEW: BRAND STORY / ABOUT ★
-                   ============================================= */
-        .brand-story {
-            padding: 72px 0;
-            background: var(--color-off-white);
-        }
-
-        .brand-story .story-grid {
-            display: grid;
-            grid-template-columns: 1fr;
-            gap: 40px;
-            align-items: center;
-        }
-
-        @media (min-width: 1024px) {
-            .brand-story .story-grid {
-                grid-template-columns: 1fr 1fr;
-                gap: 64px;
-            }
-        }
-
-        .brand-story .story-image {
-            border-radius: var(--radius-lg);
-            overflow: hidden;
-            aspect-ratio: 4 / 3;
-            background: var(--color-gray-100);
-        }
-
-        .brand-story .story-image img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            display: block;
-            transition: transform 0.8s cubic-bezier(0.23, 1, 0.32, 1);
-        }
-
-        .brand-story .story-image:hover img {
-            transform: scale(1.03);
-        }
-
-        .brand-story .story-text h2 {
-            font-family: var(--font-serif);
-            font-size: clamp(1.8rem, 3.5vw, 2.8rem);
-            font-weight: 400;
-            letter-spacing: -0.02em;
-            margin-bottom: 16px;
-            color: var(--color-charcoal);
-        }
-
-        .brand-story .story-text p {
-            color: var(--color-gray-600);
-            font-weight: 300;
-            line-height: 1.8;
-            margin-bottom: 16px;
-            max-width: 480px;
-        }
-
-        .brand-story .story-text .stats {
-            display: flex;
-            gap: 32px;
-            margin-top: 24px;
-            flex-wrap: wrap;
-        }
-
-        .brand-story .story-text .stats .stat {
-            text-align: left;
-        }
-
-        .brand-story .story-text .stats .stat .number {
-            font-family: var(--font-serif);
-            font-size: 2rem;
-            font-weight: 600;
-            color: var(--color-warm-accent);
-            display: block;
-        }
-
-        .brand-story .story-text .stats .stat .label {
-            font-size: 0.8rem;
-            color: var(--color-gray-500);
-            font-weight: 300;
-        }
-
-        /* =============================================
-                   ★ NEW: BLOG / JOURNAL ★
-                   ============================================= */
-        .blog-section {
-            padding: 64px 0;
-            border-bottom: 1px solid var(--color-gray-200);
-        }
-
-        .blog-section .blog-grid {
-            display: grid;
-            grid-template-columns: 1fr;
-            gap: 24px;
-            margin-top: 32px;
-        }
-
-        @media (min-width: 768px) {
-            .blog-section .blog-grid {
-                grid-template-columns: repeat(3, 1fr);
-                gap: 32px;
-            }
-        }
-
-        .blog-card {
-            border-radius: var(--radius-md);
-            overflow: hidden;
-            background: var(--color-gray-100);
-            transition: transform 0.4s, box-shadow 0.4s;
-            cursor: pointer;
-            border: 1px solid var(--color-gray-200);
-        }
-
-        .blog-card:hover {
-            transform: translateY(-6px);
-            box-shadow: var(--shadow-medium);
-        }
-
-        .blog-card img {
-            width: 100%;
-            height: 200px;
-            object-fit: cover;
-            display: block;
-            transition: transform 0.6s;
-        }
-
-        .blog-card:hover img {
-            transform: scale(1.04);
-        }
-
-        .blog-card .blog-content {
-            padding: 20px 24px 24px;
-        }
-
-        .blog-card .blog-content .tag {
-            font-size: 0.65rem;
-            font-weight: 600;
-            text-transform: uppercase;
-            letter-spacing: 0.06em;
-            color: var(--color-warm-accent);
-            background: var(--color-warm-accent-light);
-            padding: 4px 12px;
-            border-radius: 40px;
-            display: inline-block;
-            margin-bottom: 8px;
-        }
-
-        .blog-card .blog-content h4 {
-            font-family: var(--font-serif);
-            font-size: 1.1rem;
-            font-weight: 400;
-            color: var(--color-charcoal);
-            margin-bottom: 6px;
-        }
-
-        .blog-card .blog-content p {
-            font-size: 0.9rem;
-            color: var(--color-gray-500);
-            font-weight: 300;
-            line-height: 1.6;
-        }
-
-        .blog-card .blog-content .read-more {
-            display: inline-flex;
-            align-items: center;
-            gap: 6px;
-            margin-top: 12px;
-            font-size: 0.8rem;
-            font-weight: 500;
-            color: var(--color-warm-accent);
-            text-decoration: none;
-            transition: gap 0.3s;
-        }
-
-        .blog-card .blog-content .read-more:hover {
-            gap: 12px;
-        }
-
-        /* =============================================
-                   ★ NEW: NEWSLETTER ★
-                   ============================================= */
+        /* PDP */
+        .pdp-wrapper { padding-top: var(--nav-height); }
+        .pdp-grid { display: grid; grid-template-columns: 1fr; gap: 32px; padding: 40px 0; }
+        @media (min-width: 1024px) { .pdp-grid { grid-template-columns: 60% 40%; gap: 48px; } }
+        .pdp-viewer { border-radius: var(--radius-md); overflow: hidden; background: var(--color-gray-100); aspect-ratio: 4/3; }
+        .pdp-viewer img { width: 100%; height: 100%; object-fit: cover; }
+        .pdp-info .product-name { font-family: var(--font-serif); font-size: clamp(1.8rem, 3vw, 2.6rem); font-weight: 400; line-height: 1.2; }
+        .pdp-info .product-price { font-size: 1.6rem; font-weight: 600; color: var(--color-warm-accent); margin: 8px 0; }
+        .pdp-info .product-desc { font-size: 1rem; color: var(--color-gray-600); font-weight: 300; line-height: 1.7; max-width: 400px; }
+        .meta-row { display: flex; flex-wrap: wrap; gap: 12px 24px; font-size: 0.85rem; color: var(--color-gray-500); padding: 12px 0; border-top: 1px solid var(--color-gray-200); border-bottom: 1px solid var(--color-gray-200); margin: 16px 0; }
+        .add-to-cart { display: flex; gap: 12px; margin-top: 16px; }
+        .qty-selector { display: flex; align-items: center; gap: 8px; background: var(--color-gray-100); border-radius: 60px; padding: 4px 8px; border: 1px solid var(--color-gray-200); }
+        .qty-selector button { background: none; border: none; width: 36px; height: 36px; border-radius: 50%; font-size: 1.2rem; cursor: pointer; }
+        .cart-btn { padding: 14px 32px; background: var(--color-charcoal); color: var(--color-off-white); border: none; border-radius: 60px; font-weight: 500; cursor: pointer; transition: all 0.4s; white-space: nowrap; }
+        .cart-btn:hover { background: var(--color-warm-accent-dark); transform: scale(1.02); }
+
+        .complete-look { margin-top: 24px; padding-top: 20px; border-top: 1px solid var(--color-gray-200); }
+        .complete-look h4 { font-size: 0.85rem; font-weight: 500; color: var(--color-gray-500); text-transform: uppercase; letter-spacing: 0.04em; margin-bottom: 12px; }
+        .look-carousel { display: flex; gap: 12px; overflow-x: auto; padding-bottom: 12px; scrollbar-width: thin; }
+        .look-item { flex: 0 0 100px; text-align: center; cursor: pointer; }
+        .look-item img { width: 100%; aspect-ratio: 1; object-fit: cover; border-radius: var(--radius-sm); background: var(--color-gray-100); }
+        .look-item .label { font-size: 0.7rem; color: var(--color-gray-500); margin-top: 4px; }
+
+        /* Customers also bought */
+        .also-bought { margin: 32px 0 64px; }
+        .also-bought h3 { font-family: var(--font-serif); font-size: 1.4rem; font-weight: 400; margin-bottom: 20px; }
+        .also-bought .drag-carousel { display: flex; gap: 16px; overflow-x: auto; padding: 8px 4px 16px; scroll-snap-type: x mandatory; -webkit-overflow-scrolling: touch; scrollbar-width: thin; }
+        .also-bought .drag-carousel .item { flex: 0 0 160px; scroll-snap-align: start; background: var(--color-gray-100); border-radius: var(--radius-sm); overflow: hidden; cursor: pointer; transition: transform 0.3s, box-shadow 0.3s; border: 1px solid var(--color-gray-200); }
+        .also-bought .drag-carousel .item:hover { transform: translateY(-4px); box-shadow: var(--shadow-soft); border-color: var(--color-warm-accent-light); }
+        .also-bought .drag-carousel .item img { width: 100%; height: 140px; object-fit: cover; display: block; background: var(--color-gray-200); }
+        .also-bought .drag-carousel .item .info { padding: 12px 14px 14px; }
+        .also-bought .drag-carousel .item .info .name { font-size: 0.85rem; font-weight: 500; color: var(--color-charcoal); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+        .also-bought .drag-carousel .item .info .price { font-size: 0.8rem; color: var(--color-warm-accent); font-weight: 500; margin-top: 4px; }
+
+        /* Trace journey */
+        .trace-section { margin: 64px 0; padding: 48px 0; border-top: 1px solid var(--color-gray-200); border-bottom: 1px solid var(--color-gray-200); }
+        .trace-section .trace-timeline { display: flex; flex-direction: column; gap: 12px; margin-top: 24px; }
+        .trace-step { display: flex; align-items: flex-start; gap: 16px; padding: 16px; border-radius: var(--radius-sm); background: var(--color-gray-100); border: 1px solid var(--color-gray-200); transition: all 0.3s; }
+        .trace-step:hover { background: var(--color-gray-200); transform: translateX(6px); border-color: var(--color-warm-accent-light); }
+        .trace-step .step-icon { width: 40px; height: 40px; border-radius: 50%; background: var(--color-warm-accent); color: #fff; display: flex; align-items: center; justify-content: center; font-weight: 600; font-size: 0.8rem; flex-shrink: 0; }
+        .trace-step .step-content { flex: 1; }
+        .trace-step .step-content .step-title { font-weight: 500; font-size: 0.95rem; color: var(--color-charcoal); }
+        .trace-step .step-content .step-desc { font-size: 0.85rem; color: var(--color-gray-500); font-weight: 300; margin-top: 2px; }
+
+        /* Testimonials */
+        .testimonials { padding: 64px 0; background: var(--color-gray-100); border-top: 1px solid var(--color-gray-200); border-bottom: 1px solid var(--color-gray-200); }
+        .testimonial-grid { display: grid; grid-template-columns: 1fr; gap: 24px; margin-top: 32px; }
+        @media (min-width: 768px) { .testimonial-grid { grid-template-columns: repeat(3, 1fr); } }
+        .testimonial-card { background: var(--color-off-white); padding: 32px 28px; border-radius: var(--radius-md); box-shadow: var(--shadow-soft); }
+        .testimonial-card .stars { color: #f59e0b; margin-bottom: 12px; }
+        .testimonial-card blockquote { font-size: 0.95rem; color: var(--color-gray-700); line-height: 1.7; margin-bottom: 16px; }
+        .testimonial-card .customer { display: flex; align-items: center; gap: 12px; }
+        .testimonial-card .customer img { width: 44px; height: 44px; border-radius: 50%; object-fit: cover; }
+
+        /* Brand story */
+        .brand-story { padding: 72px 0; }
+        .story-grid { display: grid; grid-template-columns: 1fr; gap: 40px; align-items: center; }
+        @media (min-width: 1024px) { .story-grid { grid-template-columns: 1fr 1fr; gap: 64px; } }
+        .story-image { border-radius: var(--radius-lg); overflow: hidden; aspect-ratio: 4/3; background: var(--color-gray-100); }
+        .story-image img { width: 100%; height: 100%; object-fit: cover; }
+        .stats { display: flex; gap: 32px; margin-top: 24px; flex-wrap: wrap; }
+        .stat .number { font-family: var(--font-serif); font-size: 2rem; font-weight: 600; color: var(--color-warm-accent); }
+
+        /* Blog */
+        .blog-section { padding: 64px 0; }
+        .blog-grid { display: grid; grid-template-columns: 1fr; gap: 24px; margin-top: 32px; }
+        @media (min-width: 768px) { .blog-grid { grid-template-columns: repeat(3, 1fr); } }
+        .blog-card { border-radius: var(--radius-md); overflow: hidden; background: var(--color-gray-100); cursor: pointer; transition: transform 0.4s; }
+        .blog-card:hover { transform: translateY(-6px); }
+        .blog-card img { width: 100%; height: 200px; object-fit: cover; }
+        .blog-card .blog-content { padding: 20px 24px 24px; }
+
+        /* ✅ NEWSLETTER (improved styling) */
         .newsletter-section {
-            padding: 64px 0;
+            padding: 72px 0;
             background: var(--color-charcoal);
             color: var(--color-off-white);
             text-align: center;
-            margin: 0 0 32px;
         }
-
-        [data-theme="dark"] .newsletter-section {
-            background: #1c1c1a;
-        }
-
-        .newsletter-section h2 {
-            font-family: var(--font-serif);
-            font-size: clamp(1.6rem, 3vw, 2.4rem);
-            font-weight: 400;
-            letter-spacing: -0.02em;
-            margin-bottom: 8px;
-        }
-
-        .newsletter-section p {
-            font-weight: 300;
-            opacity: 0.7;
-            margin-bottom: 24px;
-        }
-
-        .newsletter-section .newsletter-form {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 12px;
-            justify-content: center;
-            max-width: 480px;
+        .newsletter-section .container {
+            max-width: 600px;
             margin: 0 auto;
         }
-
-        .newsletter-section .newsletter-form input {
-            flex: 1;
+        .newsletter-section h2 {
+            font-family: var(--font-serif);
+            font-size: 2rem;
+            font-weight: 400;
+            margin-bottom: 12px;
+        }
+        .newsletter-section p {
+            font-weight: 300;
+            opacity: 0.8;
+            margin-bottom: 32px;
+            line-height: 1.6;
+        }
+        .newsletter-form {
+            display: flex;
+            gap: 12px;
+            flex-wrap: wrap;
+            justify-content: center;
+            margin-bottom: 16px;
+        }
+        .newsletter-form input {
+            flex: 1 1 250px;
             min-width: 200px;
-            padding: 14px 24px;
+            padding: 16px 24px;
             border: none;
             border-radius: 60px;
+            background: rgba(255,255,255,0.12);
+            color: var(--color-off-white);
             font-family: var(--font-sans);
             font-size: 0.95rem;
-            background: rgba(255, 255, 255, 0.1);
-            color: var(--color-off-white);
-            outline: 1px solid transparent;
-            transition: outline 0.3s, background 0.3s;
+            outline: none;
+            transition: background 0.3s;
         }
-
-        .newsletter-section .newsletter-form input::placeholder {
-            color: rgba(255, 255, 255, 0.4);
+        .newsletter-form input::placeholder {
+            color: rgba(255,255,255,0.4);
         }
-
-        .newsletter-section .newsletter-form input:focus {
-            outline: 1px solid var(--color-warm-accent);
-            background: rgba(255, 255, 255, 0.15);
+        .newsletter-form input:focus {
+            background: rgba(255,255,255,0.18);
         }
-
-        .newsletter-section .newsletter-form button {
-            padding: 14px 32px;
+        .newsletter-form button {
+            padding: 16px 36px;
             background: var(--color-warm-accent);
             border: none;
             border-radius: 60px;
             font-family: var(--font-sans);
             font-size: 0.95rem;
-            font-weight: 500;
+            font-weight: 600;
             color: var(--color-charcoal);
             cursor: pointer;
             transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+            white-space: nowrap;
         }
-
-        .newsletter-section .newsletter-form button:hover {
+        .newsletter-form button:hover {
             background: var(--color-warm-accent-light);
-            transform: scale(1.04);
-            box-shadow: 0 8px 32px rgba(212, 163, 115, 0.3);
+            transform: scale(1.03);
+            box-shadow: 0 8px 24px rgba(212, 163, 115, 0.3);
+        }
+        .newsletter-privacy {
+            font-size: 0.75rem;
+            opacity: 0.5;
+            margin-top: 12px;
         }
 
-        /* =============================================
-                   FOOTER
-                   ============================================= */
+        /* ✅ FOOTER (improved styling) */
         .site-footer {
-            padding: 48px 0 32px;
+            padding: 56px 0 28px;
             border-top: 1px solid var(--color-gray-200);
-            margin-top: 32px;
             background: var(--color-gray-100);
         }
-
-        .site-footer .footer-grid {
+        .footer-grid {
             display: grid;
             grid-template-columns: 1fr;
-            gap: 32px;
+            gap: 40px;
+            margin-bottom: 40px;
         }
-
         @media (min-width: 640px) {
-            .site-footer .footer-grid {
-                grid-template-columns: 2fr 1fr 1fr 1fr;
-            }
+            .footer-grid { grid-template-columns: 2fr 1fr 1fr 1fr; }
         }
-
-        .site-footer .footer-brand .logo {
-            font-size: 1.2rem;
-            margin-bottom: 8px;
+        .footer-brand .logo {
+            font-size: 1.3rem;
+            margin-bottom: 10px;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            color: var(--color-charcoal);
+            text-decoration: none;
         }
-
-        .site-footer .footer-brand p {
+        .footer-brand p {
             color: var(--color-gray-500);
             font-size: 0.9rem;
             font-weight: 300;
             max-width: 280px;
+            line-height: 1.6;
         }
-
-        .site-footer .footer-col h4 {
+        .footer-col h4 {
             font-size: 0.8rem;
             font-weight: 600;
             text-transform: uppercase;
             letter-spacing: 0.04em;
             color: var(--color-gray-500);
-            margin-bottom: 12px;
+            margin-bottom: 14px;
         }
-
-        .site-footer .footer-col a {
+        .footer-col a {
             display: block;
             color: var(--color-gray-600);
             text-decoration: none;
             font-size: 0.9rem;
             font-weight: 300;
-            padding: 4px 0;
-            transition: color 0.3s;
+            padding: 5px 0;
+            transition: color 0.3s, padding-left 0.2s;
         }
-
-        .site-footer .footer-col a:hover {
+        .footer-col a:hover {
             color: var(--color-warm-accent);
+            padding-left: 4px;
         }
-
-        .site-footer .footer-bottom {
-            margin-top: 32px;
-            padding-top: 16px;
+        .footer-bottom {
+            padding-top: 24px;
             border-top: 1px solid var(--color-gray-200);
             text-align: center;
             font-size: 0.8rem;
             color: var(--color-gray-400);
+            font-weight: 300;
         }
 
-        /* =============================================
-                   DARK MODE TOGGLE
-                   ============================================= */
-        .theme-toggle {
-            background: none;
-            border: none;
-            color: var(--color-charcoal);
-            font-size: 1.1rem;
-            cursor: pointer;
-            padding: 8px;
-            border-radius: 50%;
-            transition: background 0.3s, transform 0.2s;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
+        /* Cart */
+        .cart-overlay { position: fixed; inset: 0; z-index: 900; background: rgba(0,0,0,0.3); backdrop-filter: blur(4px); opacity: 0; visibility: hidden; transition: opacity 0.4s, visibility 0.4s; }
+        .cart-overlay.open { opacity: 1; visibility: visible; }
+        .cart-panel { position: fixed; top: 0; right: 0; bottom: 0; width: 420px; max-width: 92vw; z-index: 950; background: var(--color-off-white); box-shadow: var(--shadow-hover); padding: 32px 28px; transform: translateX(100%); transition: transform 0.5s; display: flex; flex-direction: column; }
+        .cart-panel.open { transform: translateX(0); }
+        .cart-header { display: flex; justify-content: space-between; align-items: center; padding-bottom: 16px; border-bottom: 1px solid var(--color-gray-200); }
+        .cart-items { flex: 1; overflow-y: auto; padding: 12px 0; }
+        .cart-item { display: flex; gap: 16px; padding: 12px 0; border-bottom: 1px solid var(--color-gray-200); align-items: center; }
+        .cart-item img { width: 60px; height: 60px; object-fit: cover; border-radius: var(--radius-sm); flex-shrink: 0; }
+        .cart-item .item-details { flex: 1; min-width: 0; }
+        .cart-item .item-details .name { font-weight: 500; font-size: 0.9rem; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+        .cart-footer { padding-top: 20px; border-top: 1px solid var(--color-gray-200); }
+        .cart-footer .total { display: flex; justify-content: space-between; font-weight: 600; font-size: 1.1rem; margin-bottom: 16px; }
 
-        .theme-toggle:hover {
-            background: var(--color-gray-200);
-            transform: scale(1.04);
-        }
+        /* Cookie */
+        .cookie-banner { position: fixed; bottom: 24px; left: 50%; transform: translateX(-50%); z-index: 2000; background: var(--color-charcoal); color: var(--color-off-white); padding: 16px 28px; border-radius: 60px; box-shadow: var(--shadow-hover); display: flex; align-items: center; gap: 20px; flex-wrap: wrap; justify-content: center; max-width: 92vw; font-size: 0.85rem; opacity: 0; pointer-events: none; transition: opacity 0.6s; }
+        .cookie-banner.show { opacity: 1; pointer-events: auto; }
 
-        /* =============================================
-                   RESPONSIVE TWEAKS
-                   ============================================= */
-        @media (max-width: 480px) {
-            .hero-text h1 {
-                font-size: 2.2rem;
-            }
-            .shop-grid {
-                grid-template-columns: 1fr 1fr;
-                gap: 10px;
-            }
-            .product-card {
-                aspect-ratio: 3 / 4;
-            }
-            .pdp-viewer {
-                min-height: 280px;
-            }
-            .filters-panel {
-                width: 100%;
-                max-width: 100%;
-                padding: 24px 20px;
-            }
-            .cart-panel {
-                width: 100%;
-                max-width: 100%;
-                padding: 24px 20px;
-            }
-            .menu-overlay a {
-                font-size: 1.6rem;
-            }
-            .featured-scroll .scroll-item {
-                flex: 0 0 180px;
-            }
-            .hero-image-wrap {
-                aspect-ratio: 4 / 3;
-            }
-            .testimonials .testimonial-grid {
-                grid-template-columns: 1fr;
-            }
-            .blog-section .blog-grid {
-                grid-template-columns: 1fr;
-            }
-            .brand-story .stats {
-                gap: 16px;
-            }
-        }
-
-        @media (min-width: 481px) and (max-width: 768px) {
-            .hero-text h1 {
-                font-size: 2.8rem;
-            }
-            .shop-grid {
-                grid-template-columns: repeat(2, 1fr);
-                gap: 16px;
-            }
-            .testimonials .testimonial-grid {
-                grid-template-columns: 1fr 1fr;
-            }
-            .blog-section .blog-grid {
-                grid-template-columns: 1fr 1fr;
-            }
-        }
-
-        /* =============================================
-                   UTILITY: hide/show
-                   ============================================= */
-        .hidden {
-            display: none !important;
-        }
-
-        .text-center {
-            text-align: center;
-        }
-
-        .mt-8 {
-            margin-top: 8px;
-        }
-        .mt-16 {
-            margin-top: 16px;
-        }
-        .mt-24 {
-            margin-top: 24px;
-        }
-        .mt-32 {
-            margin-top: 32px;
-        }
-        .mb-16 {
-            margin-bottom: 16px;
-        }
-        .mb-24 {
-            margin-bottom: 24px;
-        }
-
-        /* =============================================
-                   LOADING SKELETON
-                   ============================================= */
-        .skeleton-card {
-            aspect-ratio: 3 / 4;
-            border-radius: var(--radius-md);
-            background: var(--color-gray-100);
-            position: relative;
-            overflow: hidden;
-        }
-
-        .skeleton-card::after {
-            content: '';
-            position: absolute;
-            inset: 0;
-            background: linear-gradient(90deg,
-                    transparent 0%,
-                    var(--color-gray-200) 50%,
-                    transparent 100%);
-            background-size: 200% 100%;
-            animation: shimmer 1.8s ease-in-out infinite;
-        }
-
-        /* =============================================
-                   RESPONSIVE IMAGES WITH BLUR-UP
-                   ============================================= */
-        .img-blur-up {
-            background-size: cover;
-            background-position: center;
-        }
-
-        /* =============================================
-                   COOKIE CONSENT BANNER
-                   ============================================= */
-        .cookie-banner {
-            position: fixed;
-            bottom: 24px;
-            left: 50%;
-            transform: translateX(-50%);
-            z-index: 2000;
-            background: var(--color-charcoal);
-            color: var(--color-off-white);
-            padding: 16px 28px;
-            border-radius: 60px;
-            box-shadow: var(--shadow-hover);
-            display: flex;
-            align-items: center;
-            gap: 20px;
-            flex-wrap: wrap;
-            justify-content: center;
-            max-width: 92vw;
-            font-size: 0.85rem;
-            opacity: 0;
-            transition: opacity 0.6s, transform 0.6s;
-            transform: translateX(-50%) translateY(20px);
-            pointer-events: none;
-        }
-
-        .cookie-banner.show {
-            opacity: 1;
-            transform: translateX(-50%) translateY(0);
-            pointer-events: auto;
-        }
-
-        .cookie-banner button {
-            background: var(--color-warm-accent);
-            border: none;
-            padding: 8px 24px;
-            border-radius: 40px;
-            font-weight: 500;
-            font-size: 0.8rem;
-            color: #fff;
-            cursor: pointer;
-            transition: background 0.3s, transform 0.2s;
-            font-family: var(--font-sans);
-        }
-
-        .cookie-banner button:hover {
-            background: var(--color-warm-accent-dark);
-            transform: scale(1.04);
-        }
-
-        .cookie-banner .cookie-dismiss {
-            background: transparent;
-            color: var(--color-gray-400);
-            padding: 4px 12px;
-        }
-
-        .cookie-banner .cookie-dismiss:hover {
-            background: transparent;
-            color: #fff;
-            transform: none;
-        }
-
-        @media (max-width: 480px) {
-            .cookie-banner {
-                flex-direction: column;
-                text-align: center;
-                padding: 20px;
-                border-radius: var(--radius-md);
-                bottom: 16px;
-                width: calc(100% - 32px);
-            }
-            .cookie-banner .cookie-actions {
-                display: flex;
-                gap: 8px;
-                flex-wrap: wrap;
-                justify-content: center;
-            }
+        @media (max-width: 640px) {
+            .menu-overlay a { font-size: 1.8rem; }
+            .newsletter-form { flex-direction: column; align-items: stretch; }
+            .newsletter-form input { width: 100%; }
+            .newsletter-form button { width: 100%; }
         }
     </style>
 </head>
-
 <body>
 
-    <!-- =============================================
-    SITE HEADER
-    ============================================= -->
-    <header class="site-header" role="banner">
+    <!-- ===================== CONFIG (fully editable) ===================== -->
+    <script>
+        const CONFIG = {
+            siteName: 'Dakiwa Furnitures',
+            logoIcon: 'fa-chair',
+            logoText: 'Dakiwa Furnitures.',
+            navLinks: [
+                { label: 'Home', url: 'index.html' },
+                { label: 'Shop', url: 'shop.html' },
+                { label: 'Journal', url: '#journal' },
+                { label: 'Contact', url: '#contact' },
+            ],
+            hero: {
+                title: 'Furniture that <em>breathes</em>.',
+                subtitle: 'Timeless pieces crafted with intention — where minimalism meets warmth. Every curve, every grain tells a story of Kenyan craftsmanship.',
+                cta: 'Explore Collection',
+                ctaLink: '#shop',
+                image: 'https://images.unsplash.com/photo-1618220179428-22790b461013?w=800&h=600&fit=crop&crop=center&auto=format',
+                floatingBadge: 'Crafted in Kenya',
+            },
+            rooms: [
+                { name: 'Bedroom', desc: 'Serene sanctuaries', image: 'https://i.pinimg.com/1200x/ed/e1/29/ede129bc821b34d5bcb58795c2631095.jpg' },
+                { name: 'Living Room', desc: 'Warm & inviting', image: 'https://i.pinimg.com/736x/76/22/97/7622979704f4ab2755c3d46ddeeb586f.jpg' },
+                { name: 'Dining', desc: 'Gather & savour', image: 'https://i.pinimg.com/736x/cf/bc/84/cfbc8443799fd947515d09f637c7e819.jpg' },
+            ],
+            featuredItems: [
+                { name: 'Oak TV Stand', price: 'KSh 9,000', image: 'https://i.pinimg.com/1200x/04/74/0a/04740afdda9db416b78fa98282926eb8.jpg' },
+                { name: 'Walnut Bed Frame', price: 'KSh ,000', image: 'https://i.pinimg.com/1200x/77/44/de/7744de123cfc8a9e379da1f59c91d04a.jpg' },
+                { name: 'Bouclé Lounge Chair', price: 'KSh ,000', image: 'https://i.pinimg.com/1200x/be/12/1e/be121e719c5738af90a53879bfcb4a86.jpg' },
+                { name: 'Marble Dining Table', price: 'KSh ,000', image: 'https://i.pinimg.com/1200x/cc/66/0c/cc660c538a11952368f910e2e226d184.jpg' },
+                { name: 'Bookshelf', price: 'KSh ,000', image: 'https://i.pinimg.com/1200x/6f/bc/e4/6fbce4bc9360ed7ac91d9cc3065224e1.jpg' },
+                { name: 'Desk', price: 'KSh ,000', image: 'https://i.pinimg.com/736x/64/d8/e5/64d8e532400548067eabfda2c7b25bce.jpg' },
+            ],
+            products: [
+                { id: 1, name: 'Oslo TV Stand', category: 'TV Stands', price: 9000, material: 'Oak', colour: 'Oak', image: 'https://i.pinimg.com/1200x/04/74/0a/04740afdda9db416b78fa98282926eb8.jpg', desc: 'Sculptural balance of solid oak and brushed steel.', dimensions: '160 × 45 × 55 cm' },
+                { id: 2, name: 'Kyoto Bed Frame', category: 'Beds', price: 5000, material: 'Walnut', colour: 'Walnut', image: 'https://i.pinimg.com/1200x/77/44/de/7744de123cfc8a9e379da1f59c91d04a.jpg', desc: 'A floating platform bed with hand-joined walnut headboard.', dimensions: '200 × 180 × 90 cm' },
+                { id: 3, name: 'Hiroshi Lounge Chair', category: 'Chairs', price: 000, material: 'Fabric', colour: 'Charcoal', image: 'https://i.pinimg.com/1200x/be/12/1e/be121e719c5738af90a53879bfcb4a86.jpg', desc: 'Wrapped in bouclé with a solid oak frame. Pure comfort.', dimensions: '70 × 72 × 68 cm' },
+                { id: 4, name: 'Sakura Dining Table', category: 'Tables', price: 0000, material: 'Marble', colour: 'Ivory', image: 'https://i.pinimg.com/1200x/cc/66/0c/cc660c538a11952368f910e2e226d184.jpg', desc: 'Italian Carrara marble meets sculpted oak base.', dimensions: '240 × 100 × 76 cm' },
+                { id: 5, name: 'Kumo Sideboard', category: 'Storage', price: 000, material: 'Wood', colour: 'Natural', image: 'https://i.pinimg.com/736x/22/9f/02/229f02b5e8a28c3f9f077348dad6a4de.jpg', desc: 'Cloud-like curves with soft-close doors.', dimensions: '180 × 50 × 80 cm' },
+                { id: 6, name: 'Zen Stool', category: 'Chairs', price: 000, material: 'Metal', colour: 'Charcoal', image: 'https://i.pinimg.com/736x/13/21/b3/1321b3e6fa5ac3ef3c11fa1e8091fe81.jpg', desc: 'Minimalist steel frame with warm walnut seat.', dimensions: '45 × 45 × 48 cm' },
+                { id: 7, name: 'Bookshelf', category: 'Storage', price: 000, material: 'Wood', colour: 'Walnut', image: 'https://i.pinimg.com/1200x/6f/bc/e4/6fbce4bc9360ed7ac91d9cc3065224e1.jpg', desc: 'Sculptural shelves that seem to float.', dimensions: '120 × 35 × 180 cm' },
+                { id: 8, name: 'Desk', category: 'Desks', price: 000, material: 'Oak', colour: 'Oak', image: 'https://i.pinimg.com/736x/64/d8/e5/64d8e532400548067eabfda2c7b25bce.jpg', desc: 'Minimalist desk with hidden cable management.', dimensions: '140 × 70 × 76 cm' },
+                { id: 9, name: 'Wardrobe', category: 'Storage', price: 000, material: 'Walnut', colour: 'Walnut', image: 'https://i.pinimg.com/736x/cc/1c/21/cc1c217926d2e4f8f74ae4e20790d2f6.jpg', desc: 'Spacious wardrobe with soft-close doors.', dimensions: '200 × 60 × 220 cm' },
+                { id: 10, name: 'Nightstand', category: 'Beds', price: 000, material: 'Wood', colour: 'Natural', image: 'https://i.pinimg.com/736x/00/b1/9b/00b19b8f4cbddbc855659150fa71c233.jpg', desc: 'Serene nightstand with hidden charging dock.', dimensions: '50 × 40 × 55 cm' },
+                { id: 11, name: 'Coffee Table', category: 'Tables', price: 000, material: 'Marble', colour: 'Ivory', image: 'https://i.pinimg.com/1200x/f3/5f/17/f35f172749fa0273bac923ca8a0938fd.jpg', desc: 'Sculptural coffee table with marble top.', dimensions: '120 × 70 × 40 cm' },
+                { id: 12, name: 'Console Table', category: 'Tables', price: 000, material: 'Metal', colour: 'Black', image: 'https://i.pinimg.com/1200x/43/94/26/439426e32d49d536d0e4fddf5a89caef.jpg', desc: 'Slim console table with powder-coated steel frame.', dimensions: '140 × 35 × 80 cm' },
+                { id: 13, name: 'Bench', category: 'Chairs', price: 000, material: 'Wood', colour: 'Oak', image: 'https://i.pinimg.com/736x/57/8c/a8/578ca8e84d69c11eb6febe31ed754494.jpg', desc: 'Simple, sculptural bench with solid oak seat.', dimensions: '120 × 35 × 45 cm' },
+                { id: 14, name: 'Ottoman', category: 'Chairs', price: 000, material: 'Fabric', colour: 'Charcoal', image: 'https://i.pinimg.com/736x/67/c7/ba/67c7ba148d8dc90236a7250964523fa3.jpg', desc: 'Plush ottoman with bouclé finish and hidden storage.', dimensions: '60 × 60 × 40 cm' },
+            ],
+            filterGroups: [
+                { id: 'category', title: 'Category', options: ['All', 'TV Stands', 'Beds', 'Chairs', 'Tables', 'Storage', 'Desks'] },
+                { id: 'material', title: 'Material', options: ['All', 'Wood', 'Metal', 'Fabric', 'Marble', 'Glass'] },
+                { id: 'colour', title: 'Colour', options: ['All', 'Natural', 'Oak', 'Walnut', 'Charcoal', 'Ivory', 'Black'] },
+                { id: 'price', title: 'Price', options: ['All', 'Under KSh 10,000', 'KSh 5,000–10,000', 'KSh 10,000–15,000', 'KSh 15,000+'] },
+            ],
+            completeTheLook: [
+                { name: 'Side Table', image: 'https://i.pinimg.com/736x/13/21/b3/1321b3e6fa5ac3ef3c11fa1e8091fe81.jpg' },
+                { name: 'Floor Lamp', image: 'https://i.pinimg.com/736x/22/9f/02/229f02b5e8a28c3f9f077348dad6a4de.jpg' },
+                { name: 'Rug', image: 'https://i.pinimg.com/1200x/ed/e1/29/ede129bc821b34d5bcb58795c2631095.jpg' },
+                { name: 'Wall Art', image: 'https://i.pinimg.com/736x/76/22/97/7622979704f4ab2755c3d46ddeeb586f.jpg' },
+            ],
+            alsoBought: [
+                { name: 'Lounge Chair', price: 'KSh ,000', image: 'https://i.pinimg.com/1200x/be/12/1e/be121e719c5738af90a53879bfcb4a86.jpg' },
+                { name: 'Side Table', price: 'KSh ,000', image: 'https://i.pinimg.com/736x/64/d8/e5/64d8e532400548067eabfda2c7b25bce.jpg' },
+                { name: 'Floor Lamp', price: 'KSh 000', image: 'https://i.pinimg.com/736x/00/b1/9b/00b19b8f4cbddbc855659150fa71c233.jpg' },
+                { name: 'Wall Mirror', price: 'KSh ,000', image: 'https://i.pinimg.com/1200x/f3/5f/17/f35f172749fa0273bac923ca8a0938fd.jpg' },
+                { name: 'Coffee Table', price: 'KSh ,000', image: 'https://i.pinimg.com/736x/cc/1c/21/cc1c217926d2e4f8f74ae4e20790d2f6.jpg' },
+            ],
+            journeySteps: [
+                { num: '1', title: 'Sustainably harvested', desc: 'Oak from FSC-certified forests in Kenya' },
+                { num: '2', title: 'Handcrafted in Nairobi', desc: 'Meticulously shaped by master artisans' },
+                { num: '3', title: 'Finished with natural oils', desc: 'Non-toxic, plant-based protection' },
+                { num: '4', title: 'Delivered to your door', desc: 'Carbon-neutral shipping, with care' },
+            ],
+            testimonials: [
+                { stars: 5, quote: 'The craftsmanship is extraordinary. Our new dining table is the heart of our home — every meal feels special.', customer: 'Kevin K.', role: 'Nairobi, Kenya', image: 'https://i.pinimg.com/1200x/7d/9e/9b/7d9e9b724f35cedd04c3e1950b3a4845.jpg' },
+                { stars: 5, quote: "I've never seen furniture that feels so alive. The wood grain, the finish — it's like art you can use every day.", customer: 'James K.', role: 'Mombasa, Kenya', image: 'https://i.pinimg.com/1200x/c8/8d/a1/c88da13f606ff125d916755a4c4a881a.jpg' },
+                { stars: 5, quote: 'Dakiwa transformed our living space. The team was so helpful, and the quality is unmatched.', customer: 'Amina W.', role: 'Kisumu, Kenya', image: 'https://i.pinimg.com/736x/40/65/86/406586c8033f4d62be3e1418a555867c.jpg' },
+            ],
+            brandStory: {
+                image: 'https://images.unsplash.com/photo-1556228453-efd6c1ff04f6?w=800&h=600&fit=crop&crop=center&auto=format',
+                title: 'Rooted in Kenya,<br>crafted for the world.',
+                paragraphs: [
+                    'Dakiwa was born from a love for honest materials and timeless design. Every piece is handcrafted in our Nairobi workshop, using sustainably sourced hardwoods and traditional joinery techniques passed down through generations.',
+                    'We believe furniture should not only be beautiful but also tell a story — of the land it came from, the hands that shaped it, and the home it will become part of.',
+                ],
+                stats: [
+                    { number: '12+', label: 'Years of Craft' },
+                    { number: '200+', label: 'Pieces Delivered' },
+                    { number: '100%', label: 'Made in Kenya' },
+                ],
+            },
+            blogPosts: [
+                { title: 'The art of slow living', excerpt: 'How to create a home that invites rest, reflection, and connection.', tag: 'Design', image: 'https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?w=600&h=400&fit=crop&crop=center&auto=format', link: '#' },
+                { title: 'A guide to wood grain', excerpt: 'Oak, walnut, teak — learn to read the language of wood.', tag: 'Materials', image: 'https://images.unsplash.com/photo-1618220179428-22790b461013?w=600&h=400&fit=crop&crop=center&auto=format', link: '#' },
+                { title: 'Why we build by hand', excerpt: 'In a world of mass production, we choose the slow path.', tag: 'Craft', image: 'https://images.unsplash.com/photo-1556228453-efd6c1ff04f6?w=600&h=400&fit=crop&crop=center&auto=format', link: '#' },
+            ],
+            newsletter: {
+                title: 'Stay in the know.',
+                subtitle: 'Subscribe to our newsletter for new arrivals, design stories, and exclusive offers.',
+                placeholder: 'Your email address',
+                buttonText: 'Subscribe',
+                privacyNote: 'No spam. Unsubscribe anytime.',
+            },
+            footer: {
+                columns: [
+                    { title: 'Explore', links: ['Shop', 'Our Story', 'Journal', 'Contact'] },
+                    { title: 'Support', links: ['FAQ', 'Shipping', 'Returns', 'Care Guide'] },
+                    { title: 'Connect', links: ['<i class="fab fa-instagram" style="margin-right:8px;"></i>Instagram', '<i class="fab fa-pinterest" style="margin-right:8px;"></i>Pinterest', '<i class="fab fa-youtube" style="margin-right:8px;"></i>YouTube'] },
+                ],
+                copyright: '© 2026 Dakiwa Furnitures. Developed by Quantum Solutions.',
+            },
+            cookieText: 'We use cookies to enhance your experience. By continuing, you agree to our Privacy Policy.',
+            cookieAccept: 'Accept',
+            cookieDismiss: 'Dismiss',
+        };
+    </script>
+
+    <!-- ===================== HTML STRUCTURE ===================== -->
+    <header class="site-header">
         <div class="container">
-            <a href="#" class="logo" aria-label="Dakiwa Furnitures">
-                <i class="fas fa-chair"></i>
-                Dakiwa Furnitures<span>.</span>
-            </a>
-
+            <a href="#" class="logo" id="headerLogo"></a>
             <div class="nav-actions">
-                <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode">
-                    <i class="fas fa-moon" id="themeIcon"></i>
-                </button>
-
-                <button class="nav-btn" id="cartToggle" aria-label="Open cart">
-                    <i class="fas fa-shopping-bag"></i>
-                    <span class="badge" id="cartBadge">0</span>
-                </button>
-
-                <button class="nav-btn hamburger" id="menuToggle" aria-label="Toggle menu">
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                </button>
+                <button class="theme-toggle" id="themeToggle"><i class="fas fa-moon" id="themeIcon"></i></button>
+                <button class="nav-btn" id="cartToggle"><i class="fas fa-shopping-bag"></i><span class="badge" id="cartBadge">0</span></button>
+                <button class="nav-btn hamburger" id="menuToggle"><span></span><span></span><span></span></button>
             </div>
         </div>
     </header>
 
-    <!-- =============================================
-    FULL-SCREEN OVERLAY MENU
-    ============================================= -->
-    <div class="menu-overlay" id="menuOverlay" role="dialog" aria-modal="true" aria-label="Main navigation">
-        <button class="close-menu" id="closeMenu" aria-label="Close menu">
-            <i class="fas fa-times"></i>
-        </button>
-        <nav>
-            <a href="index.html">Home</a>
-            <a href="shop.html">Shop</a>
-            <a href="#journal">Journal</a>
-            <a href="#contact">Contact</a>
-        </nav>
+    <div class="menu-overlay" id="menuOverlay">
+        <button class="close-menu" id="closeMenu"><i class="fas fa-times"></i></button>
+        <nav id="menuNav"></nav>
     </div>
 
-    <!-- =============================================
-    FILTERS PANEL (slide-in)
-    ============================================= -->
-    <div class="filters-panel" id="filtersPanel" role="dialog" aria-modal="true" aria-label="Filter products">
-        <button class="close-filters" id="closeFilters" aria-label="Close filters">
-            <i class="fas fa-times"></i>
-        </button>
+    <div class="filters-panel" id="filtersPanel">
+        <button class="close-filters" id="closeFilters"><i class="fas fa-times"></i></button>
         <h3>Filters</h3>
-
-        <div class="filter-group">
-            <label>Category</label>
-            <div class="filter-options">
-                <button class="active">All</button>
-                <button>TV Stands</button>
-                <button>Beds</button>
-                <button>Chairs</button>
-                <button>Tables</button>
-                <button>Storage</button>
-                <button>Desks</button>
-            </div>
-        </div>
-
-        <div class="filter-group">
-            <label>Material</label>
-            <div class="filter-options">
-                <button>Wood</button>
-                <button>Metal</button>
-                <button>Fabric</button>
-                <button>Marble</button>
-                <button>Glass</button>
-            </div>
-        </div>
-
-        <div class="filter-group">
-            <label>Colour</label>
-            <div class="filter-options">
-                <button>Natural</button>
-                <button>Oak</button>
-                <button>Walnut</button>
-                <button>Charcoal</button>
-                <button>Ivory</button>
-                <button>Black</button>
-            </div>
-        </div>
-
-        <div class="filter-group">
-            <label>Price</label>
-            <div class="filter-options">
-                <button>Under KSh 10,000</button>
-                <button>KSh 5,000 – 10,000</button>
-                <button>KSh 10,000 – 15,000</button>
-                <button>KSh 15,000+</button>
-            </div>
-        </div>
+        <div id="filterGroupsContainer"></div>
     </div>
 
-    <!-- =============================================
-    CART OVERLAY & PANEL
-    ============================================= -->
     <div class="cart-overlay" id="cartOverlay"></div>
-
-    <div class="cart-panel" id="cartPanel" role="dialog" aria-modal="true" aria-label="Shopping cart">
-        <div class="cart-header">
-            <h2>Your Cart</h2>
-            <button id="closeCart" aria-label="Close cart">
-                <i class="fas fa-times"></i>
-            </button>
-        </div>
-
-        <div class="cart-items" id="cartItems">
-            <!-- Rendered by JS -->
-            <div class="cart-empty">
-                <i class="fas fa-shopping-bag"></i>
-                <p>Your cart is empty.<br />Start adding some beautiful pieces.</p>
-            </div>
-        </div>
-
-        <div class="cart-footer" id="cartFooter">
-            <div class="total">
-                <span>Total</span>
-                <span id="cartTotal">KSh 0.00</span>
-            </div>
-            <button class="checkout-btn" id="checkoutBtn">
-                <i class="fas fa-lock" style="margin-right:8px;"></i> Proceed to Checkout
-            </button>
-        </div>
+    <div class="cart-panel" id="cartPanel">
+        <div class="cart-header"><h2>Your Cart</h2><button id="closeCart"><i class="fas fa-times"></i></button></div>
+        <div class="cart-items" id="cartItems"></div>
+        <div class="cart-footer" id="cartFooter"></div>
     </div>
 
-    <!-- =============================================
-    MAIN CONTENT
-    ============================================= -->
     <main>
-
-        <!-- ========== HERO ========== -->
         <section class="hero" id="home">
             <div class="hero-bg"></div>
-            <div class="hero-content">
-                <div class="container">
-                    <div class="hero-text animate-fade-in-up">
-                        <h1>Furniture that <em>breathes</em>.</h1>
-                        <p>
-                            Timeless pieces crafted with intention — where minimalism meets warmth.
-                            Every curve, every grain tells a story of Kenyan craftsmanship.
-                        </p>
-                        <a href="#shop" class="btn-primary">
-                            Explore Collection
-                            <i class="fas fa-arrow-right"></i>
-                        </a>
-                    </div>
-
-                    <!-- Hero Image -->
-                    <div class="hero-image-wrap animate-fade-in-up delay-2">
-                        <img src="https://images.unsplash.com/photo-1618220179428-22790b461013?w=800&h=600&fit=crop&crop=center&auto=format" alt="Dakiwa furniture showcase - elegant living room interior" loading="lazy" />
-                        <div class="floating-badge">
-                            <i class="fas fa-cube" style="color:var(--color-warm-accent);"></i>
-                            Crafted in Kenya
-                        </div>
-                    </div>
-                </div>
-            </div>
+            <div class="hero-content"><div class="container" id="heroContainer"></div></div>
         </section>
 
-        <!-- ========== SHOP BY ROOM ========== -->
         <section class="container" style="padding-top:24px;">
-            <h2 class="section-title animate-fade-in-up">Shop by Room</h2>
-            <p class="section-subtitle animate-fade-in-up delay-1">Curated collections for every space.</p>
-
-            <div class="shop-rooms">
-                <div class="room-card animate-fade-in-up delay-1">
-                    <img src="https://i.pinimg.com/1200x/ed/e1/29/ede129bc821b34d5bcb58795c2631095.jpg" alt="Bedroom" loading="lazy" />
-                    <div class="room-label">
-                        <h3>Bedroom</h3>
-                        <p>Serene sanctuaries</p>
-                    </div>
-                </div>
-                <div class="room-card animate-fade-in-up delay-2">
-                    <img src="https://i.pinimg.com/736x/76/22/97/7622979704f4ab2755c3d46ddeeb586f.jpg" alt="Living Room" loading="lazy" />
-                    <div class="room-label">
-                        <h3>Living Room</h3>
-                        <p>Warm &amp; inviting</p>
-                    </div>
-                </div>
-                <div class="room-card animate-fade-in-up delay-3">
-                    <img src="https://i.pinimg.com/736x/cf/bc/84/cfbc8443799fd947515d09f637c7e819.jpg" alt="Dining" loading="lazy" />
-                    <div class="room-label">
-                        <h3>Dining</h3>
-                        <p>Gather &amp; savour</p>
-                    </div>
-                </div>
-            </div>
+            <h2 class="section-title">Shop by Room</h2>
+            <p class="section-subtitle">Curated collections for every space.</p>
+            <div class="shop-rooms" id="roomsGrid"></div>
         </section>
 
-        <!-- ========== FEATURED COLLECTIONS (horizontal scroll) ========== -->
         <section class="container featured-scroll">
             <div class="sticky-label">Featured Collections</div>
-            <div class="scroll-track" id="featuredTrack">
-                <!-- Items injected by JS -->
-            </div>
+            <div class="scroll-track" id="featuredTrack"></div>
         </section>
 
-        <!-- ========== SHOP / PRODUCT GRID ========== -->
         <section class="container" id="shop">
             <div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:12px; margin-top:16px;">
                 <h2 class="section-title" style="margin-bottom:0;">All Products</h2>
-                <button class="filters-toggle" id="filtersToggle">
-                    <i class="fas fa-sliders-h"></i> Filters
-                </button>
+                <button class="filters-toggle" id="filtersToggle"><i class="fas fa-sliders-h"></i> Filters</button>
             </div>
-
-            <div class="shop-grid" id="productGrid">
-                <!-- Rendered by JS -->
-            </div>
+            <div class="shop-grid" id="productGrid"></div>
         </section>
 
-        <!-- ========== PRODUCT DETAIL PAGE (PDP) demo ========== -->
         <section class="pdp-wrapper" id="pdp">
             <div class="container">
-                <div class="pdp-grid">
-                    <!-- PDP Image -->
-                    <div class="pdp-viewer">
-                        <img id="pdpMainImage" src="https://i.pinimg.com/736x/2f/f1/9b/2ff19bc353bdad08f63813df784fcb2c.jpg" alt="Dakiwa TV Stand - Oak" loading="lazy" />
-                        <button class="ar-btn" id="arBtn" style="display:none;">
-                            <i class="fas fa-vr-cardboard"></i> View in AR
-                        </button>
-                    </div>
-
-                    <div class="pdp-info">
-                        <h1 class="product-name" id="pdpName"> TV Stand</h1>
-                        <div class="product-price" id="pdpPrice">KSh 9,000</div>
-                        <p class="product-desc" id="pdpDesc">
-                            A sculptural balance of solid oak and brushed steel.
-                            Designed to breathe — with soft-close doors and hidden cable management.
-                        </p>
-
-                        <div class="meta-row" id="pdpMeta">
-                            <span><i class="fas fa-ruler-combined"></i> <span id="pdpDimensions">160 × 45 × 55 cm</span></span>
-                            <span><i class="fas fa-tree"></i> <span id="pdpMaterial">Oak / Walnut</span></span>
-                            <span><i class="fas fa-leaf"></i> FSC Certified</span>
-                        </div>
-
-                        <div class="add-to-cart">
-                            <div class="qty-selector">
-                                <button id="qtyDec" aria-label="Decrease quantity">−</button>
-                                <span id="qtyDisplay">1</span>
-                                <button id="qtyInc" aria-label="Increase quantity">+</button>
-                            </div>
-                            <button class="cart-btn" id="pdpAddToCart">
-                                <i class="fas fa-plus" style="margin-right:8px;"></i> Add to Cart
-                            </button>
-                        </div>
-
-                        <!-- Complete the Look -->
-                        <div class="complete-look">
-                            <h4><i class="fas fa-magic" style="margin-right:6px;color:var(--color-warm-accent);"></i> Complete the Look</h4>
-                            <div class="look-carousel" id="lookCarousel">
-                                <!-- Injected by JS -->
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- ============================================= -->
-                <!-- CUSTOMERS ALSO BOUGHT                             -->
-                <!-- ============================================= -->
+                <div class="pdp-grid" id="pdpContent"></div>
                 <div class="also-bought">
                     <h3>Customers also bought</h3>
-                    <div class="drag-carousel" id="alsoBought">
-                        <!-- Injected by JS -->
-                    </div>
+                    <div class="drag-carousel" id="alsoBoughtRow"></div>
                 </div>
-
-                <!-- Trace (sustainability) -->
                 <div class="trace-section">
-                    <h3 style="font-family:var(--font-serif);font-weight:400;font-size:1.4rem;">
-                        <i class="fas fa-seedling" style="color:var(--color-warm-accent);margin-right:10px;"></i>
-                        Trace the journey
-                    </h3>
-                    <p style="color:var(--color-gray-500);font-weight:300;max-width:500px;margin-top:4px;">
-                        From Kenyan forests to your home — every piece has a story.
-                    </p>
-                    <div class="trace-timeline">
-                        <div class="trace-step">
-                            <div class="step-icon">1</div>
-                            <div class="step-content">
-                                <div class="step-title">Sustainably harvested</div>
-                                <div class="step-desc">Oak from FSC-certified forests in Kenya</div>
-                            </div>
-                        </div>
-                        <div class="trace-step">
-                            <div class="step-icon">2</div>
-                            <div class="step-content">
-                                <div class="step-title">Handcrafted in Nairobi</div>
-                                <div class="step-desc">Meticulously shaped by master artisans</div>
-                            </div>
-                        </div>
-                        <div class="trace-step">
-                            <div class="step-icon">3</div>
-                            <div class="step-content">
-                                <div class="step-title">Finished with natural oils</div>
-                                <div class="step-desc">Non-toxic, plant-based protection</div>
-                            </div>
-                        </div>
-                        <div class="trace-step">
-                            <div class="step-icon">4</div>
-                            <div class="step-content">
-                                <div class="step-title">Delivered to your door</div>
-                                <div class="step-desc">Carbon-neutral shipping, with care</div>
-                            </div>
-                        </div>
-                    </div>
+                    <h3 style="font-family:var(--font-serif);font-weight:400;font-size:1.4rem;"><i class="fas fa-seedling" style="color:var(--color-warm-accent);margin-right:10px;"></i>Trace the journey</h3>
+                    <p style="color:var(--color-gray-500);font-weight:300;max-width:500px;margin-top:4px;">From Kenyan forests to your home — every piece has a story.</p>
+                    <div class="trace-timeline" id="journeyTimeline"></div>
                 </div>
             </div>
         </section>
 
-        <!-- ========== ★ NEW: TESTIMONIALS ★ ========== -->
-        <section class="testimonials" id="testimonials">
-            <div class="container">
-                <h2 class="section-title text-center" style="text-align:center;">What our customers say</h2>
-                <p class="section-subtitle text-center" style="text-align:center;max-width:500px;margin-left:auto;margin-right:auto;">
-                    Real stories from real people who've made Dakiwa part of their home.
-                </p>
-                <div class="testimonial-grid">
-                    <div class="testimonial-card animate-fade-in-up delay-1">
-                        <div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
-                        <blockquote>"The craftsmanship is extraordinary. Our new dining table is the heart of our home — every meal feels special."</blockquote>
-                        <div class="customer">
-                            <img src="https://i.pinimg.com/1200x/7d/9e/9b/7d9e9b724f35cedd04c3e1950b3a4845.jpg" alt="Customer" loading="lazy" />
-                            <div>
-                                <div class="name">Kevin .k.</div>
-                                <div class="role">Nairobi, Kenya</div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="testimonial-card animate-fade-in-up delay-2">
-                        <div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
-                        <blockquote>"I've never seen furniture that feels so alive. The wood grain, the finish — it's like art you can use every day."</blockquote>
-                        <div class="customer">
-                            <img src="https://i.pinimg.com/1200x/c8/8d/a1/c88da13f606ff125d916755a4c4a881a.jpg" alt="Customer" loading="lazy" />
-                            <div>
-                                <div class="name">James K.</div>
-                                <div class="role">Mombasa, Kenya</div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="testimonial-card animate-fade-in-up delay-3">
-                        <div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
-                        <blockquote>"Dakiwa transformed our living space. The team was so helpful, and the quality is unmatched. Absolutely love it!"</blockquote>
-                        <div class="customer">
-                            <img src="https://i.pinimg.com/736x/40/65/86/406586c8033f4d62be3e1418a555867c.jpg" alt="Customer" loading="lazy" />
-                            <div>
-                                <div class="name">Amina W.</div>
-                                <div class="role">Kisumu, Kenya</div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- ========== ★ NEW: BRAND STORY ★ ========== -->
-        <section class="brand-story" id="about">
-            <div class="container">
-                <div class="story-grid">
-                    <div class="story-image animate-fade-in-up">
-                        <img src="https://images.unsplash.com/photo-1556228453-efd6c1ff04f6?w=800&h=600&fit=crop&crop=center&auto=format" alt="Dakiwa workshop - Kenyan craftsmanship" loading="lazy" />
-                    </div>
-                    <div class="story-text animate-fade-in-up delay-1">
-                        <h2>Rooted in Kenya,<br />crafted for the world.</h2>
-                        <p>
-                            Dakiwa was born from a love for honest materials and timeless design.
-                            Every piece is handcrafted in our Nairobi workshop, using sustainably sourced
-                            hardwoods and traditional joinery techniques passed down through generations.
-                        </p>
-                        <p>
-                            We believe furniture should not only be beautiful but also tell a story —
-                            of the land it came from, the hands that shaped it, and the home it will become part of.
-                        </p>
-                        <div class="stats">
-                            <div class="stat">
-                                <span class="number">12+</span>
-                                <span class="label">Years of Craft</span>
-                            </div>
-                            <div class="stat">
-                                <span class="number">200+</span>
-                                <span class="label">Pieces Delivered</span>
-                            </div>
-                            <div class="stat">
-                                <span class="number">100%</span>
-                                <span class="label">Made in Kenya</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- ========== ★ NEW: BLOG / JOURNAL ★ ========== -->
+        <section class="testimonials" id="testimonials"><div class="container" id="testimonialsContainer"></div></section>
+        <section class="brand-story" id="about"><div class="container" id="brandStoryContainer"></div></section>
         <section class="blog-section container" id="journal">
             <h2 class="section-title">From the Journal</h2>
             <p class="section-subtitle">Stories, inspiration, and the art of living well.</p>
-            <div class="blog-grid" id="blogGrid">
-                <!-- Injected by JS -->
-            </div>
+            <div class="blog-grid" id="blogGrid"></div>
         </section>
 
-        <!-- ========== ★ NEW: NEWSLETTER ★ ========== -->
+        <!-- ✅ Improved Newsletter Section -->
         <section class="newsletter-section" id="contact">
-            <div class="container">
-                <h2>Stay in the know.</h2>
-                <p>Subscribe to our newsletter for new arrivals, design stories, and exclusive offers.</p>
-                <form class="newsletter-form" id="newsletterForm">
-                    <input type="email" placeholder="Your email address" required aria-label="Email address" />
-                    <button type="submit">Subscribe <i class="fas fa-arrow-right" style="margin-left:6px;"></i></button>
-                </form>
-                <p style="font-size:0.75rem;opacity:0.4;margin-top:16px;">No spam. Unsubscribe anytime.</p>
-            </div>
+            <div class="container" id="newsletterContainer"></div>
         </section>
-
     </main>
 
-    <!-- =============================================
-    FOOTER
-    ============================================= -->
-    <footer class="site-footer">
-        <div class="container">
-            <div class="footer-grid">
-                <div class="footer-brand">
-                    <a href="#" class="logo">
-                        <i class="fas fa-chair"></i>
-                        Dakiwa<span>.</span>
-                    </a>
-                    <p>Furniture that breathes. Timeless design for modern living, crafted in Kenya.</p>
-                </div>
-                <div class="footer-col">
-                    <h4>Explore</h4>
-                    <a href="#shop">Shop</a>
-                    <a href="#about">Our Story</a>
-                    <a href="#journal">Journal</a>
-                    <a href="#contact">Contact</a>
-                </div>
-                <div class="footer-col">
-                    <h4>Support</h4>
-                    <a href="#">FAQ</a>
-                    <a href="#">Shipping</a>
-                    <a href="#">Returns</a>
-                    <a href="#">Care Guide</a>
-                </div>
-                <div class="footer-col">
-                    <h4>Connect</h4>
-                    <a href="#"><i class="fab fa-instagram" style="margin-right:8px;"></i>Instagram</a>
-                    <a href="#"><i class="fab fa-pinterest" style="margin-right:8px;"></i>Pinterest</a>
-                    <a href="#"><i class="fab fa-youtube" style="margin-right:8px;"></i>YouTube</a>
-                </div>
-            </div>
-            <div class="footer-bottom">
-                &copy; 2026 Dakiwa Furnitures. Developed by Quantum Solutions.
-            </div>
-        </div>
-    </footer>
+    <footer class="site-footer"><div class="container" id="footerContainer"></div></footer>
 
-    <!-- =============================================
-    COOKIE CONSENT BANNER
-    ============================================= -->
     <div class="cookie-banner" id="cookieBanner">
-        <span>We use cookies to enhance your experience. By continuing, you agree to our&nbsp;<a href="#" style="color:var(--color-warm-accent);text-decoration:underline;">Privacy Policy</a>.</span>
-        <div class="cookie-actions">
-            <button id="cookieAccept">Accept</button>
-            <button class="cookie-dismiss" id="cookieDismiss">Dismiss</button>
-        </div>
+        <span id="cookieText"></span>
+        <div class="cookie-actions"><button id="cookieAccept"></button><button class="cookie-dismiss" id="cookieDismiss"></button></div>
     </div>
 
-    <!-- =============================================
-    JAVASCRIPT – Resilient with error handling
-    ============================================= -->
     <script>
         (function() {
-            'use strict';
+            const $ = (s) => document.querySelector(s);
+            const $$ = (s) => document.querySelectorAll(s);
 
-            // =============================================
-            // ★ DATA – Expanded product catalog (14 items)
-            // =============================================
-            const products = [{
-                id: 1,
-                name: ' TV Stand',
-                category: 'TV Stands',
-                price: 9000,
-                material: 'Oak',
-                colour: 'Oak',
-                image: 'https://i.pinimg.com/1200x/04/74/0a/04740afdda9db416b78fa98282926eb8.jpg',
-                desc: 'Sculptural balance of solid oak and brushed steel.',
-                dimensions: '160 × 45 × 55 cm'
-            }, {
-                id: 2,
-                name: ' Bed Frame',
-                category: 'Beds',
-                price: 185000,
-                material: 'Walnut',
-                colour: 'Walnut',
-                image: 'https://i.pinimg.com/1200x/77/44/de/7744de123cfc8a9e379da1f59c91d04a.jpg',
-                desc: 'A floating platform bed with hand-joined walnut headboard.',
-                dimensions: '200 × 180 × 90 cm'
-            }, {
-                id: 3,
-                name: ' Lounge Chair',
-                category: 'Chairs',
-                price: 89000,
-                material: 'Fabric',
-                colour: 'Charcoal',
-                image: 'https://i.pinimg.com/1200x/be/12/1e/be121e719c5738af90a53879bfcb4a86.jpg',
-                desc: 'Wrapped in bouclé with a solid oak frame. Pure comfort.',
-                dimensions: '70 × 72 × 68 cm'
-            }, {
-                id: 4,
-                name: ' Dining Table',
-                category: 'Tables',
-                price: 220000,
-                material: 'Marble',
-                colour: 'Ivory',
-                image: 'https://i.pinimg.com/1200x/cc/66/0c/cc660c538a11952368f910e2e226d184.jpg',
-                desc: 'Italian Carrara marble meets sculpted oak base.',
-                dimensions: '240 × 100 × 76 cm'
-            }, {
-                id: 5,
-                name: ' Sideboard',
-                category: 'TV Stands',
-                price: 185000,
-                material: 'Wood',
-                colour: 'Natural',
-                image: 'https://i.pinimg.com/736x/22/9f/02/229f02b5e8a28c3f9f077348dad6a4de.jpg',
-                desc: 'Cloud-like curves with soft-close doors and hidden compartments.',
-                dimensions: '180 × 50 × 80 cm'
-            }, {
-                id: 6,
-                name: ' Stool',
-                category: 'Chairs',
-                price: 42000,
-                material: 'Metal',
-                colour: 'Charcoal',
-                image: 'https://i.pinimg.com/736x/13/21/b3/1321b3e6fa5ac3ef3c11fa1e8091fe81.jpg',
-                desc: 'Minimalist steel frame with a warm walnut seat.',
-                dimensions: '45 × 45 × 48 cm'
-            }, {
-                id: 7,
-                name: ' Bookshelf',
-                category: 'Storage',
-                price: 95000,
-                material: 'Wood',
-                colour: 'Walnut',
-                image: 'https://i.pinimg.com/1200x/6f/bc/e4/6fbce4bc9360ed7ac91d9cc3065224e1.jpg',
-                desc: 'A sculptural bookshelf with organic shelves that seem to float.',
-                dimensions: '120 × 35 × 180 cm'
-            }, {
-                id: 8,
-                name: ' Desk',
-                category: 'Desks',
-                price: 115000,
-                material: 'Oak',
-                colour: 'Oak',
-                image: 'https://i.pinimg.com/736x/64/d8/e5/64d8e532400548067eabfda2c7b25bce.jpg',
-                desc: 'A minimalist desk with hidden cable management and a warm oak top.',
-                dimensions: '140 × 70 × 76 cm'
-            }, {
-                id: 9,
-                name: ' Wardrobe',
-                category: 'Storage',
-                price: 275000,
-                material: 'Walnut',
-                colour: 'Walnut',
-                image: 'https://i.pinimg.com/736x/cc/1c/21/cc1c217926d2e4f8f74ae4e20790d2f6.jpg',
-                desc: 'A spacious wardrobe with soft-close doors and adjustable shelving.',
-                dimensions: '200 × 60 × 220 cm'
-            }, {
-                id: 10,
-                name: ' Nightstand',
-                category: 'Beds',
-                price: 55000,
-                material: 'Wood',
-                colour: 'Natural',
-                image: 'https://i.pinimg.com/736x/00/b1/9b/00b19b8f4cbddbc855659150fa71c233.jpg',
-                desc: 'A serene nightstand with a single drawer and hidden charging dock.',
-                dimensions: '50 × 40 × 55 cm'
-            }, {
-                id: 11,
-                name: ' Coffee Table',
-                category: 'Tables',
-                price: 68000,
-                material: 'Marble',
-                colour: 'Ivory',
-                image: 'https://i.pinimg.com/1200x/f3/5f/17/f35f172749fa0273bac923ca8a0938fd.jpg',
-                desc: 'A sculptural coffee table with a marble top and oak base.',
-                dimensions: '120 × 70 × 40 cm'
-            }, {
-                id: 12,
-                name: ' Console Table',
-                category: 'Tables',
-                price: 000,
-                material: 'Metal',
-                colour: 'Black',
-                image: 'https://i.pinimg.com/1200x/43/94/26/439426e32d49d536d0e4fddf5a89caef.jpg',
-                desc: 'A slim console table with a powder-coated steel frame and oak top.',
-                dimensions: '140 × 35 × 80 cm'
-            }, {
-                id: 13,
-                name: ' Bench',
-                category: 'Chairs',
-                price: 000,
-                material: 'Wood',
-                colour: 'Oak',
-                image: 'https://i.pinimg.com/736x/57/8c/a8/578ca8e84d69c11eb6febe31ed754494.jpg',
-                desc: 'A simple, sculptural bench with a solid oak seat.',
-                dimensions: '120 × 35 × 45 cm'
-            }, {
-                id: 14,
-                name: ' Ottoman',
-                category: 'Chairs',
-                price: 000,
-                material: 'Fabric',
-                colour: 'Charcoal',
-                image: 'https://i.pinimg.com/736x/67/c7/ba/67c7ba148d8dc90236a7250964523fa3.jpg',
-                desc: 'A plush ottoman with a bouclé finish and a hidden storage compartment.',
-                dimensions: '60 × 60 × 40 cm'
-            }];
+            let cart = JSON.parse(localStorage.getItem('dakiwa-cart')) || [];
+            let currentProduct = CONFIG.products[0];
+            let theme = localStorage.getItem('dakiwa-theme') || (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
 
-            // =============================================
-            // FEATURED ITEMS (for horizontal scroll)
-            // =============================================
-            const featuredItems = [{
-                name: 'Oak TV Stand',
-                price: 'KSh 9,000',
-                image: 'https://i.pinimg.com/1200x/04/74/0a/04740afdda9db416b78fa98282926eb8.jpg'
-            }, {
-                name: 'Walnut Bed Frame',
-                price: 'KSh 185,000',
-                image: 'https://i.pinimg.com/1200x/77/44/de/7744de123cfc8a9e379da1f59c91d04a.jpg'
-            }, {
-                name: 'Bouclé Lounge Chair',
-                price: 'KSh 89,000',
-                image: 'https://i.pinimg.com/1200x/be/12/1e/be121e719c5738af90a53879bfcb4a86.jpg'
-            }, {
-                name: 'Marble Dining Table',
-                price: 'KSh 220,000',
-                image: 'https://i.pinimg.com/1200x/cc/66/0c/cc660c538a11952368f910e2e226d184.jpg'
-            }, {
-                name: 'Bookshelf',
-                price: 'KSh 95,000',
-                image: 'https://i.pinimg.com/1200x/6f/bc/e4/6fbce4bc9360ed7ac91d9cc3065224e1.jpg'
-            }, {
-                name: 'Desk',
-                price: 'KSh 115,000',
-                image: 'https://i.pinimg.com/736x/64/d8/e5/64d8e532400548067eabfda2c7b25bce.jpg'
-            }];
-
-            // =============================================
-            // "COMPLETE THE LOOK" ITEMS
-            // =============================================
-            const lookItems = [{
-                name: 'Side Table',
-                image: 'https://i.pinimg.com/736x/13/21/b3/1321b3e6fa5ac3ef3c11fa1e8091fe81.jpg'
-            }, {
-                name: 'Floor Lamp',
-                image: 'https://i.pinimg.com/736x/22/9f/02/229f02b5e8a28c3f9f077348dad6a4de.jpg'
-            }, {
-                name: 'Rug',
-                image: 'https://i.pinimg.com/1200x/ed/e1/29/ede129bc821b34d5bcb58795c2631095.jpg'
-            }, {
-                name: 'Wall Art',
-                image: 'https://i.pinimg.com/736x/76/22/97/7622979704f4ab2755c3d46ddeeb586f.jpg'
-            }];
-
-            // =============================================
-            // ★ CUSTOMERS ALSO BOUGHT
-            // =============================================
-            const alsoBoughtItems = [{
-                name: 'Lounge Chair',
-                price: 'KSh ,000',
-                image: 'https://i.pinimg.com/1200x/be/12/1e/be121e719c5738af90a53879bfcb4a86.jpg'
-            }, {
-                name: 'Side Table',
-                price: 'KSh ,000',
-                image: 'https://i.pinimg.com/736x/64/d8/e5/64d8e532400548067eabfda2c7b25bce.jpg'
-            }, {
-                name: 'Floor Lamp',
-                price: 'KSh ,000',
-                image: 'https://i.pinimg.com/736x/00/b1/9b/00b19b8f4cbddbc855659150fa71c233.jpg'
-            }, {
-                name: 'Wall Mirror',
-                price: 'KSh ,000',
-                image: 'https://i.pinimg.com/1200x/f3/5f/17/f35f172749fa0273bac923ca8a0938fd.jpg'
-            }, {
-                name: 'Coffee Table',
-                price: 'KSh ,000',
-                image: 'https://i.pinimg.com/736x/cc/1c/21/cc1c217926d2e4f8f74ae4e20790d2f6.jpg'
-            }];
-
-            // =============================================
-            // ★ BLOG / JOURNAL DATA
-            // =============================================
-            const blogPosts = [{
-                title: 'The art of slow living',
-                excerpt: 'How to create a home that invites rest, reflection, and connection — with furniture that tells a story.',
-                tag: 'Design',
-                image: 'https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?w=600&h=400&fit=crop&crop=center&auto=format',
-                link: '#'
-            }, {
-                title: 'A guide to wood grain',
-                excerpt: 'Oak, walnut, teak — learn to read the language of wood and choose the perfect grain for your space.',
-                tag: 'Materials',
-                image: 'https://images.unsplash.com/photo-1618220179428-22790b461013?w=600&h=400&fit=crop&crop=center&auto=format',
-                link: '#'
-            }, {
-                title: 'Why we build by hand',
-                excerpt: 'In a world of mass production, we choose the slow path. Here\'s why craftsmanship matters more than ever.',
-                tag: 'Craft',
-                image: 'https://images.unsplash.com/photo-1556228453-efd6c1ff04f6?w=600&h=400&fit=crop&crop=center&auto=format',
-                link: '#'
-            }];
-
-            // =============================================
-            // STATE
-            // =============================================
-            let cart = [];
-            let currentQty = 1;
-            let theme = localStorage.getItem('dakiwa-theme') ||
-                (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
-
-            // --- BUG FIX: track the currently displayed product ---
-            let currentProduct = products[0]; // default to first product
-
-            // =============================================
-            // DOM REFS
-            // =============================================
-            const $ = (sel) => document.querySelector(sel);
-            const $$ = (sel) => document.querySelectorAll(sel);
-
-            const productGrid = $('#productGrid');
-            const featuredTrack = $('#featuredTrack');
-            const lookCarousel = $('#lookCarousel');
-            const alsoBought = $('#alsoBought');
-            const blogGrid = $('#blogGrid');
-            const cartItems = $('#cartItems');
-            const cartTotal = $('#cartTotal');
-            const cartBadge = $('#cartBadge');
-            const cartPanel = $('#cartPanel');
-            const cartOverlay = $('#cartOverlay');
-            const menuOverlay = $('#menuOverlay');
-            const filtersPanel = $('#filtersPanel');
-            const cookieBanner = $('#cookieBanner');
-            const qtyDisplay = $('#qtyDisplay');
-
-            // =============================================
-            // RENDER FUNCTIONS
-            // =============================================
-            function renderProducts() {
-                try {
-                    if (!productGrid) return;
-                    productGrid.innerHTML = products.map(p => `
-                                <div class="product-card" data-id="${p.id}">
-                                    <img class="card-image" src="${p.image}" alt="${p.name}" loading="lazy" onerror="this.src='https://placehold.co/600x600/FAFAF9/1E1E1E?text=Image+Not+Found'" />
-                                    <button class="quick-view" data-id="${p.id}">Quick View</button>
-                                    <div class="card-overlay">
-                                        <div class="name">${p.name}</div>
-                                        <div class="desc">${p.desc}</div>
-                                        <div class="price">KSh ${p.price.toLocaleString()}</div>
-                                    </div>
-                                </div>
-                            `).join('');
-                } catch (e) {
-                    console.warn('Error rendering products:', e);
-                }
-            }
-
-            function renderFeatured() {
-                try {
-                    if (!featuredTrack) return;
-                    featuredTrack.innerHTML = featuredItems.map(item => `
-                                <div class="scroll-item">
-                                    <img src="${item.image}" alt="${item.name}" loading="lazy" onerror="this.src='https://placehold.co/400x300/FAFAF9/1E1E1E?text=Image+Not+Found'" />
-                                    <div class="item-info">
-                                        <h4>${item.name}</h4>
-                                        <p class="price">${item.price}</p>
-                                    </div>
-                                </div>
-                            `).join('');
-                } catch (e) {
-                    console.warn('Error rendering featured:', e);
-                }
-            }
-
-            function renderLook() {
-                try {
-                    if (!lookCarousel) return;
-                    lookCarousel.innerHTML = lookItems.map(item => `
-                                <div class="look-item">
-                                    <img src="${item.image}" alt="${item.name}" loading="lazy" onerror="this.src='https://placehold.co/200x200/FAFAF9/1E1E1E?text=Image+Not+Found'" />
-                                    <div class="label">${item.name}</div>
-                                </div>
-                            `).join('');
-                } catch (e) {
-                    console.warn('Error rendering look items:', e);
-                }
-            }
-
-            function renderAlsoBought() {
-                try {
-                    if (!alsoBought) return;
-                    alsoBought.innerHTML = alsoBoughtItems.map(item => `
-                                <div class="item">
-                                    <img src="${item.image}" alt="${item.name}" loading="lazy" onerror="this.src='https://placehold.co/300x200/FAFAF9/1E1E1E?text=Image+Not+Found'" />
-                                    <div class="info">
-                                        <div class="name">${item.name}</div>
-                                        <div class="price">${item.price}</div>
-                                    </div>
-                                </div>
-                            `).join('');
-                } catch (e) {
-                    console.warn('Error rendering also bought:', e);
-                }
-            }
-
-            function renderBlog() {
-                try {
-                    if (!blogGrid) return;
-                    blogGrid.innerHTML = blogPosts.map(post => `
-                                <div class="blog-card">
-                                    <img src="${post.image}" alt="${post.title}" loading="lazy" onerror="this.src='https://placehold.co/600x400/FAFAF9/1E1E1E?text=Image+Not+Found'" />
-                                    <div class="blog-content">
-                                        <span class="tag">${post.tag}</span>
-                                        <h4>${post.title}</h4>
-                                        <p>${post.excerpt}</p>
-                                        <a href="${post.link}" class="read-more">Read more <i class="fas fa-arrow-right"></i></a>
-                                    </div>
-                                </div>
-                            `).join('');
-                } catch (e) {
-                    console.warn('Error rendering blog:', e);
-                }
-            }
-
-            function renderCart() {
-                try {
-                    if (!cartItems || !cartTotal || !cartBadge) return;
-
-                    if (cart.length === 0) {
-                        cartItems.innerHTML = `
-                                    <div class="cart-empty">
-                                        <i class="fas fa-shopping-bag"></i>
-                                        <p>Your cart is empty.<br />Start adding some beautiful pieces.</p>
-                                    </div>
-                                `;
-                        cartTotal.textContent = 'KSh 0.00';
-                        cartBadge.textContent = '0';
-                        return;
-                    }
-
-                    let html = '';
-                    let total = 0;
-                    cart.forEach((item, index) => {
-                        const subtotal = item.price * item.qty;
-                        total += subtotal;
-                        html += `
-                                    <div class="cart-item" data-index="${index}">
-                                        <img src="${item.image}" alt="${item.name}" loading="lazy" onerror="this.src='https://placehold.co/60x60/FAFAF9/1E1E1E?text=?'" />
-                                        <div class="item-details">
-                                            <div class="name">${item.name}</div>
-                                            <div class="price">KSh ${item.price.toLocaleString()}</div>
-                                        </div>
-                                        <div class="qty-control">
-                                            <button class="cart-qty-dec" data-index="${index}">−</button>
-                                            <span>${item.qty}</span>
-                                            <button class="cart-qty-inc" data-index="${index}">+</button>
-                                        </div>
-                                        <button class="remove-item" data-index="${index}">
-                                            <i class="fas fa-trash-alt"></i>
-                                        </button>
-                                    </div>
-                                `;
-                    });
-
-                    cartItems.innerHTML = html;
-                    cartTotal.textContent = 'KSh ' + total.toLocaleString();
-                    cartBadge.textContent = cart.reduce((sum, i) => sum + i.qty, 0);
-
-                    // Attach cart events
-                    cartItems.querySelectorAll('.cart-qty-dec').forEach(btn => {
-                        btn.addEventListener('click', function() {
-                            try {
-                                const idx = parseInt(this.dataset.index);
-                                if (cart[idx] && cart[idx].qty > 1) {
-                                    cart[idx].qty--;
-                                } else if (cart[idx]) {
-                                    cart.splice(idx, 1);
-                                }
-                                renderCart();
-                                saveCart();
-                            } catch (e) { console.warn('Cart dec error:', e); }
-                        });
-                    });
-
-                    cartItems.querySelectorAll('.cart-qty-inc').forEach(btn => {
-                        btn.addEventListener('click', function() {
-                            try {
-                                const idx = parseInt(this.dataset.index);
-                                if (cart[idx]) {
-                                    cart[idx].qty++;
-                                }
-                                renderCart();
-                                saveCart();
-                            } catch (e) { console.warn('Cart inc error:', e); }
-                        });
-                    });
-
-                    cartItems.querySelectorAll('.remove-item').forEach(btn => {
-                        btn.addEventListener('click', function() {
-                            try {
-                                const idx = parseInt(this.dataset.index);
-                                cart.splice(idx, 1);
-                                renderCart();
-                                saveCart();
-                            } catch (e) { console.warn('Cart remove error:', e); }
-                        });
-                    });
-                } catch (e) {
-                    console.warn('Error rendering cart:', e);
-                }
-            }
-
-            // =============================================
-            // CART PERSISTENCE
-            // =============================================
-            function saveCart() {
-                try {
-                    localStorage.setItem('dakiwa-cart', JSON.stringify(cart));
-                } catch (_) { /* ignore */ }
-            }
-
-            function loadCart() {
-                try {
-                    const data = localStorage.getItem('dakiwa-cart');
-                    if (data) {
-                        const parsed = JSON.parse(data);
-                        if (Array.isArray(parsed)) cart = parsed;
-                    }
-                } catch (_) { cart = []; }
-                renderCart();
-            }
-
-            // =============================================
-            // THEME
-            // =============================================
+            function saveCart() { localStorage.setItem('dakiwa-cart', JSON.stringify(cart)); }
             function setTheme(t) {
-                try {
-                    theme = t;
-                    document.documentElement.setAttribute('data-theme', t);
-                    localStorage.setItem('dakiwa-theme', t);
-                    const icon = $('#themeIcon');
-                    if (icon) {
-                        icon.className = t === 'dark' ? 'fas fa-sun' : 'fas fa-moon';
-                    }
-                } catch (e) { console.warn('Theme error:', e); }
+                theme = t;
+                document.documentElement.setAttribute('data-theme', t);
+                localStorage.setItem('dakiwa-theme', t);
+                const icon = $('#themeIcon');
+                if (icon) icon.className = t === 'dark' ? 'fas fa-sun' : 'fas fa-moon';
+            }
+            function formatPrice(price) { return 'KSh ' + price.toLocaleString(); }
+
+            function renderHeader() {
+                $('#headerLogo').innerHTML = `<i class="fas ${CONFIG.logoIcon}"></i>${CONFIG.logoText}`;
+                document.getElementById('menuNav').innerHTML = CONFIG.navLinks.map(l => `<a href="${l.url}">${l.label}</a>`).join('');
+                updateCartBadge();
+            }
+            function renderHero() {
+                const h = CONFIG.hero;
+                $('#heroContainer').innerHTML = `
+                    <div class="hero-text"><h1>${h.title}</h1><p>${h.subtitle}</p><a href="${h.ctaLink}" class="btn-primary">${h.cta} <i class="fas fa-arrow-right"></i></a></div>
+                    <div class="hero-image-wrap"><img src="${h.image}" alt="Hero" loading="lazy"><div class="floating-badge"><i class="fas fa-cube" style="color:var(--color-warm-accent);"></i>${h.floatingBadge}</div></div>`;
+            }
+            function renderRooms() {
+                document.getElementById('roomsGrid').innerHTML = CONFIG.rooms.map(r => `
+                    <div class="room-card"><img src="${r.image}" alt="${r.name}" loading="lazy"><div class="room-label"><h3>${r.name}</h3><p>${r.desc}</p></div></div>`).join('');
+            }
+            function renderFeatured() {
+                document.getElementById('featuredTrack').innerHTML = CONFIG.featuredItems.map(f => `
+                    <div class="scroll-item"><img src="${f.image}" alt="${f.name}" loading="lazy"><div class="item-info"><h4>${f.name}</h4><p class="price">${f.price}</p></div></div>`).join('');
+            }
+            function renderProducts(filtered = null) {
+                const products = filtered || CONFIG.products;
+                document.getElementById('productGrid').innerHTML = products.map(p => `
+                    <div class="product-card" data-id="${p.id}">
+                        <img src="${p.image}" alt="${p.name}" loading="lazy" onerror="this.src='https://placehold.co/600x600/FAFAF9/1E1E1E?text=Image+Not+Found'">
+                        <button class="quick-view" data-id="${p.id}">Quick View</button>
+                        <div class="card-overlay"><div class="name">${p.name}</div><div class="price">${formatPrice(p.price)}</div></div>
+                    </div>`).join('');
+            }
+            function renderFilters() {
+                document.getElementById('filterGroupsContainer').innerHTML = CONFIG.filterGroups.map(group => `
+                    <div class="filter-group"><label>${group.title}</label>
+                        <div class="filter-options">${group.options.map((opt, i) => `<button class="${i===0?'active':''}" data-group="${group.id}" data-value="${opt}">${opt}</button>`).join('')}</div></div>`).join('');
+            }
+            function renderPDP(product) {
+                currentProduct = product;
+                document.getElementById('pdpContent').innerHTML = `
+                    <div class="pdp-viewer"><img src="${product.image}" alt="${product.name}" id="pdpMainImage"></div>
+                    <div class="pdp-info">
+                        <h1 class="product-name">${product.name}</h1>
+                        <div class="product-price">${formatPrice(product.price)}</div>
+                        <p class="product-desc">${product.desc}</p>
+                        <div class="meta-row">
+                            <span><i class="fas fa-ruler-combined"></i> ${product.dimensions}</span>
+                            <span><i class="fas fa-tree"></i> ${product.material}</span>
+                            <span><i class="fas fa-leaf"></i> FSC Certified</span>
+                        </div>
+                        <div class="add-to-cart">
+                            <div class="qty-selector"><button id="qtyDec">−</button><span id="qtyDisplay">1</span><button id="qtyInc">+</button></div>
+                            <button class="cart-btn" id="pdpAddToCart"><i class="fas fa-plus" style="margin-right:8px;"></i> Add to Cart</button>
+                        </div>
+                        <div class="complete-look"><h4>Complete the Look</h4><div class="look-carousel">${CONFIG.completeTheLook.map(l => `<div class="look-item"><img src="${l.image}" alt="${l.name}"><div class="label">${l.name}</div></div>`).join('')}</div></div>
+                    </div>`;
+                let qty = 1;
+                const qtyDisplay = document.getElementById('qtyDisplay');
+                document.getElementById('qtyDec').onclick = () => { if (qty > 1) { qty--; qtyDisplay.textContent = qty; } };
+                document.getElementById('qtyInc').onclick = () => { qty++; qtyDisplay.textContent = qty; };
+                document.getElementById('pdpAddToCart').onclick = () => {
+                    addToCart(product, qty);
+                    qty = 1; qtyDisplay.textContent = '1';
+                    openCart();
+                };
+                document.getElementById('pdp').scrollIntoView({ behavior: 'smooth' });
+            }
+            function renderAlsoBought() {
+                document.getElementById('alsoBoughtRow').innerHTML = CONFIG.alsoBought.map(a => `
+                    <div class="item">
+                        <img src="${a.image}" alt="${a.name}" loading="lazy" onerror="this.src='https://placehold.co/150x150/FAFAF9/1E1E1E?text=Image+Not+Found'">
+                        <div class="info"><div class="name">${a.name}</div><div class="price">${a.price}</div></div>
+                    </div>`).join('');
+            }
+            function renderJourney() {
+                document.getElementById('journeyTimeline').innerHTML = CONFIG.journeySteps.map(s => `
+                    <div class="trace-step"><div class="step-icon">${s.num}</div><div class="step-content"><div class="step-title">${s.title}</div><div class="step-desc">${s.desc}</div></div></div>`).join('');
+            }
+            function renderTestimonials() {
+                document.getElementById('testimonialsContainer').innerHTML = `<h2 class="section-title text-center" style="text-align:center;">What our customers say</h2><p class="section-subtitle text-center" style="text-align:center;max-width:500px;margin-left:auto;margin-right:auto;">Real stories from real people who've made Dakiwa part of their home.</p><div class="testimonial-grid">${CONFIG.testimonials.map(t => `<div class="testimonial-card"><div class="stars">${'<i class="fas fa-star"></i>'.repeat(t.stars)}</div><blockquote>${t.quote}</blockquote><div class="customer"><img src="${t.image}" alt="${t.customer}" loading="lazy"><div><div class="name">${t.customer}</div><div class="role">${t.role}</div></div></div></div>`).join('')}</div>`;
+            }
+            function renderBrandStory() {
+                const s = CONFIG.brandStory;
+                document.getElementById('brandStoryContainer').innerHTML = `<div class="story-grid"><div class="story-image"><img src="${s.image}" alt="Workshop" loading="lazy"></div><div class="story-text"><h2>${s.title}</h2>${s.paragraphs.map(p => `<p>${p}</p>`).join('')}<div class="stats">${s.stats.map(st => `<div class="stat"><span class="number">${st.number}</span><span class="label">${st.label}</span></div>`).join('')}</div></div></div>`;
+            }
+            function renderBlog() {
+                document.getElementById('blogGrid').innerHTML = CONFIG.blogPosts.map(b => `<div class="blog-card"><img src="${b.image}" alt="${b.title}" loading="lazy"><div class="blog-content"><span class="tag">${b.tag}</span><h4>${b.title}</h4><p>${b.excerpt}</p><a href="${b.link}" class="read-more">Read more <i class="fas fa-arrow-right"></i></a></div></div>`).join('');
+            }
+            function renderNewsletter() {
+                const n = CONFIG.newsletter;
+                document.getElementById('newsletterContainer').innerHTML = `
+                    <h2>${n.title}</h2>
+                    <p>${n.subtitle}</p>
+                    <form class="newsletter-form" id="newsletterForm">
+                        <input type="email" placeholder="${n.placeholder}" required>
+                        <button type="submit">${n.buttonText} <i class="fas fa-arrow-right" style="margin-left:6px;"></i></button>
+                    </form>
+                    <p class="newsletter-privacy">${n.privacyNote}</p>`;
+                document.getElementById('newsletterForm').addEventListener('submit', (e) => { e.preventDefault(); alert('Thank you for subscribing!'); e.target.reset(); });
+            }
+            function renderFooter() {
+                document.getElementById('footerContainer').innerHTML = `
+                    <div class="footer-grid">
+                        <div class="footer-brand">
+                            <a href="#" class="logo"><i class="fas ${CONFIG.logoIcon}"></i>Dakiwa<span>.</span></a>
+                            <p>Furniture that breathes. Timeless design for modern living, crafted in Kenya.</p>
+                        </div>
+                        ${CONFIG.footer.columns.map(c => `
+                            <div class="footer-col">
+                                <h4>${c.title}</h4>
+                                ${c.links.map(l => `<a href="#">${l}</a>`).join('')}
+                            </div>
+                        `).join('')}
+                    </div>
+                    <div class="footer-bottom">${CONFIG.footer.copyright}</div>`;
+            }
+            function renderCookieBanner() {
+                document.getElementById('cookieText').textContent = CONFIG.cookieText;
+                document.getElementById('cookieAccept').textContent = CONFIG.cookieAccept;
+                document.getElementById('cookieDismiss').textContent = CONFIG.cookieDismiss;
+                if (!localStorage.getItem('dakiwa-cookie')) setTimeout(() => $('#cookieBanner').classList.add('show'), 1200);
             }
 
-            // =============================================
-            // UI TOGGLES
-            // =============================================
-            function toggleMenu(open) {
-                try {
-                    const isOpen = open !== undefined ? open : !menuOverlay.classList.contains('open');
-                    menuOverlay.classList.toggle('open', isOpen);
-                    const hamburger = $('#menuToggle');
-                    if (hamburger) hamburger.classList.toggle('active', isOpen);
-                    document.body.style.overflow = isOpen ? 'hidden' : '';
-                } catch (e) { console.warn('Menu toggle error:', e); }
+            function addToCart(product, qty = 1) {
+                const existing = cart.find(item => item.id === product.id);
+                if (existing) existing.qty += qty;
+                else cart.push({ ...product, qty });
+                saveCart(); renderCart();
             }
-
-            function toggleCart(open) {
-                try {
-                    const isOpen = open !== undefined ? open : !cartPanel.classList.contains('open');
-                    cartPanel.classList.toggle('open', isOpen);
-                    cartOverlay.classList.toggle('open', isOpen);
-                    document.body.style.overflow = isOpen ? 'hidden' : '';
-                } catch (e) { console.warn('Cart toggle error:', e); }
-            }
-
-            function toggleFilters(open) {
-                try {
-                    const isOpen = open !== undefined ? open : !filtersPanel.classList.contains('open');
-                    filtersPanel.classList.toggle('open', isOpen);
-                    document.body.style.overflow = isOpen ? 'hidden' : '';
-                } catch (e) { console.warn('Filters toggle error:', e); }
-            }
-
-            // =============================================
-            // PDP UPDATE – now sets currentProduct
-            // =============================================
-            function updatePDP(product) {
-                try {
-                    if (!product) return;
-                    // store the product being displayed
-                    currentProduct = product;
-
-                    const nameEl = document.querySelector('.pdp-info .product-name');
-                    const priceEl = document.querySelector('.pdp-info .product-price');
-                    const descEl = document.querySelector('.pdp-info .product-desc');
-                    const imgEl = document.getElementById('pdpMainImage');
-                    const dimsEl = document.getElementById('pdpDimensions');
-                    const matEl = document.getElementById('pdpMaterial');
-
-                    if (nameEl) nameEl.textContent = product.name;
-                    if (priceEl) priceEl.textContent = 'KSh ' + product.price.toLocaleString();
-                    if (descEl) descEl.textContent = product.desc;
-                    if (imgEl) {
-                        imgEl.src = product.image;
-                        imgEl.alt = product.name;
-                        imgEl.onerror = function() {
-                            this.src = 'https://placehold.co/800x600/FAFAF9/1E1E1E?text=Image+Not+Found';
-                        };
-                    }
-                    if (dimsEl) dimsEl.textContent = product.dimensions || '160 × 45 × 55 cm';
-                    if (matEl) matEl.textContent = product.material || 'Oak / Walnut';
-                } catch (e) {
-                    console.warn('Error updating PDP:', e);
+            function renderCart() {
+                const itemsEl = $('#cartItems');
+                const footerEl = $('#cartFooter');
+                const total = cart.reduce((sum, i) => sum + i.price * i.qty, 0);
+                if (cart.length === 0) {
+                    itemsEl.innerHTML = '<div class="cart-empty"><i class="fas fa-shopping-bag"></i><p>Your cart is empty.</p></div>';
+                    footerEl.innerHTML = '<div class="total"><span>Total</span><span>KSh 0.00</span></div><button class="checkout-btn" disabled>Proceed to Checkout</button>';
+                } else {
+                    itemsEl.innerHTML = cart.map((item, idx) => `
+                        <div class="cart-item">
+                            <img src="${item.image}" alt="${item.name}">
+                            <div class="item-details"><div class="name">${item.name}</div><div class="price">${formatPrice(item.price)}</div></div>
+                            <div class="qty-control"><button class="cart-qty-dec" data-idx="${idx}">−</button><span>${item.qty}</span><button class="cart-qty-inc" data-idx="${idx}">+</button></div>
+                            <button class="remove-item" data-idx="${idx}"><i class="fas fa-trash-alt"></i></button>
+                        </div>`).join('');
+                    footerEl.innerHTML = `<div class="total"><span>Total</span><span>${formatPrice(total)}</span></div><button class="checkout-btn">Proceed to Checkout</button>`;
                 }
+                updateCartBadge();
+                $$('.cart-qty-dec').forEach(btn => btn.onclick = function() { const idx = this.dataset.idx; if (cart[idx].qty > 1) cart[idx].qty--; else cart.splice(idx, 1); saveCart(); renderCart(); });
+                $$('.cart-qty-inc').forEach(btn => btn.onclick = function() { cart[this.dataset.idx].qty++; saveCart(); renderCart(); });
+                $$('.remove-item').forEach(btn => btn.onclick = function() { cart.splice(this.dataset.idx, 1); saveCart(); renderCart(); });
             }
+            function updateCartBadge() { $('#cartBadge').textContent = cart.reduce((s, i) => s + i.qty, 0); }
+            function openCart() { $('#cartPanel').classList.add('open'); $('#cartOverlay').classList.add('open'); document.body.style.overflow = 'hidden'; }
+            function closeCart() { $('#cartPanel').classList.remove('open'); $('#cartOverlay').classList.remove('open'); document.body.style.overflow = ''; }
 
-            // =============================================
-            // EVENT BINDING
-            // =============================================
-            function init() {
-                try {
-                    // Theme
-                    setTheme(theme);
-                    const themeToggle = $('#themeToggle');
-                    if (themeToggle) {
-                        themeToggle.addEventListener('click', () => {
-                            setTheme(theme === 'dark' ? 'light' : 'dark');
-                        });
-                    }
-
-                    // Menu
-                    const menuToggle = $('#menuToggle');
-                    const closeMenu = $('#closeMenu');
-                    if (menuToggle) menuToggle.addEventListener('click', () => toggleMenu());
-                    if (closeMenu) closeMenu.addEventListener('click', () => toggleMenu(false));
-                    if (menuOverlay) {
-                        menuOverlay.addEventListener('click', (e) => {
-                            if (e.target === menuOverlay) toggleMenu(false);
-                        });
-                    }
-
-                    // Cart
-                    const cartToggleBtn = $('#cartToggle');
-                    const closeCart = $('#closeCart');
-                    if (cartToggleBtn) cartToggleBtn.addEventListener('click', () => toggleCart());
-                    if (closeCart) closeCart.addEventListener('click', () => toggleCart(false));
-                    if (cartOverlay) cartOverlay.addEventListener('click', () => toggleCart(false));
-
-                    // Filters
-                    const filtersToggle = $('#filtersToggle');
-                    const closeFilters = $('#closeFilters');
-                    if (filtersToggle) filtersToggle.addEventListener('click', () => toggleFilters());
-                    if (closeFilters) closeFilters.addEventListener('click', () => toggleFilters(false));
-
-                    // Cookie banner
-                    if (!localStorage.getItem('dakiwa-cookie')) {
-                        setTimeout(() => {
-                            if (cookieBanner) cookieBanner.classList.add('show');
-                        }, 1200);
-                    }
-                    const cookieAccept = $('#cookieAccept');
-                    const cookieDismiss = $('#cookieDismiss');
-                    if (cookieAccept) {
-                        cookieAccept.addEventListener('click', () => {
-                            localStorage.setItem('dakiwa-cookie', 'accepted');
-                            if (cookieBanner) cookieBanner.classList.remove('show');
-                        });
-                    }
-                    if (cookieDismiss) {
-                        cookieDismiss.addEventListener('click', () => {
-                            localStorage.setItem('dakiwa-cookie', 'dismissed');
-                            if (cookieBanner) cookieBanner.classList.remove('show');
-                        });
-                    }
-
-                    // Newsletter
-                    const newsletterForm = $('#newsletterForm');
-                    if (newsletterForm) {
-                        newsletterForm.addEventListener('submit', (e) => {
-                            e.preventDefault();
-                            const input = newsletterForm.querySelector('input');
-                            if (input && input.value) {
-                                alert('Thank you for subscribing! We\'ll keep you posted.');
-                                input.value = '';
-                            }
-                        });
-                    }
-
-                    // PDP quantity
-                    const qtyDec = $('#qtyDec');
-                    const qtyInc = $('#qtyInc');
-                    if (qtyDec) {
-                        qtyDec.addEventListener('click', () => {
-                            if (currentQty > 1) { currentQty--;
-                                if (qtyDisplay) qtyDisplay.textContent = currentQty; }
-                        });
-                    }
-                    if (qtyInc) {
-                        qtyInc.addEventListener('click', () => {
-                            currentQty++;
-                            if (qtyDisplay) qtyDisplay.textContent = currentQty;
-                        });
-                    }
-
-                    // =============================================
-                    // ★ BUG FIX: Add to Cart uses currentProduct
-                    // =============================================
-                    const pdpAddBtn = $('#pdpAddToCart');
-                    if (pdpAddBtn) {
-                        pdpAddBtn.addEventListener('click', () => {
-                            try {
-                                const p = currentProduct; // use the displayed product
-                                if (!p) return;
-                                const existing = cart.find(item => item.id === p.id);
-                                if (existing) {
-                                    existing.qty += currentQty;
-                                } else {
-                                    cart.push({ ...p, qty: currentQty });
-                                }
-                                renderCart();
-                                saveCart();
-                                toggleCart(true);
-                                currentQty = 1;
-                                if (qtyDisplay) qtyDisplay.textContent = '1';
-                            } catch (e) { console.warn('Add to cart error:', e); }
-                        });
-                    }
-
-                    // Quick view buttons (delegated)
-                    if (productGrid) {
-                        productGrid.addEventListener('click', (e) => {
-                            try {
-                                const btn = e.target.closest('.quick-view');
-                                if (btn) {
-                                    const id = parseInt(btn.dataset.id);
-                                    const p = products.find(pr => pr.id === id);
-                                    if (p) {
-                                        document.getElementById('pdp').scrollIntoView({ behavior: 'smooth' });
-                                        updatePDP(p);
-                                    }
-                                }
-                            } catch (e) { console.warn('Quick view error:', e); }
-                        });
-
-                        // Product card click to PDP
-                        productGrid.addEventListener('click', (e) => {
-                            try {
-                                const card = e.target.closest('.product-card');
-                                if (card && !e.target.closest('.quick-view')) {
-                                    const id = parseInt(card.dataset.id);
-                                    const p = products.find(pr => pr.id === id);
-                                    if (p) {
-                                        document.getElementById('pdp').scrollIntoView({ behavior: 'smooth' });
-                                        updatePDP(p);
-                                    }
-                                }
-                            } catch (e) { console.warn('Product click error:', e); }
-                        });
-                    }
-
-                    // AR button hidden
-                    const arBtn = $('#arBtn');
-                    if (arBtn) arBtn.style.display = 'none';
-
-                    // Keyboard shortcuts
-                    document.addEventListener('keydown', (e) => {
-                        if (e.key === 'Escape') {
-                            try {
-                                if (cartPanel && cartPanel.classList.contains('open')) toggleCart(false);
-                                if (filtersPanel && filtersPanel.classList.contains('open')) toggleFilters(false);
-                                if (menuOverlay && menuOverlay.classList.contains('open')) toggleMenu(false);
-                            } catch (_) { /* ignore */ }
-                        }
+            function applyFilters() {
+                const active = {};
+                document.querySelectorAll('#filterGroupsContainer .filter-options button.active').forEach(btn => {
+                    if (btn.dataset.value !== 'All') active[btn.dataset.group] = btn.dataset.value;
+                });
+                let filtered = CONFIG.products;
+                if (active.category) filtered = filtered.filter(p => p.category === active.category);
+                if (active.material) filtered = filtered.filter(p => p.material === active.material);
+                if (active.colour) filtered = filtered.filter(p => p.colour === active.colour);
+                if (active.price) {
+                    const pf = active.price;
+                    filtered = filtered.filter(p => {
+                        if (pf === 'Under KSh 10,000') return p.price < 10000;
+                        if (pf === 'KSh 5,000–10,000') return p.price >= 5000 && p.price <= 10000;
+                        if (pf === 'KSh 10,000–15,000') return p.price >= 10000 && p.price <= 15000;
+                        if (pf === 'KSh 15,000+') return p.price > 15000;
+                        return true;
                     });
-
-                    // Render everything
-                    renderProducts();
-                    renderFeatured();
-                    renderLook();
-                    renderAlsoBought();
-                    renderBlog();
-                    loadCart();
-
-                    // Set initial PDP to first product
-                    updatePDP(products[0]);
-
-                    // Intersection Observer for fade-in animations
-                    const observer = new IntersectionObserver((entries) => {
-                        entries.forEach(entry => {
-                            if (entry.isIntersecting) {
-                                entry.target.style.opacity = '1';
-                                entry.target.style.transform = 'translateY(0)';
-                            }
-                        });
-                    }, { threshold: 0.1 });
-
-                    document.querySelectorAll('.animate-fade-in-up, .animate-fade-in, .animate-scale-in')
-                        .forEach(el => {
-                            if (!el.style.opacity) {
-                                el.style.opacity = '0';
-                                el.style.transform = 'translateY(24px)';
-                                observer.observe(el);
-                            }
-                        });
-
-                    // Session personalisation
-                    const sessionId = localStorage.getItem('dakiwa-session') || 'new';
-                    if (sessionId !== 'new' && cart.length > 0) {
-                        const hero = document.querySelector('.hero-text');
-                        if (hero) {
-                            const p = document.createElement('p');
-                            p.style.cssText =
-                                'font-size:0.9rem;color:var(--color-warm-accent);font-weight:500;margin-top:-8px;';
-                            p.innerHTML =
-                                `<i class="fas fa-undo-alt" style="margin-right:8px;"></i> Continue where you left off — ${cart.length} item${cart.length > 1 ? 's' : ''} in your cart.`;
-                            hero.appendChild(p);
-                        }
-                    }
-                    if (sessionId === 'new') {
-                        localStorage.setItem('dakiwa-session', 'returning');
-                    }
-
-                    console.log('Dakiwa Furnitures — built with intention in Kenya.');
-                } catch (e) {
-                    console.warn('Initialisation error:', e);
                 }
+                renderProducts(filtered);
             }
 
-            // =============================================
-            // START
-            // =============================================
-            if (document.readyState === 'loading') {
-                document.addEventListener('DOMContentLoaded', init);
-            } else {
-                init();
-            }
+            function init() {
+                setTheme(theme);
+                renderHeader(); renderHero(); renderRooms(); renderFeatured(); renderFilters(); renderProducts();
+                renderPDP(CONFIG.products[0]); renderAlsoBought(); renderJourney(); renderTestimonials();
+                renderBrandStory(); renderBlog(); renderNewsletter(); renderFooter(); renderCookieBanner(); renderCart();
 
+                $('#themeToggle').addEventListener('click', () => setTheme(theme === 'dark' ? 'light' : 'dark'));
+                $('#menuToggle').addEventListener('click', () => $('#menuOverlay').classList.add('open'));
+                $('#closeMenu').addEventListener('click', () => $('#menuOverlay').classList.remove('open'));
+                $('#cartToggle').addEventListener('click', openCart);
+                $('#closeCart').addEventListener('click', closeCart);
+                $('#cartOverlay').addEventListener('click', closeCart);
+                $('#filtersToggle').addEventListener('click', () => $('#filtersPanel').classList.add('open'));
+                $('#closeFilters').addEventListener('click', () => $('#filtersPanel').classList.remove('open'));
+                document.getElementById('cookieAccept').addEventListener('click', () => { localStorage.setItem('dakiwa-cookie', 'accepted'); $('#cookieBanner').classList.remove('show'); });
+                document.getElementById('cookieDismiss').addEventListener('click', () => { localStorage.setItem('dakiwa-cookie', 'dismissed'); $('#cookieBanner').classList.remove('show'); });
+
+                document.getElementById('productGrid').addEventListener('click', (e) => {
+                    const card = e.target.closest('.product-card');
+                    if (card) { const p = CONFIG.products.find(p => p.id === parseInt(card.dataset.id)); if (p) renderPDP(p); }
+                });
+                document.getElementById('filterGroupsContainer').addEventListener('click', (e) => {
+                    if (e.target.tagName === 'BUTTON') {
+                        const group = e.target.dataset.group;
+                        document.querySelectorAll(`#filterGroupsContainer .filter-options button[data-group="${group}"]`).forEach(btn => btn.classList.remove('active'));
+                        e.target.classList.add('active');
+                        applyFilters();
+                    }
+                });
+                document.addEventListener('keydown', (e) => {
+                    if (e.key === 'Escape') {
+                        $('#menuOverlay').classList.remove('open');
+                        $('#filtersPanel').classList.remove('open');
+                        closeCart();
+                    }
+                });
+                console.log('🌿 Dakiwa – newsletter & footer polished, fully responsive.');
+            }
+            if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', init);
+            else init();
         })();
     </script>
-
 </body>
 </html>
