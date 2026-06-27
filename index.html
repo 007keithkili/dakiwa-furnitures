@@ -146,38 +146,46 @@
             line-height: 1;
         }
 
-        /* New: visible inline navigation (desktop) */
+        /* Hidden inline nav (no longer used) */
         .header-nav {
             display: none;
-            gap: 6px;
-            list-style: none;
-            margin: 0;
-            padding: 0;
         }
-        @media (min-width: 768px) {
-            .header-nav {
-                display: flex;
-                flex: 1;
-                justify-content: center;
-            }
-        }
-        .header-nav a {
-            text-decoration: none;
-            color: var(--color-charcoal);
-            font-size: 0.9rem;
-            font-weight: 500;
-            padding: 8px 16px;
+
+        /* Improved hamburger button styling */
+        .hamburger-btn {
+            background: var(--color-gray-100);
+            border: 1px solid var(--color-gray-200);
             border-radius: 40px;
-            transition: background 0.3s, color 0.3s;
-            white-space: nowrap;
+            padding: 8px 16px;
+            cursor: pointer;
+            transition: background 0.3s, border-color 0.3s;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            color: var(--color-charcoal);
+            font-size: 0.95rem;
+            font-weight: 500;
+            font-family: var(--font-sans);
         }
-        .header-nav a:hover {
+        .hamburger-btn:hover {
             background: var(--color-gray-200);
-            color: var(--color-warm-accent);
+            border-color: var(--color-gray-300);
         }
-        .header-nav a.active {
-            background: var(--color-charcoal);
-            color: var(--color-off-white);
+        .hamburger-icon {
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+            justify-content: center;
+            align-items: center;
+            width: 20px;
+            height: 16px;
+        }
+        .hamburger-icon span {
+            display: block;
+            width: 100%;
+            height: 2px;
+            background: currentColor;
+            border-radius: 2px;
         }
 
         .nav-actions { display: flex; align-items: center; gap: 8px; flex-shrink: 0; }
@@ -211,20 +219,6 @@
             display: flex;
             align-items: center;
             justify-content: center;
-        }
-        .hamburger {
-            display: flex;
-            flex-direction: column;
-            gap: 5px;
-            padding: 4px;
-        }
-        .hamburger span {
-            display: block;
-            width: 24px; height: 2px;
-            background: var(--color-charcoal);
-            border-radius: 4px;
-            transition: all 0.3s;
-            transform-origin: center;
         }
 
         /* Menu overlay */
@@ -737,8 +731,8 @@
             logoIcon: 'fa-chair',
             logoText: 'Dakiwa Furnitures.',
             navLinks: [
-                { label: 'Home', url: '#home' },
-                { label: 'Shop', url: '#shop' },
+                { label: 'Home', url: 'index.html' },
+                { label: 'Shop', url: 'shop.html' },
                 { label: 'Journal', url: '#journal' },
                 { label: 'Contact', url: '#contact' },
             ],
@@ -855,11 +849,18 @@
                 <span class="logo-icon"><i class="fas fa-chair"></i></span>
                 <span class="logo-text">Dakiwa<span>.</span></span>
             </a>
-            <nav class="header-nav" id="headerNav"></nav>
             <div class="nav-actions">
                 <button class="theme-toggle" id="themeToggle"><i class="fas fa-moon" id="themeIcon"></i></button>
                 <button class="nav-btn" id="cartToggle"><i class="fas fa-shopping-bag"></i><span class="badge" id="cartBadge">0</span></button>
-                <button class="nav-btn hamburger" id="menuToggle"><span></span><span></span><span></span></button>
+                <!-- New menu toggle button -->
+                <button class="hamburger-btn" id="menuToggle">
+                    <span class="hamburger-icon">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </span>
+                    <span>Menu</span>
+                </button>
             </div>
         </div>
     </header>
@@ -968,10 +969,7 @@
                     <span class="logo-icon"><i class="fas ${CONFIG.logoIcon}"></i></span>
                     <span class="logo-text">${CONFIG.logoText.replace('.','')}<span>.</span></span>
                 `;
-                // Desktop inline navigation
-                const headerNav = document.getElementById('headerNav');
-                headerNav.innerHTML = CONFIG.navLinks.map(l => `<a href="${l.url}">${l.label}</a>`).join('');
-                // Mobile menu overlay
+                // Mobile menu overlay with updated links (index.html, shop.html)
                 document.getElementById('menuNav').innerHTML = CONFIG.navLinks.map(l => `<a href="${l.url}">${l.label}</a>`).join('');
                 updateCartBadge();
             }
@@ -1150,8 +1148,14 @@
                 renderBrandStory(); renderBlog(); renderNewsletter(); renderFooter(); renderCookieBanner(); renderCart();
 
                 $('#themeToggle').addEventListener('click', () => setTheme(theme === 'dark' ? 'light' : 'dark'));
-                $('#menuToggle').addEventListener('click', () => $('#menuOverlay').classList.add('open'));
+
+                // Toggle menu – opens AND closes (doesn't stick)
+                $('#menuToggle').addEventListener('click', () => {
+                    const overlay = $('#menuOverlay');
+                    overlay.classList.toggle('open');
+                });
                 $('#closeMenu').addEventListener('click', () => $('#menuOverlay').classList.remove('open'));
+
                 $('#cartToggle').addEventListener('click', openCart);
                 $('#closeCart').addEventListener('click', closeCart);
                 $('#cartOverlay').addEventListener('click', closeCart);
@@ -1179,7 +1183,7 @@
                         closeCart();
                     }
                 });
-                console.log('🌿 Dakiwa – header links visible, logo styled, fully responsive.');
+                console.log('🌿 Dakiwa – Menu button toggles correctly, links updated.');
             }
             if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', init);
             else init();
