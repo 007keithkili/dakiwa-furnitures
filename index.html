@@ -115,7 +115,10 @@
             align-items: center;
             justify-content: space-between;
             height: 100%;
+            gap: 24px;
         }
+
+        /* Logo with better styling */
         .logo {
             font-family: var(--font-serif);
             font-size: 1.4rem;
@@ -125,9 +128,59 @@
             text-decoration: none;
             display: flex;
             align-items: center;
-            gap: 8px;
+            gap: 10px;
+            flex-shrink: 0;
         }
-        .nav-actions { display: flex; align-items: center; gap: 12px; }
+        .logo .logo-icon {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 36px;
+            height: 36px;
+            background: var(--color-warm-accent);
+            color: #fff;
+            border-radius: 10px;
+            font-size: 1rem;
+        }
+        .logo .logo-text {
+            line-height: 1;
+        }
+
+        /* New: visible inline navigation (desktop) */
+        .header-nav {
+            display: none;
+            gap: 6px;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+        @media (min-width: 768px) {
+            .header-nav {
+                display: flex;
+                flex: 1;
+                justify-content: center;
+            }
+        }
+        .header-nav a {
+            text-decoration: none;
+            color: var(--color-charcoal);
+            font-size: 0.9rem;
+            font-weight: 500;
+            padding: 8px 16px;
+            border-radius: 40px;
+            transition: background 0.3s, color 0.3s;
+            white-space: nowrap;
+        }
+        .header-nav a:hover {
+            background: var(--color-gray-200);
+            color: var(--color-warm-accent);
+        }
+        .header-nav a.active {
+            background: var(--color-charcoal);
+            color: var(--color-off-white);
+        }
+
+        .nav-actions { display: flex; align-items: center; gap: 8px; flex-shrink: 0; }
         .nav-btn, .theme-toggle {
             background: none;
             border: none;
@@ -158,6 +211,20 @@
             display: flex;
             align-items: center;
             justify-content: center;
+        }
+        .hamburger {
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+            padding: 4px;
+        }
+        .hamburger span {
+            display: block;
+            width: 24px; height: 2px;
+            background: var(--color-charcoal);
+            border-radius: 4px;
+            transition: all 0.3s;
+            transform-origin: center;
         }
 
         /* Menu overlay */
@@ -514,7 +581,7 @@
         .blog-card img { width: 100%; height: 200px; object-fit: cover; }
         .blog-card .blog-content { padding: 20px 24px 24px; }
 
-        /* ✅ NEWSLETTER (improved styling) */
+        /* Newsletter */
         .newsletter-section {
             padding: 72px 0;
             background: var(--color-charcoal);
@@ -557,12 +624,8 @@
             outline: none;
             transition: background 0.3s;
         }
-        .newsletter-form input::placeholder {
-            color: rgba(255,255,255,0.4);
-        }
-        .newsletter-form input:focus {
-            background: rgba(255,255,255,0.18);
-        }
+        .newsletter-form input::placeholder { color: rgba(255,255,255,0.4); }
+        .newsletter-form input:focus { background: rgba(255,255,255,0.18); }
         .newsletter-form button {
             padding: 16px 36px;
             background: var(--color-warm-accent);
@@ -581,13 +644,9 @@
             transform: scale(1.03);
             box-shadow: 0 8px 24px rgba(212, 163, 115, 0.3);
         }
-        .newsletter-privacy {
-            font-size: 0.75rem;
-            opacity: 0.5;
-            margin-top: 12px;
-        }
+        .newsletter-privacy { font-size: 0.75rem; opacity: 0.5; margin-top: 12px; }
 
-        /* ✅ FOOTER (improved styling) */
+        /* Footer */
         .site-footer {
             padding: 56px 0 28px;
             border-top: 1px solid var(--color-gray-200);
@@ -599,9 +658,7 @@
             gap: 40px;
             margin-bottom: 40px;
         }
-        @media (min-width: 640px) {
-            .footer-grid { grid-template-columns: 2fr 1fr 1fr 1fr; }
-        }
+        @media (min-width: 640px) { .footer-grid { grid-template-columns: 2fr 1fr 1fr 1fr; } }
         .footer-brand .logo {
             font-size: 1.3rem;
             margin-bottom: 10px;
@@ -635,10 +692,7 @@
             padding: 5px 0;
             transition: color 0.3s, padding-left 0.2s;
         }
-        .footer-col a:hover {
-            color: var(--color-warm-accent);
-            padding-left: 4px;
-        }
+        .footer-col a:hover { color: var(--color-warm-accent); padding-left: 4px; }
         .footer-bottom {
             padding-top: 24px;
             border-top: 1px solid var(--color-gray-200);
@@ -683,8 +737,8 @@
             logoIcon: 'fa-chair',
             logoText: 'Dakiwa Furnitures.',
             navLinks: [
-                { label: 'Home', url: 'index.html' },
-                { label: 'Shop', url: 'shop.html' },
+                { label: 'Home', url: '#home' },
+                { label: 'Shop', url: '#shop' },
                 { label: 'Journal', url: '#journal' },
                 { label: 'Contact', url: '#contact' },
             ],
@@ -703,27 +757,27 @@
             ],
             featuredItems: [
                 { name: 'Oak TV Stand', price: 'KSh 9,000', image: 'https://i.pinimg.com/1200x/04/74/0a/04740afdda9db416b78fa98282926eb8.jpg' },
-                { name: 'Walnut Bed Frame', price: 'KSh ,000', image: 'https://i.pinimg.com/1200x/77/44/de/7744de123cfc8a9e379da1f59c91d04a.jpg' },
-                { name: 'Bouclé Lounge Chair', price: 'KSh ,000', image: 'https://i.pinimg.com/1200x/be/12/1e/be121e719c5738af90a53879bfcb4a86.jpg' },
-                { name: 'Marble Dining Table', price: 'KSh ,000', image: 'https://i.pinimg.com/1200x/cc/66/0c/cc660c538a11952368f910e2e226d184.jpg' },
-                { name: 'Bookshelf', price: 'KSh ,000', image: 'https://i.pinimg.com/1200x/6f/bc/e4/6fbce4bc9360ed7ac91d9cc3065224e1.jpg' },
-                { name: 'Desk', price: 'KSh ,000', image: 'https://i.pinimg.com/736x/64/d8/e5/64d8e532400548067eabfda2c7b25bce.jpg' },
+                { name: 'Walnut Bed Frame', price: 'KSh 185,000', image: 'https://i.pinimg.com/1200x/77/44/de/7744de123cfc8a9e379da1f59c91d04a.jpg' },
+                { name: 'Bouclé Lounge Chair', price: 'KSh 89,000', image: 'https://i.pinimg.com/1200x/be/12/1e/be121e719c5738af90a53879bfcb4a86.jpg' },
+                { name: 'Marble Dining Table', price: 'KSh 220,000', image: 'https://i.pinimg.com/1200x/cc/66/0c/cc660c538a11952368f910e2e226d184.jpg' },
+                { name: 'Bookshelf', price: 'KSh 95,000', image: 'https://i.pinimg.com/1200x/6f/bc/e4/6fbce4bc9360ed7ac91d9cc3065224e1.jpg' },
+                { name: 'Desk', price: 'KSh 115,000', image: 'https://i.pinimg.com/736x/64/d8/e5/64d8e532400548067eabfda2c7b25bce.jpg' },
             ],
             products: [
                 { id: 1, name: 'Oslo TV Stand', category: 'TV Stands', price: 9000, material: 'Oak', colour: 'Oak', image: 'https://i.pinimg.com/1200x/04/74/0a/04740afdda9db416b78fa98282926eb8.jpg', desc: 'Sculptural balance of solid oak and brushed steel.', dimensions: '160 × 45 × 55 cm' },
-                { id: 2, name: 'Kyoto Bed Frame', category: 'Beds', price: 5000, material: 'Walnut', colour: 'Walnut', image: 'https://i.pinimg.com/1200x/77/44/de/7744de123cfc8a9e379da1f59c91d04a.jpg', desc: 'A floating platform bed with hand-joined walnut headboard.', dimensions: '200 × 180 × 90 cm' },
-                { id: 3, name: 'Hiroshi Lounge Chair', category: 'Chairs', price: 000, material: 'Fabric', colour: 'Charcoal', image: 'https://i.pinimg.com/1200x/be/12/1e/be121e719c5738af90a53879bfcb4a86.jpg', desc: 'Wrapped in bouclé with a solid oak frame. Pure comfort.', dimensions: '70 × 72 × 68 cm' },
-                { id: 4, name: 'Sakura Dining Table', category: 'Tables', price: 0000, material: 'Marble', colour: 'Ivory', image: 'https://i.pinimg.com/1200x/cc/66/0c/cc660c538a11952368f910e2e226d184.jpg', desc: 'Italian Carrara marble meets sculpted oak base.', dimensions: '240 × 100 × 76 cm' },
-                { id: 5, name: 'Kumo Sideboard', category: 'Storage', price: 000, material: 'Wood', colour: 'Natural', image: 'https://i.pinimg.com/736x/22/9f/02/229f02b5e8a28c3f9f077348dad6a4de.jpg', desc: 'Cloud-like curves with soft-close doors.', dimensions: '180 × 50 × 80 cm' },
-                { id: 6, name: 'Zen Stool', category: 'Chairs', price: 000, material: 'Metal', colour: 'Charcoal', image: 'https://i.pinimg.com/736x/13/21/b3/1321b3e6fa5ac3ef3c11fa1e8091fe81.jpg', desc: 'Minimalist steel frame with warm walnut seat.', dimensions: '45 × 45 × 48 cm' },
-                { id: 7, name: 'Bookshelf', category: 'Storage', price: 000, material: 'Wood', colour: 'Walnut', image: 'https://i.pinimg.com/1200x/6f/bc/e4/6fbce4bc9360ed7ac91d9cc3065224e1.jpg', desc: 'Sculptural shelves that seem to float.', dimensions: '120 × 35 × 180 cm' },
-                { id: 8, name: 'Desk', category: 'Desks', price: 000, material: 'Oak', colour: 'Oak', image: 'https://i.pinimg.com/736x/64/d8/e5/64d8e532400548067eabfda2c7b25bce.jpg', desc: 'Minimalist desk with hidden cable management.', dimensions: '140 × 70 × 76 cm' },
-                { id: 9, name: 'Wardrobe', category: 'Storage', price: 000, material: 'Walnut', colour: 'Walnut', image: 'https://i.pinimg.com/736x/cc/1c/21/cc1c217926d2e4f8f74ae4e20790d2f6.jpg', desc: 'Spacious wardrobe with soft-close doors.', dimensions: '200 × 60 × 220 cm' },
-                { id: 10, name: 'Nightstand', category: 'Beds', price: 000, material: 'Wood', colour: 'Natural', image: 'https://i.pinimg.com/736x/00/b1/9b/00b19b8f4cbddbc855659150fa71c233.jpg', desc: 'Serene nightstand with hidden charging dock.', dimensions: '50 × 40 × 55 cm' },
-                { id: 11, name: 'Coffee Table', category: 'Tables', price: 000, material: 'Marble', colour: 'Ivory', image: 'https://i.pinimg.com/1200x/f3/5f/17/f35f172749fa0273bac923ca8a0938fd.jpg', desc: 'Sculptural coffee table with marble top.', dimensions: '120 × 70 × 40 cm' },
-                { id: 12, name: 'Console Table', category: 'Tables', price: 000, material: 'Metal', colour: 'Black', image: 'https://i.pinimg.com/1200x/43/94/26/439426e32d49d536d0e4fddf5a89caef.jpg', desc: 'Slim console table with powder-coated steel frame.', dimensions: '140 × 35 × 80 cm' },
-                { id: 13, name: 'Bench', category: 'Chairs', price: 000, material: 'Wood', colour: 'Oak', image: 'https://i.pinimg.com/736x/57/8c/a8/578ca8e84d69c11eb6febe31ed754494.jpg', desc: 'Simple, sculptural bench with solid oak seat.', dimensions: '120 × 35 × 45 cm' },
-                { id: 14, name: 'Ottoman', category: 'Chairs', price: 000, material: 'Fabric', colour: 'Charcoal', image: 'https://i.pinimg.com/736x/67/c7/ba/67c7ba148d8dc90236a7250964523fa3.jpg', desc: 'Plush ottoman with bouclé finish and hidden storage.', dimensions: '60 × 60 × 40 cm' },
+                { id: 2, name: 'Kyoto Bed Frame', category: 'Beds', price: 185000, material: 'Walnut', colour: 'Walnut', image: 'https://i.pinimg.com/1200x/77/44/de/7744de123cfc8a9e379da1f59c91d04a.jpg', desc: 'A floating platform bed with hand-joined walnut headboard.', dimensions: '200 × 180 × 90 cm' },
+                { id: 3, name: 'Hiroshi Lounge Chair', category: 'Chairs', price: 89000, material: 'Fabric', colour: 'Charcoal', image: 'https://i.pinimg.com/1200x/be/12/1e/be121e719c5738af90a53879bfcb4a86.jpg', desc: 'Wrapped in bouclé with a solid oak frame. Pure comfort.', dimensions: '70 × 72 × 68 cm' },
+                { id: 4, name: 'Sakura Dining Table', category: 'Tables', price: 220000, material: 'Marble', colour: 'Ivory', image: 'https://i.pinimg.com/1200x/cc/66/0c/cc660c538a11952368f910e2e226d184.jpg', desc: 'Italian Carrara marble meets sculpted oak base.', dimensions: '240 × 100 × 76 cm' },
+                { id: 5, name: 'Kumo Sideboard', category: 'Storage', price: 185000, material: 'Wood', colour: 'Natural', image: 'https://i.pinimg.com/736x/22/9f/02/229f02b5e8a28c3f9f077348dad6a4de.jpg', desc: 'Cloud-like curves with soft-close doors.', dimensions: '180 × 50 × 80 cm' },
+                { id: 6, name: 'Zen Stool', category: 'Chairs', price: 42000, material: 'Metal', colour: 'Charcoal', image: 'https://i.pinimg.com/736x/13/21/b3/1321b3e6fa5ac3ef3c11fa1e8091fe81.jpg', desc: 'Minimalist steel frame with warm walnut seat.', dimensions: '45 × 45 × 48 cm' },
+                { id: 7, name: 'Bookshelf', category: 'Storage', price: 95000, material: 'Wood', colour: 'Walnut', image: 'https://i.pinimg.com/1200x/6f/bc/e4/6fbce4bc9360ed7ac91d9cc3065224e1.jpg', desc: 'Sculptural shelves that seem to float.', dimensions: '120 × 35 × 180 cm' },
+                { id: 8, name: 'Desk', category: 'Desks', price: 115000, material: 'Oak', colour: 'Oak', image: 'https://i.pinimg.com/736x/64/d8/e5/64d8e532400548067eabfda2c7b25bce.jpg', desc: 'Minimalist desk with hidden cable management.', dimensions: '140 × 70 × 76 cm' },
+                { id: 9, name: 'Wardrobe', category: 'Storage', price: 275000, material: 'Walnut', colour: 'Walnut', image: 'https://i.pinimg.com/736x/cc/1c/21/cc1c217926d2e4f8f74ae4e20790d2f6.jpg', desc: 'Spacious wardrobe with soft-close doors.', dimensions: '200 × 60 × 220 cm' },
+                { id: 10, name: 'Nightstand', category: 'Beds', price: 55000, material: 'Wood', colour: 'Natural', image: 'https://i.pinimg.com/736x/00/b1/9b/00b19b8f4cbddbc855659150fa71c233.jpg', desc: 'Serene nightstand with hidden charging dock.', dimensions: '50 × 40 × 55 cm' },
+                { id: 11, name: 'Coffee Table', category: 'Tables', price: 68000, material: 'Marble', colour: 'Ivory', image: 'https://i.pinimg.com/1200x/f3/5f/17/f35f172749fa0273bac923ca8a0938fd.jpg', desc: 'Sculptural coffee table with marble top.', dimensions: '120 × 70 × 40 cm' },
+                { id: 12, name: 'Console Table', category: 'Tables', price: 82000, material: 'Metal', colour: 'Black', image: 'https://i.pinimg.com/1200x/43/94/26/439426e32d49d536d0e4fddf5a89caef.jpg', desc: 'Slim console table with powder-coated steel frame.', dimensions: '140 × 35 × 80 cm' },
+                { id: 13, name: 'Bench', category: 'Chairs', price: 78000, material: 'Wood', colour: 'Oak', image: 'https://i.pinimg.com/736x/57/8c/a8/578ca8e84d69c11eb6febe31ed754494.jpg', desc: 'Simple, sculptural bench with solid oak seat.', dimensions: '120 × 35 × 45 cm' },
+                { id: 14, name: 'Ottoman', category: 'Chairs', price: 45000, material: 'Fabric', colour: 'Charcoal', image: 'https://i.pinimg.com/736x/67/c7/ba/67c7ba148d8dc90236a7250964523fa3.jpg', desc: 'Plush ottoman with bouclé finish and hidden storage.', dimensions: '60 × 60 × 40 cm' },
             ],
             filterGroups: [
                 { id: 'category', title: 'Category', options: ['All', 'TV Stands', 'Beds', 'Chairs', 'Tables', 'Storage', 'Desks'] },
@@ -738,11 +792,11 @@
                 { name: 'Wall Art', image: 'https://i.pinimg.com/736x/76/22/97/7622979704f4ab2755c3d46ddeeb586f.jpg' },
             ],
             alsoBought: [
-                { name: 'Lounge Chair', price: 'KSh ,000', image: 'https://i.pinimg.com/1200x/be/12/1e/be121e719c5738af90a53879bfcb4a86.jpg' },
-                { name: 'Side Table', price: 'KSh ,000', image: 'https://i.pinimg.com/736x/64/d8/e5/64d8e532400548067eabfda2c7b25bce.jpg' },
-                { name: 'Floor Lamp', price: 'KSh 000', image: 'https://i.pinimg.com/736x/00/b1/9b/00b19b8f4cbddbc855659150fa71c233.jpg' },
-                { name: 'Wall Mirror', price: 'KSh ,000', image: 'https://i.pinimg.com/1200x/f3/5f/17/f35f172749fa0273bac923ca8a0938fd.jpg' },
-                { name: 'Coffee Table', price: 'KSh ,000', image: 'https://i.pinimg.com/736x/cc/1c/21/cc1c217926d2e4f8f74ae4e20790d2f6.jpg' },
+                { name: 'Lounge Chair', price: 'KSh 89,000', image: 'https://i.pinimg.com/1200x/be/12/1e/be121e719c5738af90a53879bfcb4a86.jpg' },
+                { name: 'Side Table', price: 'KSh 82,000', image: 'https://i.pinimg.com/736x/64/d8/e5/64d8e532400548067eabfda2c7b25bce.jpg' },
+                { name: 'Floor Lamp', price: 'KSh 45,000', image: 'https://i.pinimg.com/736x/00/b1/9b/00b19b8f4cbddbc855659150fa71c233.jpg' },
+                { name: 'Wall Mirror', price: 'KSh 55,000', image: 'https://i.pinimg.com/1200x/f3/5f/17/f35f172749fa0273bac923ca8a0938fd.jpg' },
+                { name: 'Coffee Table', price: 'KSh 68,000', image: 'https://i.pinimg.com/736x/cc/1c/21/cc1c217926d2e4f8f74ae4e20790d2f6.jpg' },
             ],
             journeySteps: [
                 { num: '1', title: 'Sustainably harvested', desc: 'Oak from FSC-certified forests in Kenya' },
@@ -797,7 +851,11 @@
     <!-- ===================== HTML STRUCTURE ===================== -->
     <header class="site-header">
         <div class="container">
-            <a href="#" class="logo" id="headerLogo"></a>
+            <a href="#" class="logo" id="headerLogo">
+                <span class="logo-icon"><i class="fas fa-chair"></i></span>
+                <span class="logo-text">Dakiwa<span>.</span></span>
+            </a>
+            <nav class="header-nav" id="headerNav"></nav>
             <div class="nav-actions">
                 <button class="theme-toggle" id="themeToggle"><i class="fas fa-moon" id="themeIcon"></i></button>
                 <button class="nav-btn" id="cartToggle"><i class="fas fa-shopping-bag"></i><span class="badge" id="cartBadge">0</span></button>
@@ -872,7 +930,6 @@
             <div class="blog-grid" id="blogGrid"></div>
         </section>
 
-        <!-- ✅ Improved Newsletter Section -->
         <section class="newsletter-section" id="contact">
             <div class="container" id="newsletterContainer"></div>
         </section>
@@ -905,7 +962,16 @@
             function formatPrice(price) { return 'KSh ' + price.toLocaleString(); }
 
             function renderHeader() {
-                $('#headerLogo').innerHTML = `<i class="fas ${CONFIG.logoIcon}"></i>${CONFIG.logoText}`;
+                // Logo with icon and text
+                const logoEl = document.getElementById('headerLogo');
+                logoEl.innerHTML = `
+                    <span class="logo-icon"><i class="fas ${CONFIG.logoIcon}"></i></span>
+                    <span class="logo-text">${CONFIG.logoText.replace('.','')}<span>.</span></span>
+                `;
+                // Desktop inline navigation
+                const headerNav = document.getElementById('headerNav');
+                headerNav.innerHTML = CONFIG.navLinks.map(l => `<a href="${l.url}">${l.label}</a>`).join('');
+                // Mobile menu overlay
                 document.getElementById('menuNav').innerHTML = CONFIG.navLinks.map(l => `<a href="${l.url}">${l.label}</a>`).join('');
                 updateCartBadge();
             }
@@ -1113,7 +1179,7 @@
                         closeCart();
                     }
                 });
-                console.log('🌿 Dakiwa – newsletter & footer polished, fully responsive.');
+                console.log('🌿 Dakiwa – header links visible, logo styled, fully responsive.');
             }
             if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', init);
             else init();
